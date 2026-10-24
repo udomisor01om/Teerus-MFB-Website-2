@@ -33,9 +33,11 @@ export function StoreLinks() {
 export function Download({
   dark = false,
   label = "Download app",
+  className = "",
 }: {
   dark?: boolean;
   label?: string;
+  className?: string;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
@@ -44,17 +46,20 @@ export function Download({
     <>
       <button
         ref={trigger}
-        className={`${s.button} ${dark ? s.darkButton : ""}`}
+        className={`${s.button} ${dark ? s.darkButton : ""} ${className}`}
         onClick={() => dialog.current?.showModal()}
       >
-        {label}
-        <Image src="/assets/apple-icon.svg" width="18" height="18" alt="" />
-        <Image
-          src="/assets/google-play-icon.svg"
-          width="18"
-          height="18"
-          alt=""
-        />
+        <span>{label}</span>
+        <span className={s.storeIcons} aria-hidden="true">
+          <Image src="/assets/apple-icon.svg" width="18" height="18" alt="" />
+          <span className={s.storeDivider} />
+          <Image
+            src="/assets/google-play-icon.svg"
+            width="18"
+            height="18"
+            alt=""
+          />
+        </span>
       </button>
       <dialog
         ref={dialog}
@@ -82,19 +87,22 @@ export function Download({
   );
 }
 
-export function BankingLink({ children = "Login" }: { children?: ReactNode }) {
-  const url: string | null = siteConfig.externalLinks.webApp;
-  return url ? (
-    <a className={s.button} href={url}>
+export function BankingLink({
+  children = "Login",
+  className = "",
+  destination = "login",
+}: {
+  children?: ReactNode;
+  className?: string;
+  destination?: "login" | "start";
+}) {
+  return (
+    <a
+      className={`${s.button} ${className}`}
+      href={`${siteConfig.externalLinks.webApp}${destination === "login" ? "login" : ""}`}
+    >
       {children}
     </a>
-  ) : (
-    <span className={s.unavailable}>
-      <button type="button" className={s.button} disabled>
-        {children}
-      </button>
-      <span>Web banking link coming soon</span>
-    </span>
   );
 }
 
@@ -113,23 +121,13 @@ export function Header() {
       }}
     >
       <Link href="/" aria-label="Teerus home" className={s.logo}>
-        <span className={s.brandMark}>
-          <Image
-            src="/assets/brand-mark-white.svg"
-            width="27"
-            height="27"
-            alt=""
-          />
-        </span>
-        <span className={s.brandWord}>
-          <Image
-            src="/assets/brand-wordmark.svg"
-            width="87"
-            height="25"
-            alt="Teerus"
-          />
-          <span>Microfinance Bank</span>
-        </span>
+        <Image
+          src="/assets/images/Teerus Logo.png"
+          width={133}
+          height={39}
+          alt="Teerus Microfinance Bank"
+          unoptimized
+        />
       </Link>
       <button
         ref={toggle}
@@ -235,6 +233,7 @@ export function MotionRows({
 }: {
   children: ReactNode;
   label?: string;
+  className?: string;
 }) {
   const [paused, setPaused] = useState(false);
   return (

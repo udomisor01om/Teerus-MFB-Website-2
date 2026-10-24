@@ -1,0 +1,377 @@
+.hero {
+  width: calc(100% - 128px);
+  max-width: 1384px;
+  height: 686px;
+  margin: auto;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--ink);
+  color: #e7f6f4;
+  container-type: inline-size;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 14;
+}
+.art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.market {
+  position: absolute;
+  right: -24px;
+  top: -2px;
+  bottom: -3px;
+  width: 360px;
+  overflow: hidden;
+}
+.market img {
+  object-fit: cover;
+}
+/* The supplied market export already includes the reference green overlay. */
+.wash {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 75.7225%;
+  mix-blend-mode: soft-light;
+  background: linear-gradient(
+    156.1027deg,
+    #0ba29300 4.3406%,
+    #03e4aa4d 62.444%,
+    #03e8ad66 107.38%
+  );
+}
+.upperShape,
+.lowerShape {
+  position: absolute;
+  z-index: 1;
+  mix-blend-mode: exclusion;
+}
+.upperShape {
+  width: 13.8515%;
+  right: 22.5434%;
+  top: -32px;
+}
+.upperShape img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* This supplied SVG contains the visible, already-clipped top 112px of the 179px Figma shape. */
+.lowerShape {
+  width: 14.2773%;
+  right: 33.237%;
+  bottom: 0;
+}
+.lowerShape img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.people {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.person {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 200ms linear;
+  object-fit: contain;
+  height: auto;
+  bottom: 0;
+}
+.active {
+  opacity: 1;
+}
+.girl {
+  width: 36.3439%;
+  right: 6.8642%;
+}
+.mechanic {
+  width: 30.7803%;
+  right: 11.8497%;
+  bottom: 1px;
+}
+.tailor {
+  width: 39.5954%;
+  right: 6.8642%;
+}
+.farmer {
+  width: 47.5434%;
+  right: 0;
+}
+.copy {
+  position: relative;
+  z-index: 3;
+  padding: 112px 0 0 6.3584%;
+  width: fit-content;
+}
+.label {
+  margin: 0 0 32px;
+  padding: 8px 12px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  background: linear-gradient(90deg, #0fa2940d, #06b4880d);
+}
+.label img {
+  width: 40.833px;
+  height: 23.333px;
+  object-fit: contain;
+  margin-block: -1.667px;
+}
+.label span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.48;
+  letter-spacing: 0.12px;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(
+    11.7606deg,
+    #ff9b29 6.6751%,
+    #06ffbf 42.071%,
+    #06ffbf 56.083%,
+    #0ba293 79.774%
+  );
+  background-clip: text;
+}
+.copy h1 {
+  width: 677px;
+  margin: 0;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -5.76px;
+}
+.description {
+  width: 495px;
+  max-width: 100%;
+  margin: 20.88px 0 0 4px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.38;
+  letter-spacing: -0.36px;
+  opacity: 0.8;
+}
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 40px;
+}
+.actions .primary,
+.actions .secondary {
+  flex-shrink: 0;
+  height: 51.2px;
+  min-height: 0;
+  padding: 16px 12px;
+  border-radius: 24px;
+  font: 400 16px/1.2 var(--font-cta);
+}
+.actions .primary {
+  width: 261px;
+  gap: 8px;
+  letter-spacing: -0.32px;
+  color: var(--paper);
+  background: var(--gradient-action);
+  border: 0;
+}
+.actions .secondary {
+  width: 239px;
+  background: transparent;
+  border: 1px solid var(--green);
+  letter-spacing: -0.48px;
+}
+.secondary span {
+  background: var(--gradient-action);
+  background-clip: text;
+  color: transparent;
+}
+.actions .primary:hover {
+  background: var(--gradient-action);
+  filter: brightness(1.08);
+}
+.actions .secondary:hover {
+  background: #0fa2940d;
+}
+.discover {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 91px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.48;
+  letter-spacing: -0.28px;
+  color: #b3ffeb;
+}
+.discoverText {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: linear-gradient(
+    186.4947deg,
+    #0ba2930d 4.3406%,
+    #03e4aa0d 62.444%,
+    #03e8ad0d 107.38%
+  );
+}
+.scrollIcon {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0fa2940d, #06b4880d);
+  animation: scrollHint 2.8s ease-in-out infinite;
+}
+@keyframes scrollHint {
+  0%,
+  20%,
+  100% {
+    transform: translateY(0);
+  }
+  50%,
+  65% {
+    transform: translateY(6px);
+  }
+}
+@media (min-width: 1101px) and (max-width: 1450px) {
+  .copy h1 {
+    font-size: 5.2023cqw;
+    letter-spacing: -0.08em;
+    width: 48.9162cqw;
+  }
+  .description {
+    width: 35.7659cqw;
+  }
+  .copy {
+    padding-top: 90px;
+  }
+}
+@media (max-width: 1100px) {
+  .hero {
+    width: calc(100% - 64px);
+    height: auto;
+  }
+  .copy {
+    padding: 56px 40px 0;
+    width: 100%;
+  }
+  .copy h1 {
+    font-size: clamp(42px, 6.5vw, 64px);
+    letter-spacing: -0.08em;
+    width: auto;
+    max-width: 677px;
+  }
+  .description {
+    width: 495px;
+  }
+  .discover {
+    margin-top: 32px;
+  }
+  .art {
+    position: relative;
+    height: clamp(380px, 65vw, 620px);
+    margin-top: 32px;
+  }
+  .copy {
+    margin-bottom: clamp(412px, calc(65vw + 32px), 652px);
+  }
+  .art {
+    position: absolute;
+    inset: auto 0 0;
+    width: 100%;
+  }
+  .people {
+    width: min(100%, clamp(405px, 69.279vw, 660.8px));
+    left: auto;
+    right: 0;
+  }
+  .girl {
+    width: 74%;
+    right: 14%;
+  }
+  .mechanic {
+    width: 62.65%;
+    right: 24.12%;
+  }
+  .tailor {
+    width: 80.59%;
+    right: 14%;
+  }
+  .farmer {
+    width: 96.76%;
+  }
+  .market {
+    width: 49%;
+  }
+  .upperShape {
+    width: 28%;
+    right: 35%;
+    top: 0;
+  }
+  .lowerShape {
+    width: 29%;
+    right: 58%;
+  }
+}
+@media (max-width: 700px) {
+  .hero {
+    width: calc(100% - 32px);
+  }
+  .copy {
+    padding: 40px 24px 0;
+    margin-bottom: calc(97vw + 32px);
+  }
+  .desktopBreak {
+    display: none;
+  }
+  .copy h1 {
+    font-size: clamp(40px, 9vw, 58px);
+  }
+  .description {
+    margin-left: 0;
+    font-size: 16px;
+  }
+  .actions {
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .actions .primary,
+  .actions .secondary {
+    max-width: 100%;
+  }
+  .label {
+    gap: 8px;
+    padding-inline: 10px;
+  }
+  .label span {
+    font-size: 10px;
+  }
+  .discover {
+    font-size: 12px;
+  }
+  .discoverText {
+    padding-inline: 8px;
+  }
+  .art {
+    height: 97vw;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scrollIcon {
+    animation: none;
+  }
+  .person {
+    transition: none;
+    opacity: 0;
+  }
+  .person:first-child {
+    opacity: 1;
+  }
+}

@@ -10,10 +10,9 @@ vi.mock("next/navigation", () => ({ usePathname: () => "/individuals" }));
 describe("navigation and download controls", () => {
   it("identifies the current page and returns focus after Escape", () => {
     render(<Header />);
-    expect(screen.getByRole("link", { name: "Individuals" })).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
+    expect(
+      screen.getByRole("link", { name: "For Individuals" }),
+    ).toHaveAttribute("aria-current", "page");
     const menu = screen.getByRole("button", { name: /Menu/ });
     fireEvent.click(menu);
     expect(menu).toHaveAttribute("aria-expanded", "true");
@@ -36,10 +35,21 @@ describe("navigation and download controls", () => {
       "https://play.google.com/store/apps/details?id=com.tyrus.mfb.mobile",
     );
   });
-  it("does not create a link for the unverified web app", () => {
-    render(<BankingLink />);
-    expect(screen.queryByRole("link")).toBeNull();
-    expect(screen.getByRole("button", { name: "Login" })).toBeDisabled();
+  it("uses the confirmed banking login and start URLs", () => {
+    render(
+      <>
+        <BankingLink />
+        <BankingLink destination="start">Start without Downloading</BankingLink>
+      </>,
+    );
+    expect(screen.getByRole("link", { name: "Login" })).toHaveAttribute(
+      "href",
+      "https://onlinebanking.teerusbank.com/login",
+    );
+    expect(
+      screen.getByRole("link", { name: "Start without Downloading" }),
+    ).toHaveAttribute("href", "https://onlinebanking.teerusbank.com/");
+    expect(screen.queryByText("Web banking link coming soon")).toBeNull();
   });
   it("lets visitors pause and resume moving content", () => {
     render(

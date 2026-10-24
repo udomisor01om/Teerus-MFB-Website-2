@@ -1,6 +1,10 @@
-@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/dm-sans/standard.css";
+@import "@fontsource-variable/dm-sans/standard-italic.css";
 @import "@fontsource-variable/sansita-swashed";
 :root {
+  --surface-navigation: #f2feff;
+  --gradient-action: linear-gradient(90deg, #0fa294, #06b488);
+  --font-cta: "DM Sans Variable", sans-serif;
   --ink: #061c22;
   --muted: #38494e;
   --green: #0fa294;

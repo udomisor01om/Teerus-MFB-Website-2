@@ -69,7 +69,7 @@ test("mobile menu opens, closes with Escape and navigates", async ({
   await expect(menu).toHaveAttribute("aria-expanded", "true");
   await page
     .getByRole("navigation", { name: "Main navigation" })
-    .getByRole("link", { name: "Individuals" })
+    .getByRole("link", { name: "For Individuals" })
     .focus();
   await page.keyboard.press("Escape");
   await expect(menu).toHaveAttribute("aria-expanded", "false");
@@ -77,7 +77,7 @@ test("mobile menu opens, closes with Escape and navigates", async ({
   await menu.click();
   await page
     .getByRole("navigation", { name: "Main navigation" })
-    .getByRole("link", { name: "Individuals" })
+    .getByRole("link", { name: "For Individuals" })
     .click();
   await expect(page).toHaveURL(/\/individuals$/);
   await expect(page.locator("h1")).toContainText("Save smart.");

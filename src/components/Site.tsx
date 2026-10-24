@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HomeHero } from "./HomeHero";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import {
@@ -19,6 +20,7 @@ import {
   values,
 } from "@/content/marketing";
 import s from "./Site.module.css";
+import trust from "./Trust.module.css";
 
 export function Picture({
   file,
@@ -61,30 +63,27 @@ export function Intro({
   kind?: "home" | "individuals" | "business";
 }) {
   const personal = kind === "individuals";
+  if (kind === "home")
+    return (
+      <div className={`${s.intro} ${s.homeIntro}`}>
+        <Header />
+        <HomeHero />
+        <Trust />
+      </div>
+    );
   return (
     <div className={`${s.intro} ${personal ? s.personalIntro : ""}`}>
       <Header />
       <section className={`${s.hero} ${s[kind]}`} aria-labelledby="hero-title">
         <div className={s.heroArt} aria-hidden="true">
-          {kind === "home" ? (
-            <>
-              <div className={s.market}>
-                <Picture file="home-market-background.png" priority />
-              </div>
-              <div className={s.heroWoman}>
-                <Picture file="home-market-woman.png" priority />
-              </div>
-            </>
-          ) : (
-            <Picture
-              file={
-                personal
-                  ? "individual-cardholder.png"
-                  : "business-market-women.png"
-              }
-              priority
-            />
-          )}
+          <Picture
+            file={
+              personal
+                ? "individual-cardholder.png"
+                : "business-market-women.png"
+            }
+            priority
+          />
           <Image
             className={s.heroDecoration}
             src="/assets/hero-brand-shape.svg"
@@ -96,35 +95,26 @@ export function Intro({
         <div className={s.heroCopy}>
           <p className={s.eyebrow}>
             <Image src="/assets/wing-left.svg" alt="" width="28" height="20" />
-            {kind === "home"
-              ? "LOCAL BANK WITH WINGS"
-              : personal
-                ? "TEERUS FOR INDIVIDUALS"
-                : "TEERUS FOR BUSINESS"}
+            {personal ? "TEERUS FOR INDIVIDUALS" : "TEERUS FOR BUSINESS"}
             <Image src="/assets/wing-right.svg" alt="" width="28" height="20" />
           </p>
           <h1 id="hero-title">
-            {kind === "home" ? (
-              <>
-                Banking that gives
-                <br className={s.desktopBreak} /> your dreams wings.
-              </>
-            ) : personal ? (
+            {personal ? (
               <>Save smart. Borrow fast. Spend easy.</>
             ) : (
               <>Banking that works for your business.</>
             )}
           </h1>
           <p className={s.heroDescription}>
-            {kind === "home"
-              ? "Save, borrow and manage everyday transactions with a bank that knows your market. Ẹ káàbọ̀."
-              : personal
-                ? "Secure, smart and simple banking for everyday life. Everyday accounts, savings that grow and quick cash when you need it, with no hidden fees and instant transactions. Ẹ káàbọ̀."
-                : "Open a business account, get working capital and grow with banking built for small & medium businesses. Ẹ káàbọ̀."}
+            {personal
+              ? "Secure, smart and simple banking for everyday life. Everyday accounts, savings that grow and quick cash when you need it, with no hidden fees and instant transactions. Ẹ káàbọ̀."
+              : "Open a business account, get working capital and grow with banking built for small & medium businesses. Ẹ káàbọ̀."}
           </p>
           <div className={s.actions}>
             <Download dark={personal} label="Download Teerus App" />
-            <BankingLink>Start without downloading</BankingLink>
+            <BankingLink destination="start">
+              Start without downloading
+            </BankingLink>
           </div>
           <a className={s.discover} href="#discover">
             Discover How We Can Help You! <span aria-hidden="true">↓</span>
@@ -137,28 +127,39 @@ export function Intro({
 }
 export function Trust() {
   return (
-    <section className={s.trust} aria-label="Regulatory information">
+    <section className={trust.section} aria-label="Regulatory information">
       <p>Built on Trust</p>
-      <div className={s.trustCards}>
+      <div className={trust.cards}>
         {[
           [
-            "cbn-logo.png",
+            "CBN.png",
             "Licensed by CBN",
             "Teerus is fully licensed and regulated by the Central Bank of Nigeria.",
           ],
           [
-            "ndic-logo.png",
+            "NDIC.png",
             "NDIC",
             "Deposits are insured by the Nigeria Deposit Insurance Corporation.",
           ],
           [
-            "ndpc-logo.png",
+            "NDPC.png",
             "NDPC",
             "Your personal data is protected in line with NDPC.",
           ],
         ].map(([file, label, body]) => (
           <div key={file}>
-            <Image src={`/assets/${file}`} alt="" width="64" height="40" />
+            <div className={trust.logo}>
+              <Image
+                src={`/assets/images/${file}`}
+                alt=""
+                width={
+                  file === "CBN.png" ? 120 : file === "NDIC.png" ? 158 : 191
+                }
+                height={file === "CBN.png" ? 95 : file === "NDIC.png" ? 48 : 57}
+                className={trust[file.split(".")[0].toLowerCase()]}
+                unoptimized
+              />
+            </div>
             <p>
               <strong>{label}</strong>
               <span>{body}</span>
