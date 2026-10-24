@@ -1,0 +1,121 @@
+{
+  "desktopAudits": [
+    {
+      "pathname": "/privacy-policy",
+      "violations": [],
+      "passes": 23
+    },
+    {
+      "pathname": "/terms-and-conditions",
+      "violations": [],
+      "passes": 23
+    },
+    {
+      "pathname": "/missing-page",
+      "violations": [],
+      "passes": 22
+    }
+  ],
+  "mobileAudits": [
+    {
+      "route": "/",
+      "audit": {
+        "pathname": "/",
+        "violations": [],
+        "passes": 25
+      },
+      "layout": {
+        "scroll": 320,
+        "width": 320
+      }
+    },
+    {
+      "route": "/individuals",
+      "audit": {
+        "pathname": "/individuals",
+        "violations": [],
+        "passes": 24
+      },
+      "layout": {
+        "scroll": 320,
+        "width": 320
+      }
+    },
+    {
+      "route": "/business",
+      "audit": {
+        "pathname": "/business",
+        "violations": [],
+        "passes": 22
+      },
+      "layout": {
+        "scroll": 320,
+        "width": 320
+      }
+    },
+    {
+      "route": "/about",
+      "audit": {
+        "pathname": "/about",
+        "violations": [],
+        "passes": 24
+      },
+      "layout": {
+        "scroll": 320,
+        "width": 320
+      }
+    }
+  ],
+  "tabletWidths": [
+    {
+      "route": "/",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "route": "/individuals",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "route": "/business",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "route": "/about",
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "route": "/",
+      "scroll": 1024,
+      "width": 1024
+    },
+    {
+      "route": "/individuals",
+      "scroll": 1024,
+      "width": 1024
+    },
+    {
+      "route": "/business",
+      "scroll": 1024,
+      "width": 1024
+    },
+    {
+      "route": "/about",
+      "scroll": 1024,
+      "width": 1024
+    }
+  ],
+  "productionInteractions": [
+    "download chooser opens",
+    "Escape restores trigger focus",
+    "mobile navigation Escape closes menu",
+    "product next scrolls",
+    "keyboard carousel handler works",
+    "motion pause toggles"
+  ],
+  "runner": "Codex in-app browser",
+  "playwrightCli": "Blocked: browser CDN DNS unavailable; installed Chrome subprocess terminated by host"
+}

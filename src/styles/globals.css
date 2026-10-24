@@ -1,0 +1,71 @@
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/sansita-swashed";
+:root {
+  --ink: #061c22;
+  --muted: #38494e;
+  --green: #0fa294;
+  --paper: #fdffff;
+  --font-body: "DM Sans Variable", sans-serif;
+  --font-accent: "Sansita Swashed Variable", serif;
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+a {
+  color: inherit;
+}
+img {
+  max-width: 100%;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 3px solid #ed9b35;
+  outline-offset: 5px;
+}
+::selection {
+  background: #a1ebd7;
+  color: #061c22;
+}
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 16px;
+  transform: translateY(-200%);
+  padding: 12px 20px;
+  background: white;
+  color: #061c22;
+  z-index: 100;
+  border-radius: 12px;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+main {
+  min-width: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

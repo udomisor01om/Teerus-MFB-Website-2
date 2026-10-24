@@ -1,0 +1,2058 @@
+.container {
+  width: min(1208px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.heading {
+  font-size: clamp(38px, 4.24vw, 64px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
+.heading em,
+.aboutHeroText em {
+  font-family: var(--font-accent);
+  font-weight: 300;
+  font-style: normal;
+  color: var(--green);
+}
+.centered {
+  text-align: center;
+}
+.description {
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 300;
+  color: var(--muted);
+  margin: 24px 0 0;
+  letter-spacing: -0.02em;
+}
+.intro {
+  padding: 40px 0 64px;
+  background:
+    radial-gradient(ellipse at 8% 0%, #bdffe9 0, transparent 35%),
+    radial-gradient(ellipse at 60% -20%, #ffd4b9 0, transparent 40%), #f6feff;
+}
+.header {
+  position: relative;
+  z-index: 10;
+  max-width: 1384px;
+  width: calc(100% - 128px);
+  height: 75px;
+  margin: 0 auto 48px;
+  padding: 12px 24px;
+  border-radius: 32px;
+  background: #fdffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.logo {
+  flex-shrink: 0;
+  display: flex;
+}
+.logo img {
+  object-fit: contain;
+}
+.nav {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.nav a {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.nav a[aria-current="page"] {
+  color: #08766a;
+  font-weight: 600;
+}
+.desktopLogin .button {
+  background: linear-gradient(90deg, #0fa294, #06b488);
+  color: #fff;
+  min-width: 170px;
+}
+.desktopLogin .unavailable > span {
+  position: absolute;
+  top: 100%;
+  font-size: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--muted);
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #fdffff;
+  color: var(--ink);
+  min-height: 51px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.button:hover:not(:disabled) {
+  background: #ddf9ef;
+}
+.darkButton {
+  background: var(--ink);
+  color: #fff;
+}
+.darkButton:hover:not(:disabled) {
+  background: #06443e;
+}
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+.unavailable {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.unavailable > span {
+  font-size: 10px;
+  letter-spacing: 0;
+  opacity: 0.8;
+}
+.menuToggle,
+.mobileLogin {
+  display: none;
+}
+.hero {
+  width: calc(100% - 128px);
+  max-width: 1384px;
+  min-height: 686px;
+  margin: auto;
+  border-radius: 24px;
+  background: var(--ink);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.heroCopy {
+  position: relative;
+  z-index: 2;
+  padding: 112px 0 70px 88px;
+  max-width: 790px;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 24px;
+}
+.hero h1 {
+  font-size: clamp(48px, 4.77vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.08em;
+  font-weight: 600;
+  margin: 0 0 24px;
+  max-width: 677px;
+}
+.heroDescription {
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 300;
+  max-width: 495px;
+  margin: 0;
+  color: #e7f6f4;
+  letter-spacing: -0.02em;
+}
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 40px;
+}
+.actions .unavailable .button {
+  background: transparent;
+  color: inherit;
+  border-color: #92a19f;
+}
+.discover {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 64px;
+  font-size: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+.heroArt {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.heroArt > img:not(.heroDecoration) {
+  object-fit: cover;
+  object-position: right center;
+}
+.market {
+  position: absolute;
+  right: 0;
+  width: 360px;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.7;
+}
+.market img {
+  object-fit: cover;
+  object-position: 10% center;
+}
+.heroWoman {
+  position: absolute;
+  right: 95px;
+  bottom: 0;
+  width: 503px;
+  height: 623px;
+}
+.heroWoman img {
+  object-fit: contain;
+}
+.heroDecoration {
+  position: absolute;
+  right: 312px;
+  top: -32px;
+  mix-blend-mode: exclusion;
+}
+.business .heroArt {
+  left: 35%;
+}
+.business .heroArt:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--ink), transparent 50%);
+}
+.business .heroCopy {
+  max-width: 740px;
+}
+.individuals {
+  background: #f0fcfb;
+  color: var(--ink);
+  min-height: 820px;
+}
+.individuals .heroArt {
+  left: 46%;
+  background: linear-gradient(120deg, #e7fff9, #c7f9dc);
+}
+.individuals .heroArt > img:not(.heroDecoration) {
+  object-fit: contain;
+  object-position: center bottom;
+}
+.individuals .heroCopy {
+  padding-top: 112px;
+  max-width: 720px;
+}
+.individuals .heroDescription {
+  color: var(--muted);
+}
+.individuals h1 {
+  font-size: 80px;
+}
+.individuals .heroDecoration {
+  display: none;
+}
+.trust {
+  width: min(1136px, calc(100% - 64px));
+  margin: 60px auto 0;
+}
+.trust > p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+.trustCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.trustCards > div {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: #fff;
+  padding: 24px;
+  border-radius: 24px;
+  min-height: 114px;
+}
+.trustCards img {
+  object-fit: contain;
+  width: 64px;
+  flex-shrink: 0;
+}
+.trustCards p {
+  margin: 0;
+  font-size: 13px;
+}
+.trustCards span,
+.trustCards strong {
+  display: block;
+}
+.trustCards strong {
+  font-size: 14px;
+  margin-top: 6px;
+}
+.products {
+  padding: 120px 0;
+  overflow: hidden;
+}
+.products .heading {
+  max-width: 1070px;
+}
+.carousel {
+  position: relative;
+  width: min(1208px, calc(100% - 64px));
+  margin: 56px auto 0;
+}
+.carouselControls {
+  position: absolute;
+  right: 0;
+  top: -104px;
+  display: flex;
+  gap: 16px;
+}
+.carouselControls button {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  border: 1px solid #0fa294;
+  color: #08766a;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+.carouselControls button:last-child {
+  background: linear-gradient(90deg, #0fa294, #06b488);
+  color: white;
+}
+.carouselTrack {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #9cd8ca transparent;
+  padding-bottom: 16px;
+  outline-offset: 6px;
+}
+.products .carousel {
+  width: calc(100% - max(32px, (100% - 1208px)/2));
+  margin-left: max(32px, (100% - 1208px)/2);
+}
+.products .carouselControls {
+  right: max(32px, (100vw - 1208px)/2);
+}
+.productCard {
+  position: relative;
+  flex: 0 0 306px;
+  height: 563px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0e9387;
+  scroll-snap-align: start;
+}
+.productImage {
+  position: absolute;
+  inset: 0;
+}
+.productImage img {
+  object-fit: cover;
+}
+.productCard:after {
+  content: "";
+  position: absolute;
+  inset: 30% 0 0;
+  background: linear-gradient(transparent, #041418 90%);
+}
+.phoneCard {
+  background: linear-gradient(130deg, #11af9b, #05c392);
+}
+.phoneCard .productImage {
+  inset: 52px 40px auto;
+  height: 463px;
+}
+.phoneCard .productImage img {
+  object-fit: contain;
+}
+.productCopy {
+  position: absolute;
+  z-index: 1;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  color: #e7f6f4;
+}
+.productCopy h3 {
+  font-size: 28px;
+  line-height: 0.98;
+  letter-spacing: -0.08em;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+.productCopy p {
+  font-size: 16px;
+  line-height: 1.38;
+  margin: 0;
+}
+.loans {
+  position: relative;
+  overflow: hidden;
+  background: #ebfdff;
+  padding: 264px 0 100px;
+}
+.loanWatermark {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.45;
+  max-width: 80%;
+  height: auto;
+}
+.loans > .heading,
+.loans > .description {
+  position: relative;
+  padding-inline: 24px;
+}
+.motionArea {
+  position: relative;
+}
+.pause {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 16px;
+  border: 1px solid #278a7b;
+  border-radius: 24px;
+  background: transparent;
+  color: #066456;
+  font-size: 12px;
+  cursor: pointer;
+}
+.loanWindow {
+  overflow: hidden;
+  margin-top: 24px;
+}
+.loanTrack {
+  display: flex;
+  width: max-content;
+  animation: loans 80s linear infinite;
+}
+.loanGroup {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px;
+}
+.loanTrack.reverse {
+  animation-direction: reverse;
+}
+.loanCard {
+  width: 392px;
+  min-height: 247px;
+  padding: 24px;
+  border-radius: 24px;
+  background: #fff7f1;
+  flex-shrink: 0;
+}
+.loanCard h3 {
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+  margin: 24px 0 12px;
+}
+.loanCard p {
+  font-size: 14px;
+  line-height: 1.49;
+  color: var(--muted);
+  margin: 0;
+}
+.loanColor1 {
+  background: #dff4f0;
+}
+.loanColor2 {
+  background: #f6ebdf;
+}
+.loanColor3 {
+  background: #f5e8f8;
+}
+.loanIcon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #fff;
+}
+.loanIcon img {
+  object-fit: contain;
+}
+.paused .loanTrack,
+.paused .portraitTrack,
+.motionArea:hover .loanTrack,
+.motionArea:hover .portraitTrack,
+.motionArea:focus-within .loanTrack,
+.motionArea:focus-within .portraitTrack {
+  animation-play-state: paused;
+}
+@keyframes loans {
+  to {
+    transform: translateX(-1664px);
+  }
+}
+.steps {
+  background: #06443e;
+  color: white;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 881px;
+  overflow: hidden;
+}
+.stepsCopy {
+  padding: 96px 60px 90px max(32px, calc((100vw - 1208px) / 2));
+}
+.steps .heading {
+  max-width: 430px;
+}
+.steps .heading em {
+  color: #27d8aa;
+}
+.stepList {
+  list-style: none;
+  padding: 0;
+  margin: 60px 0 52px;
+  display: grid;
+  gap: 42px;
+}
+.stepList li {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.stepList li > img {
+  padding: 10px;
+  background: #13645a;
+  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+}
+.stepList span {
+  font-size: 12px;
+  color: #98c9bd;
+}
+.stepList h3 {
+  font-size: 24px;
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+  margin: 8px 0;
+}
+.stepList p {
+  font-size: 16px;
+  color: #f2feff;
+  margin: 0;
+  font-weight: 300;
+}
+.stepsPhoto {
+  position: relative;
+  min-height: 600px;
+}
+.stepsPhoto img {
+  object-fit: cover;
+  object-position: center 65%;
+}
+.photoTint {
+  position: absolute;
+  inset: 0;
+  background: #00836040;
+}
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.storeLinks {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.storeLinks a {
+  display: flex;
+}
+.storeLinks img {
+  width: 138px;
+  height: 40px;
+}
+.testimonials {
+  padding: 120px 0;
+}
+.testimonials .carousel {
+  margin-top: 48px;
+  max-width: 1150px;
+  padding-bottom: 60px;
+}
+.testimonials .carouselControls {
+  top: auto;
+  bottom: 0;
+  right: calc(50% - 56px);
+}
+.testimonial {
+  margin: 0;
+  flex: 0 0 calc((100% - 64px) / 3);
+  min-width: 280px;
+  border: 1px solid #d9e3e2;
+  border-radius: 24px;
+  padding: 32px;
+  scroll-snap-align: start;
+}
+.testimonial figcaption {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 16px;
+}
+.testimonial figcaption img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.testimonial blockquote {
+  margin: 24px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.fraud {
+  background: #061c22 url("/assets/brand-pattern.png") center/cover;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 40px max(32px, calc((100vw - 1236px) / 2));
+  min-height: 167px;
+}
+.fraud > div {
+  max-width: 900px;
+}
+.fraud p {
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.49;
+}
+.fraud p:first-child {
+  margin-bottom: 12px;
+  color: #ebbf80;
+}
+.fraud strong {
+  font-size: 20px;
+}
+.fraud span {
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 12px;
+}
+.fraud .warningIcon {
+  display: grid;
+  place-items: center;
+  border: 5px solid #e5b879;
+  border-radius: 50%;
+  font-size: 64px;
+  line-height: 1;
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  color: #e5b879;
+}
+.footer {
+  background: #061c22;
+  padding: 120px 32px 60px;
+}
+.footerCta {
+  max-width: 697px;
+  margin: 0 auto 96px;
+  text-align: center;
+  color: white;
+}
+.footerCta .button {
+  margin-top: 48px;
+  outline: 8px solid #1b3738;
+}
+.footerCta em {
+  color: #16c89f;
+}
+.footerPanel {
+  max-width: 1236px;
+  margin: auto;
+  border-radius: 24px;
+  background: #fdffff;
+  padding: 72px 64px 40px;
+}
+.footerColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr 1fr;
+  gap: 32px;
+}
+.footerColumns p,
+.footerColumns a {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.footerColumns nav,
+.footerColumns address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  font-style: normal;
+}
+.footerColumns a {
+  text-decoration: none;
+}
+.footerColumns address p {
+  margin: 0;
+}
+.footerColumns .storeLinks {
+  flex-direction: column;
+}
+.footerColumns .storeLinks img {
+  width: 180px;
+  height: 52px;
+  max-width: 100%;
+}
+.disclaimer {
+  border-top: 1px solid #dae4e4;
+  margin: 60px 0 0;
+  padding: 32px max(0px, calc((100% - 836px) / 2)) 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--muted);
+}
+.accounts {
+  padding-block: 120px;
+}
+.accounts .heading {
+  max-width: 850px;
+}
+.accountGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 80px;
+}
+.accountCard {
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 2px 20px #0000000d;
+  overflow: hidden;
+}
+.accountText {
+  padding: 32px;
+  min-height: 238px;
+}
+.number {
+  font-size: 14px;
+  color: #08766a;
+  display: inline-block;
+  padding: 8px 12px;
+  background: #e5faf2;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+.accountText h3 {
+  font-size: 24px;
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+.accountText p {
+  font-size: 14px;
+  line-height: 1.49;
+  color: var(--muted);
+  margin: 0;
+}
+.accountArt {
+  position: relative;
+  height: 206px;
+  background: linear-gradient(90deg, #0fa294, #06b488);
+  overflow: hidden;
+}
+.accountArt img {
+  object-fit: contain;
+  object-position: center bottom;
+}
+.accountGrid .accountCard:nth-child(2) .accountArt img {
+  padding: 24px 65px 0;
+}
+.businessGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 80px;
+}
+.businessGrid .accountCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.businessGrid .accountArt {
+  height: 100%;
+  min-height: 280px;
+}
+.businessGrid .accountText {
+  padding: 32px;
+}
+.businessGrid .number {
+  margin-bottom: 18px;
+}
+.cardFeature {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  padding: 92px max(32px, calc((100vw - 1208px) / 2));
+  background: #ebfdff;
+  min-height: 715px;
+}
+.bankCards {
+  position: relative;
+  aspect-ratio: 643/531;
+}
+.bankCards img {
+  object-fit: contain;
+}
+.cardFeature .button {
+  margin-top: 40px;
+}
+.personalLoans {
+  padding-block: 120px;
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  gap: 44px;
+}
+.personalLoans .heading {
+  font-size: 60px;
+}
+.personalLoans > div > p {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.smallLoans {
+  display: flex;
+  gap: 12px;
+}
+.smallLoans .loanCard {
+  width: auto;
+  flex: 1;
+  padding: 24px;
+  min-height: 192px;
+}
+.smallLoans .loanIcon {
+  display: none;
+}
+.smallLoans .loanCard h3 {
+  font-size: 20px;
+  margin-top: 0;
+}
+.capital {
+  padding: 72px;
+  background: #fff7f1;
+  border-radius: 24px;
+  margin-block: 40px 120px;
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 60px;
+}
+.capital .heading {
+  font-size: 48px;
+}
+.capital > div > p {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.capital .button {
+  margin-top: 24px;
+}
+.capitalCards {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+.capitalCards .loanCard {
+  background: #fff;
+  width: auto;
+  flex: 1;
+  padding: 24px;
+}
+.capitalCards .loanCard h3 {
+  font-size: 20px;
+}
+.capitalCards .loanIcon {
+  background: #f6f9f7;
+}
+.deposit {
+  margin: 48px 0 32px;
+}
+.deposit > strong {
+  font-size: 38px;
+  color: #39dcb4;
+  letter-spacing: -0.06em;
+}
+.deposit h3 {
+  font-size: 24px;
+  margin: 24px 0 8px;
+}
+.deposit p {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 300;
+  max-width: 390px;
+}
+.startSteps {
+  background: #0b6155;
+  border-radius: 16px;
+  padding: 24px;
+  line-height: 2;
+  margin-bottom: 40px;
+  max-width: 420px;
+}
+.aboutIntro {
+  background: #061c22;
+  color: white;
+  padding: 40px 0 134px;
+}
+.aboutIntro .container {
+  padding-top: 82px;
+}
+.aboutHeroText {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.aboutHeroText h1 {
+  font-size: 72px;
+  font-weight: 600;
+  letter-spacing: -0.08em;
+  line-height: 0.98;
+  margin: 0;
+}
+.aboutHeroText p {
+  font-size: 18px;
+  line-height: 1.38;
+  color: #d6e6e4;
+  font-weight: 300;
+}
+.aboutPhotos {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 22px;
+  margin-top: 80px;
+}
+.aboutPhotos > div {
+  position: relative;
+  height: 427px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.aboutPhotos img {
+  object-fit: cover;
+}
+.story {
+  background: #ebfdff;
+  padding: 120px 0;
+  overflow: hidden;
+}
+.storyText {
+  max-width: 805px;
+  margin: auto;
+  text-align: center;
+  padding: 0 24px;
+}
+.storyText .eyebrow {
+  justify-content: center;
+}
+.storyText > p:not(.eyebrow) {
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 300;
+  color: var(--muted);
+  margin: 24px 0;
+}
+.portraitWindow {
+  overflow: hidden;
+  margin-top: 40px;
+}
+.portraitTrack {
+  display: flex;
+  width: max-content;
+  animation: portraits 24s linear infinite;
+}
+.portraitGroup {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px;
+}
+.portraitGroup > div {
+  position: relative;
+  background: linear-gradient(160deg, #11ba9c, #005b4d);
+  width: 145px;
+  height: 295px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+.portraitGroup img {
+  object-fit: cover;
+  object-position: center bottom;
+}
+@keyframes portraits {
+  to {
+    transform: translateX(-1521px);
+  }
+}
+.values {
+  padding-block: 120px;
+}
+.values .centered > .button {
+  margin-top: 32px;
+}
+.valueGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 48px;
+}
+.valueGrid article {
+  flex: 0 1 calc((100% - 40px) / 3);
+  border-radius: 24px;
+  background: #f2f7f5;
+  padding: 32px;
+}
+.valueGrid h3 {
+  font-size: 24px;
+  letter-spacing: -0.06em;
+  margin: 24px 0 12px;
+}
+.valueGrid p {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--muted);
+  margin: 0;
+}
+.team {
+  padding-block: 80px 120px;
+}
+.team > .description {
+  max-width: 780px;
+  margin: 24px auto 0;
+}
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 24px;
+  margin: 64px auto 0;
+  max-width: 1100px;
+}
+.teamGrid article:last-child {
+  grid-column: 2;
+}
+.teamPhoto {
+  position: relative;
+  height: 300px;
+  background: #e6f3ed;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.teamPhoto img {
+  object-fit: cover;
+  object-position: center 20%;
+}
+.teamGrid h3 {
+  font-size: 24px;
+  letter-spacing: -0.05em;
+  margin: 20px 0 8px;
+}
+.teamGrid p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+.dialog {
+  border: 0;
+  border-radius: 24px;
+  padding: 0;
+  color: var(--ink);
+  max-width: calc(100% - 32px);
+  box-shadow: 0 24px 100px #0004;
+}
+.dialog::backdrop {
+  background: #061c22a8;
+  backdrop-filter: blur(4px);
+}
+.dialogInner {
+  padding: 48px;
+  position: relative;
+}
+.dialog h2 {
+  font-size: 32px;
+  letter-spacing: -0.05em;
+  margin: 0 0 16px;
+}
+.dialog p {
+  margin: 0 0 24px;
+}
+.close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  border: 0;
+  background: transparent;
+  font-size: 32px;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+.legal {
+  min-height: 60vh;
+  padding: 80px 0 120px;
+}
+.legal h1 {
+  font-size: 56px;
+  letter-spacing: -0.06em;
+}
+.legal p {
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.legal a {
+  color: #066456;
+}
+.simpleHeader {
+  padding-top: 40px;
+  background: #ebfdff;
+  padding-bottom: 1px;
+}
+@media (min-width: 1600px) {
+  .heroCopy {
+    padding-left: 88px;
+  }
+  .stepsCopy {
+    padding-left: calc((100vw - 1208px) / 2);
+  }
+}
+@media (max-width: 1100px) {
+  .header {
+    width: calc(100% - 64px);
+  }
+  .nav {
+    gap: 24px;
+  }
+  .desktopLogin .button {
+    min-width: 110px;
+  }
+  .hero {
+    width: calc(100% - 64px);
+  }
+  .heroCopy {
+    padding-left: 48px;
+    max-width: 65%;
+  }
+  .hero h1 {
+    font-size: 58px;
+  }
+  .heroWoman {
+    right: -50px;
+  }
+  .heroArt {
+    opacity: 0.7;
+  }
+  .actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero .unavailable > span {
+    display: none;
+  }
+  .heroDescription {
+    max-width: 440px;
+  }
+  .heroCopy {
+    padding-top: 80px;
+    padding-bottom: 56px;
+  }
+  .individuals .heroCopy {
+    max-width: 62%;
+    padding-top: 80px;
+  }
+  .individuals h1 {
+    font-size: 64px;
+  }
+  .individuals {
+    min-height: 760px;
+  }
+  .trustCards > div {
+    padding: 20px 16px;
+  }
+  .trustCards {
+    gap: 12px;
+  }
+  .trustCards img {
+    width: 44px;
+  }
+  .heading {
+    font-size: 52px;
+  }
+  .products .heading {
+    max-width: 75%;
+  }
+  .accountGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .accountGrid .accountArt {
+    height: 260px;
+  }
+  .accountText {
+    min-height: 220px;
+  }
+  .businessGrid .accountCard {
+    grid-template-columns: 1.2fr 1fr;
+  }
+  .stepsCopy {
+    padding: 80px 32px;
+  }
+  .steps .storeLinks img {
+    width: 120px;
+    height: auto;
+  }
+  .steps {
+    min-height: 800px;
+  }
+  .footerPanel {
+    padding: 48px 32px;
+  }
+  .footerColumns {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .footerColumns .storeLinks {
+    flex-direction: row;
+  }
+  .cardFeature {
+    gap: 32px;
+  }
+  .personalLoans {
+    grid-template-columns: 1fr;
+  }
+  .smallLoans .loanCard {
+    min-height: 180px;
+  }
+  .capital {
+    padding: 40px;
+    grid-template-columns: 1fr;
+  }
+  .capitalCards .loanCard {
+    min-height: 230px;
+  }
+  .aboutHeroText {
+    gap: 48px;
+  }
+  .aboutHeroText h1 {
+    font-size: 60px;
+  }
+  .aboutPhotos > div {
+    height: 350px;
+  }
+  .teamPhoto {
+    height: 260px;
+  }
+}
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+  .intro {
+    padding: 20px 0 48px;
+  }
+  .header {
+    width: calc(100% - 32px);
+    height: 68px;
+    padding: 12px 20px;
+    margin-bottom: 24px;
+    border-radius: 24px;
+    gap: 12px;
+  }
+  .logo img {
+    width: 120px;
+  }
+  .menuToggle {
+    display: block;
+    border: 0;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .desktopLogin {
+    display: none;
+  }
+  .nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 15px 30px #061c2226;
+  }
+  .navOpen {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .nav a {
+    padding: 16px;
+  }
+  .mobileLogin {
+    display: block;
+    padding: 12px;
+  }
+  .hero {
+    width: calc(100% - 32px);
+    min-height: 900px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .heroCopy {
+    padding: 48px 24px 0;
+    max-width: none;
+    width: 100%;
+  }
+  .hero h1 {
+    font-size: clamp(42px, 9vw, 60px);
+    max-width: 500px;
+  }
+  .heroDescription {
+    font-size: 16px;
+    max-width: 480px;
+  }
+  .hero .eyebrow {
+    font-size: 10px;
+    gap: 8px;
+  }
+  .eyebrow img {
+    width: 22px;
+  }
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .button {
+    font-size: 14px;
+    min-height: 48px;
+    padding: 14px 18px;
+  }
+  .actions .unavailable .button {
+    font-size: 12px;
+    padding-inline: 14px;
+  }
+  .discover {
+    margin-top: 24px;
+    font-size: 12px;
+  }
+  .heroArt {
+    inset: auto 0 0;
+    height: 410px;
+    opacity: 1;
+  }
+  .heroWoman {
+    height: 390px;
+    width: 315px;
+    right: 12%;
+  }
+  .market {
+    width: 40%;
+  }
+  .heroDecoration {
+    right: 10%;
+    width: 130px;
+    top: 0;
+  }
+  .business .heroArt {
+    left: 0;
+    height: 400px;
+  }
+  .business .heroArt:after {
+    background: linear-gradient(var(--ink), transparent 50%);
+  }
+  .business .heroCopy {
+    max-width: 100%;
+  }
+  .individuals {
+    min-height: 1050px;
+  }
+  .individuals .heroCopy {
+    max-width: none;
+    padding: 48px 24px 0;
+  }
+  .individuals h1 {
+    font-size: 60px;
+  }
+  .individuals .heroArt {
+    left: 0;
+    height: 470px;
+    background: linear-gradient(#f0fcfb, #aeeccf);
+  }
+  .trust {
+    width: calc(100% - 40px);
+    margin-top: 40px;
+  }
+  .trustCards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .trustCards > div {
+    padding: 20px;
+    min-height: 90px;
+  }
+  .trustCards img {
+    width: 64px;
+  }
+  .trustCards p {
+    font-size: 12px;
+  }
+  .trustCards strong {
+    font-size: 14px;
+  }
+  .heading {
+    font-size: 42px;
+    line-height: 1.04;
+    letter-spacing: -0.07em;
+  }
+  .description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+  .products {
+    padding: 72px 0;
+  }
+  .products .heading {
+    max-width: 100%;
+  }
+  .carousel {
+    width: calc(100% - 40px);
+    margin-top: 76px;
+  }
+  .carouselControls {
+    top: -60px;
+    gap: 12px;
+  }
+  .carouselControls button {
+    height: 44px;
+    width: 44px;
+  }
+  .products .carousel {
+    width: calc(100% - 20px);
+    margin-left: 20px;
+    margin-top: 80px;
+  }
+  .products .carouselControls {
+    right: 20px;
+  }
+  .productCard {
+    flex-basis: 280px;
+    height: 515px;
+  }
+  .phoneCard .productImage {
+    inset: 38px 36px auto;
+    height: 425px;
+  }
+  .productCopy h3 {
+    font-size: 26px;
+  }
+  .productCopy p {
+    font-size: 14px;
+  }
+  .carouselTrack {
+    gap: 20px;
+  }
+  .loans {
+    padding: 160px 0 64px;
+  }
+  .loanWatermark {
+    top: 50px;
+  }
+  .loanCard {
+    padding: 24px;
+    width: 280px;
+    min-height: 270px;
+  }
+  .loanGroup {
+    gap: 16px;
+    padding-right: 16px;
+  }
+  .loanTrack {
+    animation-name: loansMobile;
+  }
+  @keyframes loansMobile {
+    to {
+      transform: translateX(-1184px);
+    }
+  }
+  .loanCard h3 {
+    font-size: 22px;
+  }
+  .loanIcon {
+    height: 52px;
+    width: 52px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .stepsCopy {
+    padding: 64px 24px;
+  }
+  .steps .heading {
+    font-size: 48px;
+  }
+  .stepList {
+    gap: 32px;
+    margin: 40px 0;
+  }
+  .stepList li {
+    gap: 20px;
+  }
+  .stepList p {
+    font-size: 14px;
+  }
+  .stepsPhoto {
+    min-height: 500px;
+  }
+  .seal {
+    top: auto;
+    bottom: 440px;
+    left: calc(100% - 80px);
+    width: 100px;
+    height: 100px;
+  }
+  .steps .storeLinks img {
+    width: 138px;
+    height: 40px;
+  }
+  .testimonials {
+    padding: 72px 20px;
+  }
+  .testimonials .carousel {
+    width: 100%;
+    margin-top: 36px;
+  }
+  .testimonial {
+    flex-basis: 100%;
+    min-width: 0;
+    padding: 24px;
+  }
+  .fraud {
+    padding: 32px 24px;
+    gap: 16px;
+  }
+  .fraud p {
+    font-size: 14px;
+  }
+  .fraud strong {
+    font-size: 18px;
+  }
+  .fraud .warningIcon {
+    display: none;
+  }
+  .footer {
+    padding: 72px 16px 24px;
+  }
+  .footerCta {
+    margin-bottom: 64px;
+    padding-inline: 12px;
+  }
+  .footerCta .heading {
+    font-size: 44px;
+  }
+  .footerPanel {
+    padding: 36px 24px;
+  }
+  .footerColumns {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .footerColumns nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .footerColumns .storeLinks img {
+    width: 138px;
+    height: 40px;
+  }
+  .disclaimer {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 36px;
+    padding-top: 24px;
+  }
+  .accounts {
+    padding-block: 72px;
+  }
+  .accountGrid,
+  .businessGrid {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+    gap: 24px;
+  }
+  .accountText {
+    min-height: 220px;
+  }
+  .accountGrid .accountArt {
+    height: 230px;
+  }
+  .businessGrid .accountCard {
+    grid-template-columns: 1fr;
+  }
+  .businessGrid .accountArt {
+    min-height: 230px;
+    height: 230px;
+  }
+  .cardFeature {
+    grid-template-columns: 1fr;
+    padding: 56px 24px;
+    gap: 36px;
+  }
+  .cardFeature .heading {
+    font-size: 44px;
+  }
+  .personalLoans {
+    padding-block: 72px;
+    gap: 24px;
+  }
+  .personalLoans .heading {
+    font-size: 44px;
+  }
+  .smallLoans {
+    flex-direction: column;
+  }
+  .smallLoans .loanCard {
+    min-height: 0;
+    padding: 24px;
+  }
+  .capital {
+    padding: 32px 24px;
+    margin-block: 0 72px;
+    gap: 36px;
+  }
+  .capital .heading {
+    font-size: 42px;
+  }
+  .capitalCards {
+    flex-direction: column;
+  }
+  .capitalCards .loanCard {
+    min-height: 0;
+  }
+  .aboutIntro {
+    padding: 20px 0 64px;
+  }
+  .aboutIntro .container {
+    padding-top: 40px;
+  }
+  .aboutHeroText {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .aboutHeroText h1 {
+    font-size: 54px;
+  }
+  .aboutHeroText p {
+    font-size: 16px;
+    margin: 0;
+  }
+  .aboutPhotos {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .aboutPhotos > div {
+    height: 280px;
+  }
+  .aboutPhotos > div:last-child {
+    height: 240px;
+  }
+  .story {
+    padding: 72px 0;
+  }
+  .storyText > p:not(.eyebrow) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .values {
+    padding-block: 72px;
+  }
+  .valueGrid {
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .valueGrid article {
+    flex-basis: 100%;
+    padding: 28px;
+  }
+  .team {
+    padding-block: 24px 72px;
+  }
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 40px;
+  }
+  .teamGrid article:last-child {
+    grid-column: auto;
+  }
+  .teamPhoto {
+    height: 360px;
+  }
+  .teamGrid h3 {
+    font-size: 24px;
+  }
+  .dialogInner {
+    padding: 48px 24px 32px;
+  }
+  .dialog h2 {
+    font-size: 28px;
+  }
+  .dialog .storeLinks {
+    flex-direction: column;
+  }
+  .legal {
+    padding-block: 48px 72px;
+  }
+  .legal h1 {
+    font-size: 42px;
+  }
+  .legal p {
+    font-size: 16px;
+  }
+  .simpleHeader {
+    padding-top: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loanTrack,
+  .portraitTrack {
+    animation: none;
+    transform: none;
+  }
+  .loanWindow,
+  .portraitWindow {
+    overflow: auto;
+  }
+  .loanGroup[aria-hidden="true"],
+  .portraitGroup + .portraitGroup {
+    display: none;
+  }
+  .pause {
+    display: none;
+  }
+  .carouselTrack {
+    scroll-behavior: auto;
+  }
+}
+/* Asset crop and brand details from the final Figma hero instance. */
+.heroWoman img {
+  object-fit: cover;
+}
+.home .actions > .button,
+.business .actions > .button {
+  background: linear-gradient(90deg, #0fa294, #06b488);
+  color: white;
+}
+.home .actions > .button:hover,
+.business .actions > .button:hover {
+  background: #08766a;
+}
+.hero .eyebrow {
+  margin-bottom: 32px;
+  color: #8ee9c4;
+}
+.hero .eyebrow img:first-child {
+  transform: scaleX(-1);
+}
+.hero .discover {
+  color: #b3ffeb;
+}
+.individuals .discover {
+  color: #08766a;
+}
+.logo {
+  gap: 8px;
+  align-items: center;
+}
+.brandMark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0ba293, #03e8ad);
+}
+.brandMark img {
+  width: 27px !important;
+  height: 27px;
+}
+.brandWord {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.brandWord > img {
+  width: 87px !important;
+  height: 25px;
+  object-fit: contain;
+}
+.brandWord > span {
+  font-size: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+.trustCards strong {
+  margin: 0 0 6px;
+}
+.trustCards span {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+.trustCards > div > img {
+  background: #f3f8f7;
+  border-radius: 8px;
+  padding: 8px;
+  width: 75px;
+  height: 52px;
+}
+.individuals .heroArt > img:not(.heroDecoration) {
+  object-fit: cover;
+  object-position: center bottom;
+}
+.individuals .heroArt {
+  left: 50%;
+}
+.steps .heading em {
+  color: #37dab1;
+}
+@media (max-width: 700px) {
+  .home .heroCopy {
+    padding-bottom: 410px;
+  }
+  .home .hero {
+    min-height: 0;
+  }
+  .heroWoman {
+    right: 0;
+    width: 330px;
+  }
+  .hero .eyebrow {
+    margin-bottom: 24px;
+  }
+  .individuals .heroArt {
+    left: 0;
+  }
+  .trustCards span {
+    font-size: 13px;
+  }
+  .logo img {
+    max-width: none;
+  }
+  .actions .button {
+    gap: 7px;
+  }
+  .actions .button img {
+    width: 16px;
+    height: 16px;
+  }
+}
+.individuals .eyebrow {
+  color: #08766a;
+}
+.fraud {
+  background: #061c22;
+  position: relative;
+  isolation: isolate;
+}
+.fraud:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/assets/brand-pattern.png") center/cover;
+  opacity: 0.08;
+  z-index: -1;
+}
+.storeLinks a:last-child img {
+  transform: scaleY(-1);
+}
+.button > img {
+  filter: brightness(0);
+}
+.darkButton > img,
+.home .actions > .button > img,
+.business .actions > .button > img {
+  filter: none;
+}
+.footerColumns > div > a > img {
+  object-fit: contain;
+}
+@media (min-width: 1101px) {
+  .individuals {
+    min-height: 686px;
+  }
+  .individuals .heroCopy {
+    max-width: 790px;
+  }
+  .individuals h1 {
+    font-size: 72px;
+  }
+  .individuals .heroArt {
+    left: 696px;
+    top: 17px;
+    bottom: auto;
+    width: 714px;
+    height: 821px;
+    background: none;
+  }
+  .individuals .heroArt > img:not(.heroDecoration) {
+    object-fit: fill;
+  }
+  .individuals .discover {
+    margin-top: 48px;
+  }
+}
+@media (max-width: 700px) {
+  .individuals .heroArt > img:not(.heroDecoration) {
+    object-fit: fill;
+  }
+  .individuals {
+    min-height: 900px;
+  }
+  .individuals h1 {
+    font-size: 52px;
+  }
+  .individuals .heroArt {
+    height: 440px;
+  }
+}
+.brandWord > span {
+  color: var(--ink);
+}
+@media (max-width: 380px) {
+  .aboutHeroText h1 {
+    font-size: 46px;
+  }
+  .individuals h1 {
+    font-size: 44px;
+  }
+}
+.loanBag {
+  position: relative;
+  display: block;
+  width: 35px;
+  height: 40px;
+  overflow: hidden;
+}
+.loanBag img {
+  position: absolute;
+  width: 857.2%;
+  height: 432.72%;
+  left: -383.07%;
+  top: -149.98%;
+  max-width: none;
+  object-fit: fill;
+}
+.fraud .warningIcon {
+  position: relative;
+  display: block;
+  width: 89px;
+  height: 88px;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+.warningIcon img {
+  position: absolute;
+  width: 551.28%;
+  height: 219.65%;
+  left: -227.32%;
+  top: -58.12%;
+  max-width: none;
+}
+.businessGrid .accountCard:first-child .accountArt img {
+  object-fit: cover;
+}
+.business .heroArt:after {
+  background: linear-gradient(
+    90deg,
+    var(--ink),
+    #061c2280 30%,
+    transparent 65%
+  );
+}
+@media (max-width: 700px) {
+  .fraud .warningIcon {
+    display: none;
+  }
+  .business .heroArt:after {
+    background: linear-gradient(var(--ink), transparent 55%);
+  }
+}
+.accounts {
+  position: relative;
+}
+.accountsDownload {
+  position: absolute;
+  right: 0;
+  top: 206px;
+}
+.loanTrack {
+  margin-left: max(24px, calc((100vw - 1208px) / 2));
+}
+.loanTrack.reverse {
+  margin-left: -191px;
+}
+@media (max-width: 1100px) {
+  .accountsDownload {
+    position: static;
+    margin-top: 28px;
+  }
+}

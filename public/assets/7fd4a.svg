@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="60.9644" height="17.0261" viewBox="0 0 60.9644 17.0261" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="dynamic-island">
+<rect id="cutout" width="60.4152" height="17.0261" rx="8.51305" fill="#030303"/>
+<circle id="camera-cutout" cx="51.4192" cy="8.57921" r="5.2837" fill="#0E0B0F"/>
+<circle id="lens" cx="51.4191" cy="8.57918" r="2.93539" fill="#161424"/>
+<circle id="sensor" cx="51.4193" cy="8.57911" r="1.76123" fill="#0F0F2A"/>
+<circle id="sensor_2" cx="51.4194" cy="7.992" r="0.587078" fill="#393752"/>
+</g>
+</svg>

@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1805.48" height="1025.83" viewBox="0 0 1805.48 1025.83" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Footer Light" filter="url(#filter0_f_0_23)">
+<circle id="Ellipse 4" cx="512.913" cy="512.913" r="108.913" fill="#FF9B29"/>
+<circle id="Ellipse 5" cx="902.738" cy="512.913" r="108.913" fill="#06FFBF"/>
+<circle id="Ellipse 6" cx="1292.56" cy="512.913" r="108.913" fill="#0BA293"/>
+</g>
+<defs>
+<filter id="filter0_f_0_23" x="0" y="0" width="1805.48" height="1025.83" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="202" result="effect1_foregroundBlur_0_23"/>
+</filter>
+</defs>
+</svg>
