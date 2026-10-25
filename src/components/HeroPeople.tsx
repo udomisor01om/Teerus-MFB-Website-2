@@ -45,10 +45,9 @@ export function HeroPeople() {
     const start = async () => {
       clearTimeout(timer);
       if (preference.matches) return;
-      if (await ready(current)) {
-        if (!cancelled && !preference.matches)
-          timer = setTimeout(advance, 3000);
-      }
+      const decoded = await ready(current);
+      if (!cancelled && !preference.matches)
+        timer = setTimeout(decoded ? advance : start, decoded ? 3000 : 1000);
     };
     void start();
     preference.addEventListener("change", start);

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BrandSeal } from "./BrandSeal";
 import { HomeHero } from "./HomeHero";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -11,7 +12,6 @@ import {
   MotionRows,
 } from "./Controls";
 import {
-  products,
   loans,
   testimonials,
   individualAccounts,
@@ -42,6 +42,7 @@ export function Picture({
       fill
       sizes={sizes}
       preload={priority}
+      unoptimized={file.endsWith(".webp")}
       className={className}
     />
   );
@@ -170,68 +171,22 @@ export function Trust() {
     </section>
   );
 }
-export function Products() {
+export { Products } from "./Products";
+function LoanCard({ item }: { item: { name: string; description: string } }) {
+  const isBusiness =
+    item.name === "SME financing" ||
+    item.name === "Inventory financing" ||
+    item.description.startsWith("Working capital");
   return (
-    <section id="discover" className={s.products}>
-      <div className={s.container}>
-        <Heading>
-          Manage, save &amp; borrow with <em>ease.</em>
-        </Heading>
-        <p className={s.description}>
-          Helping individuals and SMEs with top banking solutions to save, grow
-          and succeed.
-        </p>
-      </div>
-      <Carousel label="products">
-        {products.map((p) => (
-          <article
-            className={`${s.productCard} ${p.phone ? s.phoneCard : ""}`}
-            key={p.name}
-          >
-            <div className={s.productImage}>
-              <Picture file={p.image} sizes="306px" />
-            </div>
-            <div className={s.productCopy}>
-              <h3>{p.name}</h3>
-              <p>{p.description}</p>
-            </div>
-          </article>
-        ))}
-      </Carousel>
-    </section>
-  );
-}
-function LoanCard({
-  item,
-  index,
-  icon,
-}: {
-  item: { name: string; description: string };
-  index: number;
-  icon?: string;
-}) {
-  return (
-    <article className={`${s.loanCard} ${s[`loanColor${index % 4}`]}`}>
+    <article className={s.loanCard}>
       <div className={s.loanIcon}>
-        {icon ? (
-          <Image src={`/assets/${icon}`} width={40} height={40} alt="" />
-        ) : index % 2 ? (
-          <Image
-            src="/assets/loan-briefcase.png"
-            width={44}
-            height={40}
-            alt=""
-          />
-        ) : (
-          <span className={s.loanBag}>
-            <Image
-              src="/assets/loan-money-sprite.png"
-              width={300}
-              height={173}
-              alt=""
-            />
-          </span>
-        )}
+        <Image
+          src={`/assets/images/${isBusiness ? "Business.png" : "Individual Illustration.png"}`}
+          width={isBusiness ? 44 : 35}
+          height={40}
+          alt=""
+          unoptimized
+        />
       </div>
       <h3>{item.name}</h3>
       <p>{item.description}</p>
@@ -247,36 +202,37 @@ export function Loans() {
     <section className={s.loans}>
       <Image
         className={s.loanWatermark}
-        src="/assets/loans-wordmark.svg"
-        width="680"
-        height="177"
+        src="/assets/images/Teerus Gradient Vector.svg"
+        width="683"
+        height="181"
         alt=""
       />
+      <div className={s.loanFade} aria-hidden="true" />
       <Heading centered>
         Discover our top loan <em>services.</em>
       </Heading>
       <p className={`${s.description} ${s.centered}`}>
         Fast access to capital for individuals & MSMEs.
       </p>
-      <MotionRows>
+      <div className={s.motionArea}>
         {rows.map((row, r) => (
           <div className={s.loanWindow} key={r}>
             <div className={`${s.loanTrack} ${r ? s.reverse : ""}`}>
-              {[0, 1].map((copy) => (
+              {[0, 1, 2, 3].map((copy) => (
                 <div
                   className={s.loanGroup}
                   key={copy}
-                  aria-hidden={copy === 1 ? true : undefined}
+                  aria-hidden={copy !== 0 ? true : undefined}
                 >
                   {row.map((item, i) => (
-                    <LoanCard key={i} item={item} index={i + r} />
+                    <LoanCard key={i} item={item} />
                   ))}
                 </div>
               ))}
             </div>
           </div>
         ))}
-      </MotionRows>
+      </div>
     </section>
   );
 }
@@ -332,7 +288,7 @@ export function Steps({ business = false }: { business?: boolean }) {
               <li key={title}>
                 <Image src={`/assets/${icon}`} alt="" width="48" height="48" />
                 <div>
-                  <span>Step {i + 1}</span>
+                  <span>STEP {i + 1}</span>
                   <h3>{title}</h3>
                   <p>{body}</p>
                 </div>
@@ -343,16 +299,12 @@ export function Steps({ business = false }: { business?: boolean }) {
         <StoreLinks />
       </div>
       <div className={s.stepsPhoto}>
-        <Picture file="app-in-hand.png" alt="Using the Teerus app on a phone" />
-        <div className={s.photoTint} />
+        <Picture
+          file="images/hand-holding-teerus-app.webp"
+          alt="Using the Teerus app on a phone"
+        />
       </div>
-      <Image
-        src="/assets/brand-seal.png"
-        className={s.seal}
-        width="120"
-        height="120"
-        alt=""
-      />
+      <BrandSeal />
     </section>
   );
 }
@@ -383,7 +335,7 @@ export function Footer() {
       <aside className={s.fraud}>
         <div>
           <p>
-            <strong>Fraud warning:</strong> <span>STAY SAFE!</span>
+            <strong>FRAUD WARNING</strong> <span>STAY SAFE!</span>
           </p>
           <p>
             Teerus will never ask for your PIN, password or verification code.
@@ -403,9 +355,13 @@ export function Footer() {
       <footer className={s.footer}>
         <div className={s.footerCta}>
           <Heading centered>
-            Take control of your finance. Bank smarter with <em>Teerus.</em>
+            <span>Take control of your</span>
+            <span>finance. Bank smarter with</span>
+            <em>Teerus.</em>
           </Heading>
-          <Download label="Download Teerus App" />
+          <div className={s.footerButton}>
+            <Download label="Download Teerus App" />
+          </div>
         </div>
         <div className={s.footerPanel}>
           <div className={s.footerColumns}>
@@ -425,6 +381,7 @@ export function Footer() {
               </p>
             </div>
             <nav aria-label="Footer navigation">
+              <h3>Explore Teerus</h3>
               <Link href="/individuals">For Individual</Link>
               <Link href="/business">For SMEs</Link>
               <Link href="/about">About Us</Link>
@@ -432,6 +389,7 @@ export function Footer() {
               <Link href="/terms-and-conditions">Terms and Conditions</Link>
             </nav>
             <address>
+              <h3>Get in touch</h3>
               <a href="mailto:info@teerusbank.com">info@teerusbank.com</a>
               <a href="mailto:support@teerusbank.com">support@teerusbank.com</a>
               <p>
@@ -442,6 +400,7 @@ export function Footer() {
               <a href="tel:+2349012411411">09012411411</a>
             </address>
             <div>
+              <h3>Bank wherever you are</h3>
               <p>Download our app</p>
               <StoreLinks />
             </div>
@@ -532,7 +491,7 @@ export function PersonalLoans() {
       </div>
       <div className={s.smallLoans}>
         {[loans[0], loans[4], loans[2]].map((l, i) => (
-          <LoanCard item={l} index={i} key={i} />
+          <LoanCard item={l} key={i} />
         ))}
       </div>
     </section>
@@ -558,8 +517,7 @@ export function Capital() {
                   }
                 : l
             }
-            index={i}
-            icon={["loan-business-icon.svg", "46f87.svg", "43fa8.svg"][i]}
+
             key={i}
           />
         ))}

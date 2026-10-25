@@ -86,24 +86,28 @@ test("product carousel works with keyboard and buttons", async ({ page }) => {
   await page.goto("/");
   await page.emulateMedia({ reducedMotion: "reduce" });
   const region = page.getByRole("region", { name: "products", exact: true });
+  const initial = await region.evaluate((el) => el.scrollLeft);
   await region.focus();
   await page.keyboard.press("ArrowRight");
   await expect
     .poll(() => region.evaluate((el) => el.scrollLeft))
-    .toBeGreaterThan(0);
+    .toBeGreaterThan(initial);
   await page.getByRole("button", { name: "Previous products" }).click();
-  await expect.poll(() => region.evaluate((el) => el.scrollLeft)).toBe(0);
+  await expect.poll(() => region.evaluate((el) => el.scrollLeft)).toBe(initial);
 });
-test("animation pauses and respects reduced motion", async ({ page }) => {
+test("loan motion respects reduced motion without a visible pause CTA", async ({
+  page,
+}) => {
   await page.goto("/");
-  const pause = page.getByRole("button", { name: "Pause loan cards" });
-  await pause.click();
-  await expect(pause).toHaveAttribute("aria-pressed", "true");
   await expect(
-    page.getByRole("button", { name: "Resume loan cards" }),
-  ).toBeVisible();
+    page.getByRole("button", { name: "Pause loan cards" }),
+  ).toHaveCount(0);
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(pause).not.toBeVisible();
+  const tracks = page.locator('[class*="loanTrack"]');
+  await expect(tracks.first()).toHaveCSS("animation-name", "none");
+  await expect(
+    page.getByRole("heading", { name: "SME financing" }).first(),
+  ).toBeVisible();
 });
 test("404 and preview security headers", async ({ page }) => {
   const response = await page.goto("/missing-page");

@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Authorize the final HTML scripts after the Next runtime transforms the response.
+# Keep local production builds protected by exact hashes as well.
+[[plugins]]
+  package = "@netlify/plugin-csp-nonce"
+  [plugins.inputs]
+    reportOnly = false
+    unsafeEval = false
+    unsafeInline = false
+    https = false
+    http = false
+    excludedPath = ["/assets/*", "/_next/*", "/api/*"]

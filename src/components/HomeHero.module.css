@@ -14,6 +14,8 @@
   font-variation-settings: "opsz" 14;
 }
 .art {
+  z-index: 0;
+  isolation: isolate;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -49,6 +51,7 @@
   mix-blend-mode: exclusion;
 }
 .upperShape {
+  z-index: 0;
   width: 13.8515%;
   right: 22.5434%;
   top: -32px;

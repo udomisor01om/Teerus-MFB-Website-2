@@ -71,6 +71,16 @@ describe("hero person dissolve", () => {
     });
     expect(active(container)).toBe(1);
   });
+  it("retries a transient first-image decode failure", async () => {
+    vi.mocked(HTMLImageElement.prototype.decode).mockRejectedValueOnce(
+      new Error("decode interrupted"),
+    );
+    const { container } = render(<HeroPeople />);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(4000);
+    });
+    expect(active(container)).toBe(1);
+  });
   it("keeps a static first image with reduced motion", async () => {
     reduced = true;
     const { container } = render(<HeroPeople />);

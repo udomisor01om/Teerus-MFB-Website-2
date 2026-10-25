@@ -1,6 +1,7 @@
 import { readFile, readdir, access } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
+import sharp from "sharp";
 async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
   return (
@@ -39,11 +40,23 @@ for (const file of files) {
     if (!scriptPolicy.includes(hash))
       throw new Error(`CSP would block hydration in ${file}`);
   }
-  const decoded = html.replaceAll("%2F", "/");
-  for (const match of decoded.matchAll(/\/assets\/[\w.-]+\.(?:png|svg|webp)/g))
-    assets.add(match[0]);
+  for (const match of html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)) {
+    const src = match[1].replaceAll("&amp;", "&");
+    const url = new URL(src, "http://local.test");
+    const asset =
+      url.pathname === "/_next/image"
+        ? url.searchParams.get("url")
+        : decodeURIComponent(url.pathname);
+    if (asset?.startsWith("/assets/")) assets.add(asset);
+  }
 }
-for (const asset of assets) await access(path.join("public", asset));
+for (const asset of assets) {
+  const file = path.join("public", asset);
+  await access(file);
+  const { width, height } = await sharp(file).metadata();
+  if (!width || !height || width <= 1 || height <= 1)
+    throw new Error(`Empty image artwork: ${asset}`);
+}
 for (const route of [
   "index",
   "individuals",

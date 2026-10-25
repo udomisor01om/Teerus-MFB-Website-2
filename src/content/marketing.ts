@@ -8,35 +8,35 @@ export const products: ProductCard[] = [
   {
     name: "Savings",
     description: "Grow your money, even while you sleep.",
-    image: "savings-phone.png",
+    image: "savings-phone.webp",
     phone: true,
   },
   {
     name: "Fixed deposits",
     description: "Lock it away and earn more.",
-    image: "fixed-deposit-customer.png",
+    image: "fixed-deposit-customer.webp",
   },
   {
     name: "Regular accounts",
     description: "Savings and transaction accounts for everyday banking.",
-    image: "regular-phone.png",
+    image: "regular-phone.webp",
     phone: true,
   },
   {
     name: "Salary accounts",
     description: "Manage your income and expenses in one place.",
-    image: "salary-account-customer.png",
+    image: "salary-account-customer.webp",
   },
   {
     name: "Esusu",
     description: "Save with others and take money when your cycle comes up.",
-    image: "virtual-phone.png",
+    image: "esusu-phone.webp",
     phone: true,
   },
   {
     name: "Teerus card",
     description: "Pay at shops, POS and ATMs. Freeze or set limits in the app.",
-    image: "teerus-card-customer.png",
+    image: "teerus-card-customer.webp",
   },
 ].map((product, index) => ({
   ...product,
@@ -62,7 +62,7 @@ export const loans = [
       "Flexible personal loans with repayment options that fit how you earn, so you can spread the cost of what matters.",
   },
   {
-    name: "LPO financing",
+    name: "SME financing",
     description:
       "Won an order but short on cash to deliver it? We fund the supply and you get paid when your client pays you.",
   },

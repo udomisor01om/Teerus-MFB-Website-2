@@ -1,6 +1,16 @@
 "use client";
 
-import { useRef, useState, useId, type ReactNode } from "react";
+import {
+  Children,
+  cloneElement,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useId,
+  type ReactElement,
+  type ReactNode,
+} from "react";
+import { CarouselNavigation } from "./CarouselNavigation";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -176,44 +186,78 @@ export function Carousel({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
+  const cards = Children.toArray(children);
+  const count = cards.length;
+  const busy = useRef(false);
+  const [moving, setMoving] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const step = (el: HTMLElement) =>
+    (el.firstElementChild as HTMLElement).offsetWidth +
+    (parseFloat(getComputedStyle(el).columnGap) || 0);
+  const settle = () => {
+    const el = ref.current;
+    if (!el) return;
+    const span = count * step(el);
+    if (el.scrollLeft < span)
+      el.scrollTo({ left: el.scrollLeft + span, behavior: "instant" });
+    else if (el.scrollLeft >= span * 2)
+      el.scrollTo({ left: el.scrollLeft - span, behavior: "instant" });
+    busy.current = false;
+    setMoving(false);
+  };
+  useLayoutEffect(() => {
+    const el = ref.current!;
+    let index = 0;
+    let previousStep = step(el);
+    el.scrollLeft = count * previousStep;
+    const resize = new ResizeObserver(() => {
+      index =
+        ((Math.round(el.scrollLeft / previousStep) % count) + count) % count;
+      previousStep = step(el);
+      el.scrollTo({
+        left: (count + index) * previousStep,
+        behavior: "instant",
+      });
+    });
+    resize.observe(el);
+    return () => {
+      resize.disconnect();
+      clearTimeout(timer.current);
+    };
+  }, [count]);
   const move = (direction: number) => {
     const el = ref.current;
-    if (el)
-      el.scrollBy({
-        left:
-          direction *
-          ((el.firstElementChild as HTMLElement)?.offsetWidth +
-            (parseFloat(getComputedStyle(el).columnGap) || 0) || 338),
-        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-          ? "instant"
-          : "smooth",
-      });
+    if (!el || busy.current) return;
+    busy.current = true;
+    setMoving(true);
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollTo({
+      left: (Math.round(el.scrollLeft / step(el)) + direction) * step(el),
+      behavior: reduced ? "instant" : "smooth",
+    });
+    if (reduced) settle();
   };
   return (
     <div className={`${s.carousel} ${className}`}>
-      <div className={s.carouselControls}>
-        <button
-          aria-label={`Previous ${label}`}
-          aria-controls={id}
-          onClick={() => move(-1)}
-        >
-          ←
-        </button>
-        <button
-          aria-label={`Next ${label}`}
-          aria-controls={id}
-          onClick={() => move(1)}
-        >
-          →
-        </button>
-      </div>
+      <CarouselNavigation
+        label={label}
+        controls={id}
+        moving={moving}
+        onMove={move}
+        className={s.carouselControls}
+      />
       <div
         id={id}
         ref={ref}
         className={s.carouselTrack}
         role="region"
         aria-label={label}
+        aria-roledescription="carousel"
         tabIndex={0}
+        onScroll={() => {
+          clearTimeout(timer.current);
+          timer.current = setTimeout(settle, 160);
+        }}
         onKeyDown={(e) => {
           if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
             e.preventDefault();
@@ -221,7 +265,21 @@ export function Carousel({
           }
         }}
       >
-        {children}
+        {[0, 1, 2].flatMap((copy) =>
+          cards.map((card, index) =>
+            cloneElement(
+              card as ReactElement<{
+                "aria-hidden"?: boolean;
+                inert?: boolean;
+              }>,
+              {
+                key: `${copy}-${index}`,
+                "aria-hidden": copy !== 1 ? true : undefined,
+                inert: copy !== 1 ? true : undefined,
+              },
+            ),
+          ),
+        )}
       </div>
     </div>
   );

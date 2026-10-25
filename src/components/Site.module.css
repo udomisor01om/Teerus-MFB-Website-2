@@ -332,20 +332,6 @@
   display: flex;
   gap: 16px;
 }
-.carouselControls button {
-  height: 48px;
-  width: 48px;
-  border-radius: 50%;
-  border: 1px solid #0fa294;
-  color: #08766a;
-  background: transparent;
-  font-size: 24px;
-  cursor: pointer;
-}
-.carouselControls button:last-child {
-  background: linear-gradient(90deg, #0fa294, #06b488);
-  color: white;
-}
 .carouselTrack {
   display: flex;
   gap: 32px;
@@ -419,7 +405,7 @@
   position: relative;
   overflow: hidden;
   background: #ebfdff;
-  padding: 264px 0 100px;
+  padding: 264px 0 120px;
 }
 .loanWatermark {
   position: absolute;
@@ -2099,7 +2085,8 @@
   background: linear-gradient(transparent, #fdffff 50.481%, transparent);
 }
 .homeIntro {
-  background: var(--paper);
+  background: #f6feff;
+  border-radius: 0 0 24px 24px;
   position: relative;
   isolation: isolate;
 }
@@ -2122,4 +2109,434 @@
   aspect-ratio: 1512 / 281;
   background: url("/assets/images/net-pattern.svg") top center / 100% auto
     no-repeat;
+}
+
+/* Homepage refinements, shared where these components recur. */
+.loans,
+.steps,
+.footerCta,
+.fraud {
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 14;
+}
+.loanWatermark {
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+}
+.loanFade {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: 197px;
+  left: 0;
+  width: 100%;
+  height: 89px;
+  background: linear-gradient(to bottom, #ebfdff00, #ebfdff);
+}
+.loans > .heading,
+.loans > .description {
+  z-index: 2;
+}
+.loans > .heading {
+  font-size: 64px;
+  line-height: 0.98;
+  letter-spacing: -0.08em;
+}
+.loans > .description {
+  margin-top: 16px;
+  font: 300 18px/1.38 var(--font-body);
+  letter-spacing: -0.36px;
+  opacity: 0.8;
+}
+.loans .motionArea {
+  margin-top: 56px;
+}
+.loans .loanWindow:first-child {
+  margin-top: 0;
+}
+.loanCard {
+  background: #f9feff;
+  padding: 32px;
+  text-align: center;
+}
+.loanIcon {
+  margin-inline: auto;
+}
+.loanCard h3,
+.smallLoans .loanCard h3,
+.capitalCards .loanCard h3 {
+  font: 600 16px/0.98 var(--font-body);
+  letter-spacing: -0.08em;
+  margin: 24px 0 12px;
+}
+.loanCard p {
+  font: 400 14px/1.49 var(--font-body);
+  letter-spacing: -0.28px;
+}
+.loanTrack {
+  animation-name: loanLoop;
+}
+@keyframes loanLoop {
+  from {
+    transform: translateX(-25%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.loans .motionArea:hover .loanTrack {
+  animation-play-state: running;
+}
+.stepsCopy {
+  padding-bottom: 96px;
+}
+.steps .heading {
+  font: 600 64px/0.98 var(--font-body);
+  letter-spacing: -0.08em;
+  color: #e7f6f4;
+}
+.steps .heading em {
+  background: linear-gradient(
+    192.366532deg,
+    #0ba293 4.3406%,
+    #03e4aa 62.444%,
+    #03e8ad 107.38%
+  );
+  background-clip: text;
+  color: transparent;
+}
+.stepList {
+  margin: 64px 0 56px;
+  gap: 56px;
+}
+.stepList li {
+  position: relative;
+  align-items: flex-start;
+  isolation: isolate;
+}
+.stepList li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 64px;
+  bottom: -56px;
+  left: 31.5px;
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #b5e2de 0 5px,
+    transparent 5px 10px
+  );
+  opacity: 0.2;
+}
+.stepList li > img {
+  width: 64px;
+  height: 64px;
+  padding: 18px;
+  flex: 0 0 64px;
+  border-radius: 8px;
+  background: #07564c;
+}
+.stepList li > div {
+  min-width: 0;
+}
+.stepList span {
+  display: block;
+  width: fit-content;
+  font: 500 10px/1.48 var(--font-body);
+  letter-spacing: 0.1px;
+  color: transparent;
+  background: linear-gradient(
+    41.129349deg,
+    #ff9b29 6.6751%,
+    #06ffbf 42.071%,
+    #06ffbf 56.083%,
+    #0ba293 79.774%
+  );
+  background-clip: text;
+}
+.stepList li:nth-child(2) span {
+  background-image: linear-gradient(
+    39.306481deg,
+    #ff9b29 6.6751%,
+    #06ffbf 42.071%,
+    #06ffbf 56.083%,
+    #0ba293 79.774%
+  );
+}
+.stepList li:nth-child(3) span {
+  background-image: linear-gradient(
+    38.44504deg,
+    #ff9b29 6.6751%,
+    #06ffbf 42.071%,
+    #06ffbf 56.083%,
+    #0ba293 79.774%
+  );
+}
+.stepList h3 {
+  font: 600 24px/0.98 var(--font-body);
+  letter-spacing: -1.92px;
+  color: #f9feff;
+  margin: 12px 0 6px;
+}
+.stepList p {
+  font: 300 16px/1.49 var(--font-body);
+  letter-spacing: -0.32px;
+}
+.stepsPhoto img {
+  object-position: center;
+}
+.seal {
+  z-index: 2;
+  animation: sealTurn 60s linear infinite;
+}
+@keyframes sealTurn {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.testimonial {
+  border: 1px solid #e1ebee66;
+}
+.fraud {
+  background: #061c22 url("/assets/images/fraud-warning-banner.webp")
+    center/cover;
+}
+.fraud::before {
+  content: none;
+}
+.fraud p {
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+.fraud p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 16px;
+}
+.fraud strong {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #e9b355;
+  color: #061c22;
+  font: 600 10px/1.48 var(--font-body);
+  letter-spacing: 0.1px;
+}
+.fraud p span {
+  margin: 0;
+  font: 600 10px/1.48 var(--font-body);
+  color: #fffaf2;
+  letter-spacing: 0.1px;
+}
+.footerCta {
+  margin-bottom: 80px;
+}
+.footerCta .heading {
+  font: 500 64px/0.98 var(--font-body);
+  letter-spacing: -0.08em;
+  color: #e7f6f4;
+}
+.footerCta .heading > span,
+.footerCta .heading > em {
+  display: block;
+}
+.footerCta .heading > em {
+  font-weight: 300;
+  background: linear-gradient(
+    190.131424deg,
+    #0ba293 4.3406%,
+    #03e4aa 62.444%,
+    #03e8ad 107.38%
+  );
+  background-clip: text;
+  color: transparent;
+}
+.footerButton {
+  display: inline-flex;
+  padding: 8px;
+  border: 1px solid #0fa294;
+  border-radius: 32px;
+  margin-top: 56px;
+}
+.footerCta .button {
+  margin: 0;
+  outline: none;
+  background: var(--gradient-action);
+  color: #fdffff;
+  width: 259px;
+  height: 51.2px;
+  min-height: 0;
+  border: 0;
+  border-radius: 24px;
+  padding: 16px 12px;
+  gap: 8px;
+  font: 400 16px/1.2 var(--font-body);
+  letter-spacing: -0.32px;
+}
+.footerPanel {
+  background: white;
+  padding: 56px 48px 32px;
+}
+.footerColumns {
+  grid-template-columns: 0.9fr 1fr 1.3fr 1fr;
+  gap: 32px;
+}
+.footerColumns h3 {
+  font: 600 15px/1.5 var(--font-body);
+  margin: 0 0 12px;
+  color: #061c22;
+}
+.footerColumns nav,
+.footerColumns address {
+  gap: 2px;
+}
+.footerColumns a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+.footerColumns address p {
+  padding-block: 12px;
+}
+.footerColumns a:hover {
+  color: #08766a;
+  text-decoration: underline;
+}
+.footerColumns > div:first-child p {
+  color: #53676a;
+  margin-top: 20px;
+}
+.footerColumns .storeLinks {
+  gap: 12px;
+}
+.disclaimer {
+  margin-top: 40px;
+  padding: 28px 0 0;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #53676a;
+}
+@media (max-width: 1100px) {
+  .footerColumns {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .steps .heading {
+    font-size: 52px;
+  }
+}
+@media (max-width: 700px) {
+  .loans {
+    padding-top: 170px;
+    padding-bottom: 64px;
+  }
+  .loanWatermark {
+    top: 64px;
+    width: 400px;
+  }
+  .loanFade {
+    top: 120px;
+    height: 80px;
+  }
+  .loans > .heading {
+    font-size: 42px;
+  }
+  .loans .motionArea {
+    margin-top: 32px;
+  }
+  .loanTrack {
+    animation-name: loanLoop;
+    margin-left: 20px;
+  }
+  .loanTrack.reverse {
+    margin-left: -191px;
+  }
+  .steps .heading {
+    font-size: 48px;
+  }
+  .stepList {
+    gap: 56px;
+    margin-top: 40px;
+  }
+  .stepList li {
+    gap: 20px;
+  }
+  .stepList p {
+    font-size: 16px;
+  }
+  .seal {
+    left: 50%;
+    top: auto;
+    bottom: 500px;
+    transform: translate(-50%, 50%);
+    animation-name: sealTurnMobile;
+  }
+  @keyframes sealTurnMobile {
+    from {
+      transform: translate(-50%, 50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, 50%) rotate(360deg);
+    }
+  }
+  .footerCta .heading {
+    font-size: clamp(32px, 7.8vw, 48px);
+  }
+  .footerPanel {
+    padding: 32px 24px 24px;
+  }
+  .footerColumns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footerColumns nav {
+    display: flex;
+  }
+  .footerColumns .storeLinks {
+    flex-direction: row;
+  }
+  .footerColumns .storeLinks img {
+    width: 138px;
+    height: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seal,
+  .loanTrack {
+    animation: none;
+  }
+  .loans .loanTrack {
+    margin-left: 0;
+  }
+}
+.seal {
+  width: 120px;
+  height: 120px;
+}
+.seal > svg {
+  display: block;
+}
+.sealSymbol {
+  position: absolute;
+  left: 40.7965px;
+  top: 50px;
+}
+.stepList li > img {
+  background: linear-gradient(
+    214.093953deg,
+    #0ba2931a 4.3406%,
+    #03e4aa1a 62.444%,
+    #03e8ad1a 107.38%
+  );
+}
+.stepList li:nth-child(2) > img {
+  background: #065349;
 }

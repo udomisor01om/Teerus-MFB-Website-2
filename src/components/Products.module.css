@@ -1,0 +1,250 @@
+.section {
+  padding: 120px 0;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 14;
+}
+.header,
+.clip,
+.playback {
+  width: min(1237px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.header h2 {
+  font: 600 64px/0.98 var(--font-body);
+  letter-spacing: -5.12px;
+  margin: 0;
+}
+.header em {
+  font-family: var(--font-accent);
+  font-weight: 300;
+  font-style: normal;
+  background: var(--gradient-action);
+  background-clip: text;
+  color: transparent;
+}
+.header p {
+  margin: 16px 0 0 4px;
+  font: 300 18px/1.38 var(--font-body);
+  letter-spacing: -0.36px;
+  color: #38494e;
+  opacity: 0.8;
+}
+.controls {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.controls button {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 24px;
+  border: 1px solid var(--green);
+  display: grid;
+  place-items: center;
+  background: transparent;
+  cursor: pointer;
+}
+.controls button:last-child {
+  border: 0;
+  background: var(--gradient-action);
+}
+.controls button:hover {
+  background-color: #e7f6f4;
+  filter: brightness(1.08);
+}
+.controls button:active {
+  transform: scale(0.95);
+  filter: brightness(0.9);
+}
+.controls button[aria-disabled="true"] {
+  cursor: wait;
+  opacity: 0.65;
+}
+.clip {
+  margin-top: 56px;
+  overflow: hidden;
+}
+.track {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.track::-webkit-scrollbar {
+  display: none;
+}
+.track:focus-visible {
+  outline-offset: -3px;
+  border-radius: 24px;
+}
+.card {
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 min(306px, 100%);
+  height: 563px;
+  border-radius: 24px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #0e9387;
+}
+.art {
+  position: absolute;
+}
+.art img {
+  object-fit: cover;
+}
+.card0 {
+  background: #0e9387 url("/assets/product-savings-background.webp")
+    center/cover;
+}
+.card2,
+.card4 {
+  background: #ebfdff url("/assets/product-light-background.webp") center/cover;
+}
+.card0 .art,
+.card2 .art,
+.card4 .art {
+  left: 39px;
+  top: 44px;
+  width: 228px;
+  height: 463px;
+}
+.card0 .art img,
+.card2 .art img,
+.card4 .art img {
+  object-fit: contain;
+}
+.card1 .art {
+  width: 376px;
+  height: 563px;
+  left: -35px;
+  top: -20px;
+}
+.card3 .art {
+  width: 435px;
+  height: 652px;
+  left: -38px;
+  top: -73px;
+}
+.card5 .art {
+  width: 382px;
+  height: 570px;
+  left: -37px;
+  top: -42px;
+}
+.overlay {
+  position: absolute;
+  inset: 50px 0 0;
+  background: linear-gradient(
+    to bottom,
+    #04141800 0%,
+    #041418e0 74.774%,
+    #041418 100%
+  );
+}
+.card0 .overlay {
+  top: 74px;
+}
+.card1 .overlay {
+  top: 63px;
+}
+.card2 .overlay,
+.card4 .overlay {
+  top: 190px;
+  background: linear-gradient(
+    to bottom,
+    #04141800 0%,
+    #041418d6 72.596%,
+    #041418 100%
+  );
+}
+.copy {
+  position: absolute;
+  top: 425px;
+  left: 28px;
+  width: calc(100% - 56px);
+  color: #e7f6f4;
+}
+.copy h3 {
+  font: 600 28px/0.98 var(--font-body);
+  letter-spacing: -2.24px;
+  margin: 0 0 12px;
+}
+.copy p {
+  font: 500 16px/1.38 var(--font-body);
+  letter-spacing: -0.32px;
+  margin: 0;
+}
+.playback {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+.playback button {
+  border: 1px solid #0fa294;
+  background: transparent;
+  color: #08766a;
+  padding: 8px 14px;
+  border-radius: 24px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.playback button:disabled {
+  cursor: default;
+}
+@media (max-width: 1200px) {
+  .header h2 {
+    font-size: 52px;
+    letter-spacing: -0.08em;
+  }
+}
+@media (max-width: 700px) {
+  .section {
+    padding: 64px 0;
+  }
+  .header,
+  .clip,
+  .playback {
+    width: calc(100% - 40px);
+  }
+  .header {
+    flex-wrap: wrap;
+  }
+  .header h2 {
+    font-size: 42px;
+  }
+  .header p {
+    font-size: 16px;
+    margin-left: 0;
+  }
+  .controls {
+    margin-left: auto;
+  }
+  .clip {
+    margin-top: 28px;
+  }
+  .track {
+    gap: 20px;
+  }
+}
+@media (min-width: 1365px) {
+  .header,
+  .clip,
+  .playback {
+    margin-left: calc((100% - 1208px) / 2);
+    margin-right: 0;
+  }
+}
+.controls button:focus-visible {
+  outline: 3px solid #08766a;
+  outline-offset: 4px;
+}
