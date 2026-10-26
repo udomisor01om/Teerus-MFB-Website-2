@@ -108,25 +108,25 @@ export const individualAccounts = [
     name: "Regular accounts",
     description:
       "Savings and transaction accounts for everyday banking. Open one in the app in minutes.",
-    image: "regular-account-customer.png",
+    image: "images/earn-joy.webp",
   },
   {
     name: "Salary accounts",
     description:
       "Get paid straight into Teerus and manage your income and expenses in one place.",
-    image: "salary-account-money.png",
+    image: "images/earn-cash.webp",
   },
   {
     name: "Savings",
     description:
       "Grow your money, even while you sleep. Save towards rent, school fees or your next big plan.",
-    image: "individual-savings.png",
+    image: "images/earn-overview.webp",
   },
   {
-    name: "Investments",
+    name: "Fixed deposits",
     description:
       "Lock your money away for a set time and earn more. The longer and bigger, the better.",
-    image: "investment-customer.png",
+    image: "images/earn-confidence.webp",
   },
 ];
 export const businessAccounts = [

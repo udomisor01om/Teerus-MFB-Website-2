@@ -162,7 +162,7 @@
 .hero h1 {
   font-size: clamp(48px, 4.77vw, 72px);
   line-height: 0.98;
-  letter-spacing: -0.08em;
+  letter-spacing: calc(-0.08em + 2px);
   font-weight: 600;
   margin: 0 0 24px;
   max-width: 677px;
@@ -789,9 +789,6 @@
   object-fit: contain;
   object-position: center bottom;
 }
-.accountGrid .accountCard:nth-child(2) .accountArt img {
-  padding: 24px 65px 0;
-}
 .businessGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -942,7 +939,7 @@
 .aboutHeroText h1 {
   font-size: 72px;
   font-weight: 600;
-  letter-spacing: -0.08em;
+  letter-spacing: calc(-0.08em + 2px);
   line-height: 0.98;
   margin: 0;
 }
@@ -2085,7 +2082,7 @@
   background: linear-gradient(transparent, #fdffff 50.481%, transparent);
 }
 .homeIntro {
-  background: #f6feff;
+  background: var(--surface-hero);
   border-radius: 0 0 24px 24px;
   position: relative;
   isolation: isolate;

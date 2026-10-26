@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { BrandSeal } from "./BrandSeal";
+import { IndividualsHero } from "./IndividualsHero";
+import personalStyles from "./Individuals.module.css";
 import { HomeHero } from "./HomeHero";
-import Link from "next/link";
+import { PageLink as Link } from "./PageLink";
 import type { ReactNode } from "react";
 import {
   Header,
@@ -72,19 +74,20 @@ export function Intro({
         <Trust />
       </div>
     );
+  if (personal)
+    return (
+      <div className={`${s.intro} ${s.homeIntro}`}>
+        <Header />
+        <IndividualsHero />
+        <Trust />
+      </div>
+    );
   return (
-    <div className={`${s.intro} ${personal ? s.personalIntro : ""}`}>
+    <div className={s.intro}>
       <Header />
       <section className={`${s.hero} ${s[kind]}`} aria-labelledby="hero-title">
         <div className={s.heroArt} aria-hidden="true">
-          <Picture
-            file={
-              personal
-                ? "individual-cardholder.png"
-                : "business-market-women.png"
-            }
-            priority
-          />
+          <Picture file="business-market-women.png" priority />
           <Image
             className={s.heroDecoration}
             src="/assets/hero-brand-shape.svg"
@@ -96,24 +99,17 @@ export function Intro({
         <div className={s.heroCopy}>
           <p className={s.eyebrow}>
             <Image src="/assets/wing-left.svg" alt="" width="28" height="20" />
-            {personal ? "TEERUS FOR INDIVIDUALS" : "TEERUS FOR BUSINESS"}
+            TEERUS FOR BUSINESS
             <Image src="/assets/wing-right.svg" alt="" width="28" height="20" />
           </p>
-          <h1 id="hero-title">
-            {personal ? (
-              <>Save smart. Borrow fast. Spend easy.</>
-            ) : (
-              <>Banking that works for your business.</>
-            )}
-          </h1>
+          <h1 id="hero-title">Banking that works for your business.</h1>
           <p className={s.heroDescription}>
-            {personal
-              ? "Secure, smart and simple banking for everyday life. Everyday accounts, savings that grow and quick cash when you need it, with no hidden fees and instant transactions. Ẹ káàbọ̀."
-              : "Open a business account, get working capital and grow with banking built for small & medium businesses. Ẹ káàbọ̀."}
+            Open a business account, get working capital and grow with banking
+            built for small &amp; medium businesses. Ẹ káàbọ̀.
           </p>
           <div className={s.actions}>
-            <Download dark={personal} label="Download Teerus App" />
-            <BankingLink destination="start">
+            <Download label="Download Teerus App" />
+            <BankingLink destination="start" variant="outlined">
               Start without downloading
             </BankingLink>
           </div>
@@ -420,7 +416,10 @@ export function Footer() {
 }
 export function Accounts({ business = false }: { business?: boolean }) {
   return (
-    <section id="discover" className={`${s.accounts} ${s.container}`}>
+    <section
+      id="discover"
+      className={`${s.accounts} ${s.container} ${business ? "" : personalStyles.accounts}`}
+    >
       <Heading>
         {business ? (
           <>
@@ -437,7 +436,7 @@ export function Accounts({ business = false }: { business?: boolean }) {
       </p>
       {business && (
         <div className={s.accountsDownload}>
-          <Download dark label="Download app" />
+          <Download label="Download app" />
         </div>
       )}
       <div className={business ? s.businessGrid : s.accountGrid}>
@@ -459,9 +458,9 @@ export function Accounts({ business = false }: { business?: boolean }) {
 }
 export function CardFeature() {
   return (
-    <section className={s.cardFeature}>
+    <section className={`${s.cardFeature} ${personalStyles.cardFeature}`}>
       <div className={s.bankCards}>
-        <Picture file="bank-cards.png" alt="Teerus payment cards" />
+        <Picture file="images/card-mockup.webp" alt="Teerus payment cards" />
       </div>
       <div>
         <Heading>
@@ -473,14 +472,16 @@ export function CardFeature() {
           Whether you’re shopping online or you’re outside, your Verified card
           is your best bet for easy payments and a great first impression.
         </p>
-        <Download dark />
+        <Download label="Download Teerus App" />
       </div>
     </section>
   );
 }
 export function PersonalLoans() {
   return (
-    <section className={`${s.personalLoans} ${s.container}`}>
+    <section
+      className={`${s.personalLoans} ${s.container} ${personalStyles.loans}`}
+    >
       <div>
         <Heading>
           Need cash?
@@ -503,7 +504,7 @@ export function Capital() {
       <div>
         <Heading>Capital for the day you need it.</Heading>
         <p>Paid monthly or earning daily, there is a Teerus account for you.</p>
-        <Download dark label="Apply for loan" />
+        <Download label="Apply for loan" />
       </div>
       <div className={s.capitalCards}>
         {[loans[1], loans[5], loans[3]].map((l, i) => (
@@ -623,7 +624,7 @@ export function Values() {
         Paid monthly or earning daily, there is a Teerus account for you.
       </p>
       <div className={s.centered}>
-        <Download dark />
+        <Download label="Download Teerus App" />
       </div>
       <div className={s.valueGrid}>
         {values.map(([name, body, icon]) => (

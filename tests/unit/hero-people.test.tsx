@@ -1,5 +1,6 @@
 import { act, render, cleanup } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { IndividualsArtwork } from "@/components/IndividualsArtwork";
 import { HeroPeople } from "@/components/HeroPeople";
 
 let reduced = false;
@@ -90,4 +91,38 @@ describe("hero person dissolve", () => {
     expect(active(container)).toBe(0);
     expect(vi.getTimerCount()).toBe(0);
   });
+});
+
+it("cycles the two Individuals images without changing their geometry", async () => {
+  const { container } = render(<IndividualsArtwork />);
+  const hand = container.querySelector('img[src*="gradient-hand-holding"]')!;
+  const woman = container.querySelector('img[src*="Green woman"]')!;
+  expect(hand.parentElement!.className).toContain("active");
+  const initialClass = hand.className;
+  await act(async () => {
+    await vi.advanceTimersByTimeAsync(3000);
+  });
+  expect(woman.parentElement!.className).toContain("active");
+  expect(hand.parentElement!.className).not.toContain("active");
+  await act(async () => {
+    await vi.advanceTimersByTimeAsync(3200);
+  });
+  expect(hand.parentElement!.className).toContain("active");
+  expect(hand.className).toBe(initialClass);
+});
+
+it("keeps Individuals artwork static with reduced motion", async () => {
+  reduced = true;
+  const { container } = render(<IndividualsArtwork />);
+  await act(async () => {
+    await vi.advanceTimersByTimeAsync(20000);
+  });
+  expect(
+    container.querySelector('img[src*="gradient-hand-holding"]')!.parentElement!
+      .className,
+  ).toContain("active");
+  expect(
+    container.querySelector('img[src*="Green woman"]')!.parentElement!
+      .className,
+  ).not.toContain("active");
 });

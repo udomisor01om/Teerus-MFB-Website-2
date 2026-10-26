@@ -1,0 +1,7 @@
+.light {
+  color: var(--green);
+}
+p.light > span {
+  background: var(--gradient-action);
+  background-clip: text;
+}

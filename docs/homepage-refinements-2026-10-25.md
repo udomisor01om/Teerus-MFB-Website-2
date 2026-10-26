@@ -58,3 +58,13 @@ This is a deployment compatibility fix for the suspected startup cause, **not a 
 - Shared pages checked at 390 px (Individuals, Business, About, Privacy Policy, Terms) and at 768 px (Individuals, Business, About), without horizontal page overflow.
 - Development accessibility audit reported zero violations on the homepage during desktop inspection.
 - Full Playwright multi-browser suite was not executed: browser binaries are not installed in this workspace. Updated its expectations for loop offsets and removal of the visible loan-pause button.
+
+## Hero layering and navigation correction
+
+- Removed the hero's added green soft-light gradient entirely. The dark base is `#061c22`; original image files are unchanged.
+- Both decorative shapes use layer 0, the market photograph layer 1, and rotating people layer 2, so the patterns cannot cover either image.
+- Removed global smooth page scrolling. Shared page links now reset to the top on ordinary navigation, including repeated home-logo clicks; hash destinations retain their anchor behavior.
+- The development accessibility audit is now opt-in (`ENABLE_ACCESSIBILITY_AUDIT=true`) because its asynchronous scroll restoration could move visitors after navigation. Accessibility checks remain in the test suite.
+- Browser verified header navigation to Individuals/Business, footer navigation to About, footer logo navigation home, and repeated same-page logo clicks. All returned scroll position 0 and stayed there. Desktop 1512 px and mobile 390 px hero visuals checked; no mobile horizontal overflow.
+- Lint, TypeScript, 9 unit tests, production build, and asset/CSP verification passed. Added a navigation regression scenario to the Playwright suite; that suite remains unexecuted because its browser binaries are unavailable.
+- Screenshot: `docs/screenshots/hero-layering-corrected.png`. Changes remain local for the user to commit and push.

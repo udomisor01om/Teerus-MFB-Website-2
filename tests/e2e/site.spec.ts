@@ -1,6 +1,29 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+test("footer navigation and repeated home-logo clicks return to the top", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page
+    .getByRole("navigation", { name: "Footer navigation" })
+    .getByRole("link", { name: "About Us", exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/about$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  for (let i = 0; i < 2; i++) {
+    await page
+      .getByRole("link", { name: "Teerus home", exact: true })
+      .last()
+      .click();
+    await expect(page).toHaveURL(/\/$/);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  }
+  // Catch delayed audit/scroll restoration after navigation has completed.
+  await page.waitForTimeout(1500);
+  expect(await page.evaluate(() => window.scrollY)).toBe(0);
+});
+
 for (const route of [
   "/",
   "/individuals",

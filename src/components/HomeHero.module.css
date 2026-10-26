@@ -22,6 +22,7 @@
 }
 .market {
   position: absolute;
+  z-index: 1;
   right: -24px;
   top: -2px;
   bottom: -3px;
@@ -31,27 +32,14 @@
 .market img {
   object-fit: cover;
 }
-/* The supplied market export already includes the reference green overlay. */
-.wash {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 75.7225%;
-  mix-blend-mode: soft-light;
-  background: linear-gradient(
-    156.1027deg,
-    #0ba29300 4.3406%,
-    #03e4aa4d 62.444%,
-    #03e8ad66 107.38%
-  );
-}
+/* Both patterns sit below the market photograph and the rotating cutouts. */
 .upperShape,
 .lowerShape {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   mix-blend-mode: exclusion;
 }
 .upperShape {
-  z-index: 0;
   width: 13.8515%;
   right: 22.5434%;
   top: -32px;
@@ -149,7 +137,7 @@
   font-size: 72px;
   font-weight: 600;
   line-height: 0.98;
-  letter-spacing: -5.76px;
+  letter-spacing: calc(-5.76px + 2px);
 }
 .description {
   width: 495px;
@@ -165,41 +153,6 @@
   display: flex;
   gap: 14px;
   margin-top: 40px;
-}
-.actions .primary,
-.actions .secondary {
-  flex-shrink: 0;
-  height: 51.2px;
-  min-height: 0;
-  padding: 16px 12px;
-  border-radius: 24px;
-  font: 400 16px/1.2 var(--font-cta);
-}
-.actions .primary {
-  width: 261px;
-  gap: 8px;
-  letter-spacing: -0.32px;
-  color: var(--paper);
-  background: var(--gradient-action);
-  border: 0;
-}
-.actions .secondary {
-  width: 239px;
-  background: transparent;
-  border: 1px solid var(--green);
-  letter-spacing: -0.48px;
-}
-.secondary span {
-  background: var(--gradient-action);
-  background-clip: text;
-  color: transparent;
-}
-.actions .primary:hover {
-  background: var(--gradient-action);
-  filter: brightness(1.08);
-}
-.actions .secondary:hover {
-  background: #0fa2940d;
 }
 .discover {
   display: flex;
@@ -246,7 +199,7 @@
 @media (min-width: 1101px) and (max-width: 1450px) {
   .copy h1 {
     font-size: 5.2023cqw;
-    letter-spacing: -0.08em;
+    letter-spacing: calc(-0.08em + 2px);
     width: 48.9162cqw;
   }
   .description {
@@ -267,7 +220,7 @@
   }
   .copy h1 {
     font-size: clamp(42px, 6.5vw, 64px);
-    letter-spacing: -0.08em;
+    letter-spacing: calc(-0.08em + 2px);
     width: auto;
     max-width: 677px;
   }
@@ -344,10 +297,6 @@
   .actions {
     flex-wrap: wrap;
     margin-top: 28px;
-  }
-  .actions .primary,
-  .actions .secondary {
-    max-width: 100%;
   }
   .label {
     gap: 8px;

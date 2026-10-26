@@ -49,7 +49,8 @@ export default function RootLayout({
           }}
         />
         {children}
-        {process.env.NODE_ENV === "development" && <DevAudit />}
+        {process.env.NODE_ENV === "development" &&
+          process.env.ENABLE_ACCESSIBILITY_AUDIT === "true" && <DevAudit />}
       </body>
     </html>
   );

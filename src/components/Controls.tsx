@@ -11,11 +11,12 @@ import {
   type ReactNode,
 } from "react";
 import { CarouselNavigation } from "./CarouselNavigation";
-import Link from "next/link";
+import { PageLink as Link } from "./PageLink";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/content/site";
 import s from "./Site.module.css";
+import cta from "./CTA.module.css";
 
 export function StoreLinks() {
   return (
@@ -41,11 +42,11 @@ export function StoreLinks() {
 }
 
 export function Download({
-  dark = false,
   label = "Download app",
   className = "",
+  variant = "primary",
 }: {
-  dark?: boolean;
+  variant?: "primary" | "outlined";
   label?: string;
   className?: string;
 }) {
@@ -56,7 +57,7 @@ export function Download({
     <>
       <button
         ref={trigger}
-        className={`${s.button} ${dark ? s.darkButton : ""} ${className}`}
+        className={`${s.button} ${cta.cta} ${cta[variant]} ${cta.download} ${className}`}
         onClick={() => dialog.current?.showModal()}
       >
         <span>{label}</span>
@@ -101,17 +102,19 @@ export function BankingLink({
   children = "Login",
   className = "",
   destination = "login",
+  variant = "primary",
 }: {
   children?: ReactNode;
   className?: string;
   destination?: "login" | "start";
+  variant?: "primary" | "outlined";
 }) {
   return (
     <a
-      className={`${s.button} ${className}`}
+      className={`${s.button} ${cta.cta} ${cta[variant]} ${destination === "start" ? cta.start : ""} ${className}`}
       href={`${siteConfig.externalLinks.webApp}${destination === "login" ? "login" : ""}`}
     >
-      {children}
+      <span>{children}</span>
     </a>
   );
 }

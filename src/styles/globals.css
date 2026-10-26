@@ -2,6 +2,7 @@
 @import "@fontsource-variable/dm-sans/standard-italic.css";
 @import "@fontsource-variable/sansita-swashed";
 :root {
+  --surface-hero: #f6feff;
   --surface-navigation: #f2feff;
   --gradient-action: linear-gradient(90deg, #0fa294, #06b488);
   --font-cta: "DM Sans Variable", sans-serif;
@@ -17,7 +18,7 @@
   box-sizing: border-box;
 }
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 24px;
 }
 body {
