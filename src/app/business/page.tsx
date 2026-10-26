@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Intro, Accounts, Capital, Steps, Footer } from "@/components/Site";
+import { Footer } from "@/components/Site";
+import {
+  BusinessIntro,
+  BusinessAccounts,
+  BusinessCapital,
+  BusinessSavings,
+} from "@/components/BusinessSections";
 export const metadata: Metadata = {
   title: "Business banking",
   description:
@@ -10,10 +16,10 @@ export default function Business() {
   return (
     <>
       <main id="main-content">
-        <Intro kind="business" />
-        <Accounts business />
-        <Capital />
-        <Steps business />
+        <BusinessIntro />
+        <BusinessAccounts />
+        <BusinessCapital />
+        <BusinessSavings />
       </main>
       <Footer />
     </>

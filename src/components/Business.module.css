@@ -1,0 +1,609 @@
+.hero,
+.accounts,
+.capital,
+.savings {
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 14;
+}
+.hero {
+  width: calc(100% - 128px);
+  max-width: 1384px;
+  min-height: 686px;
+  margin: auto;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #061c22;
+  color: #f9feff;
+}
+.copy {
+  position: relative;
+  z-index: 5;
+  padding: 112px 0 75px 6.3584%;
+  width: fit-content;
+}
+.copy h1 {
+  width: 639px;
+  max-width: 100%;
+  margin: 0;
+  font: 600 72px/0.98 var(--font-body);
+  letter-spacing: -3.76px;
+}
+.description {
+  width: 495px;
+  max-width: 100%;
+  margin: 20.88px 0 0 4px;
+  font: 300 18px/1.38 var(--font-body);
+  letter-spacing: -0.36px;
+  color: #f6feff;
+  opacity: 0.9;
+}
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 40px;
+}
+.copy .discover {
+  margin-top: 90px;
+}
+.art,
+.photoArea {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+.heroPhoto {
+  position: absolute;
+  left: 37.71676%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}
+/* An opaque base photo prevents a dark midpoint during the upper photo fade. */
+.women {
+  width: 76.30058%;
+}
+.women img {
+  position: absolute;
+  width: 115.909%;
+  max-width: none;
+  height: 100%;
+  left: -15.909%;
+  object-fit: cover;
+  object-position: right bottom;
+}
+.trader {
+  width: 74.56647%;
+  height: 100.29155%;
+  opacity: 0;
+  transition: opacity 200ms linear;
+}
+.trader img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
+}
+.trader.visible {
+  opacity: 1;
+}
+.darkFade {
+  position: absolute;
+  left: 37.71676%;
+  top: 0;
+  bottom: 0;
+  width: 52.38439%;
+  background: linear-gradient(to right, #061c22 6.188%, #061c2200 91.935%);
+  transition: width 200ms linear;
+}
+.traderFade {
+  width: 51.51734%;
+}
+.greenOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 47.4711%;
+  background: url("/assets/sme-green-overlay.webp") center/100% 100%;
+  transform: scaleX(-1);
+  mix-blend-mode: darken;
+}
+.shapeTop,
+.shapeRight,
+.shapeBottom {
+  position: absolute;
+  z-index: 2;
+}
+.shapeTop {
+  width: 226.844px;
+  height: 205.135px;
+  right: -25.57px;
+  top: -62.07px;
+  display: grid;
+  place-items: center;
+}
+.shapeRight {
+  width: 237.193px;
+  height: 224.043px;
+  right: -118.39px;
+  bottom: -89.52px;
+  display: grid;
+  place-items: center;
+}
+.shapeTop img,
+.shapeRight img {
+  transform: rotate(-15deg);
+  max-width: none;
+}
+.shapeBottom {
+  right: 34.39306%;
+  bottom: -67px;
+}
+.accounts,
+.capital {
+  width: min(1204px, calc(100% - 64px));
+  margin-left: max(32px, calc((100% - 1208px) / 2));
+}
+.accounts {
+  padding: 120px 0;
+}
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+.sectionHeader > div {
+  min-width: 0;
+}
+.accounts h2,
+.savings h2 {
+  margin: 0;
+  font: 600 64px/0.98 var(--font-body);
+  letter-spacing: -5.12px;
+}
+.accounts h2 {
+  max-width: 745px;
+  text-wrap: balance;
+}
+.accounts h2 em,
+.savings h2 em {
+  font-family: var(--font-accent);
+  font-weight: 300;
+  font-style: normal;
+  line-height: 0;
+  background: var(--gradient-action);
+  background-clip: text;
+  color: transparent;
+}
+.supporting {
+  max-width: 612px;
+  margin: 16px 0 0;
+  font: 300 18px/1.38 var(--font-body);
+  letter-spacing: -0.36px;
+  color: #38494e;
+  opacity: 0.8;
+}
+.accountGrid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.accountCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 45.43919%;
+  min-height: 280px;
+  background: #fdffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px #0000000d;
+}
+.accountText {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+}
+.accountText > div {
+  max-width: 237px;
+}
+.number {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: linear-gradient(213deg, #0ba2931a, #03e8ad1a);
+  font: 600 14px/1.48 var(--font-body);
+  letter-spacing: -0.28px;
+}
+.number span {
+  background: var(--gradient-action);
+  background-clip: text;
+  color: transparent;
+}
+.accountText h3,
+.capitalGrid h3 {
+  margin: 0 0 12px;
+  font: 600 20px/0.98 var(--font-body);
+  letter-spacing: -1.6px;
+}
+.accountText p,
+.capitalGrid p {
+  margin: 0;
+  font: 400 14px/1.49 var(--font-body);
+  letter-spacing: -0.28px;
+  color: #38494e;
+}
+.accountArt {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--gradient-action);
+  min-height: 280px;
+}
+.accountArt img {
+  position: absolute;
+  max-width: none;
+}
+.accountArt0 img {
+  width: 143.12%;
+  height: auto;
+  left: -21.56%;
+  top: 54.65px;
+  mix-blend-mode: luminosity;
+}
+.accountArt3 img {
+  width: 118.67%;
+  height: auto;
+  left: -9%;
+  top: 70px;
+  mix-blend-mode: luminosity;
+}
+.accountArt1 img,
+.accountArt2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.capital {
+  margin-top: 56px;
+  margin-bottom: 120px;
+  padding: 72px;
+  border-radius: 24px;
+  background: #fff7f1;
+}
+.capital h2 {
+  margin: 0;
+  font: 600 48px/0.98 var(--font-body);
+  letter-spacing: -3.84px;
+}
+.capital .apply {
+  width: 207px;
+}
+.capitalGrid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.capitalGrid article {
+  padding: 40px 48px;
+  border-radius: 16px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+.moneyIcon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+}
+.money0 {
+  background: linear-gradient(214deg, #0ba2931a, #03e8ad1a);
+}
+.money1 {
+  background: #f47a1f1a;
+}
+.money2 {
+  background: #a54cda1a;
+}
+.savings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #06443e;
+  color: #e7f6f4;
+  overflow: hidden;
+}
+.savingsCopy {
+  width: 476px;
+  max-width: calc(100% - 64px);
+  margin-left: max(32px, calc((100vw - 1208px) / 2));
+  padding: 96px 0 119px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+.savings h2 em {
+  background-image: linear-gradient(
+    190deg,
+    #0ba293 4.34%,
+    #03e4aa 62.44%,
+    #03e8ad 107.38%
+  );
+}
+.deposit {
+  border: 0.5px solid #0ba293;
+  border-radius: 16px;
+  padding: 40px 32px;
+  background: linear-gradient(199deg, #0ba2931a, #03e8ad1a);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.deposit strong {
+  font: 600 40px/0.98 var(--font-body);
+  letter-spacing: -3.2px;
+  background: linear-gradient(184deg, #0ba293, #03e4aa 62%, #03e8ad);
+  background-clip: text;
+  color: transparent;
+}
+.deposit h3 {
+  margin: 0 0 16px;
+  font: 600 20px/0.98 var(--font-body);
+  letter-spacing: -1.6px;
+  color: #fdffff;
+}
+.deposit p {
+  margin: 0;
+  font: 400 16px/1.49 var(--font-body);
+  letter-spacing: -0.32px;
+}
+.startSteps {
+  margin: 0;
+  border-radius: 12px;
+  background: var(--gradient-action);
+  padding: 12px 32px;
+  font: 500 16px/1.49 var(--font-body);
+  letter-spacing: -0.32px;
+}
+.savingsPhoto {
+  position: relative;
+  isolation: isolate;
+}
+.savingsPhoto img {
+  object-fit: cover;
+  object-position: center;
+}
+.savingsPhoto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: scaleX(-1);
+  background: linear-gradient(
+    218.267deg,
+    #0ba29300 4.34%,
+    #03e4aa4d 62.44%,
+    #03e8ad66 107.38%
+  );
+  mix-blend-mode: soft-light;
+}
+@media (max-width: 1200px) {
+  .copy h1 {
+    font-size: 60px;
+    width: 550px;
+    letter-spacing: calc(-0.08em + 2px);
+  }
+  .copy {
+    padding-left: 6%;
+  }
+  .accounts h2,
+  .savings h2 {
+    font-size: clamp(40px, 4.24vw, 64px);
+    letter-spacing: -0.08em;
+  }
+  .capital {
+    padding: 48px;
+  }
+  .capitalGrid article {
+    padding: 32px 24px;
+  }
+  .capital h2 {
+    font-size: 40px;
+    letter-spacing: -0.08em;
+  }
+  .savingsCopy {
+    margin-left: 32px;
+  }
+}
+@media (max-width: 1000px) {
+  .sectionHeader {
+    flex-wrap: wrap;
+  }
+  .accountGrid {
+    grid-template-columns: 1fr;
+  }
+  .accountText > div {
+    max-width: none;
+  }
+  .accountCard {
+    grid-template-columns: minmax(0, 1fr) 269px;
+  }
+  .capitalGrid {
+    grid-template-columns: 1fr;
+  }
+  .capitalGrid article {
+    padding: 32px;
+  }
+  .hero {
+    width: calc(100% - 64px);
+  }
+  .copy {
+    padding: 64px 32px 380px;
+    width: 100%;
+  }
+  .copy h1 {
+    width: 639px;
+    max-width: 100%;
+  }
+  .description {
+    margin-left: 0;
+  }
+  .copy .discover {
+    margin-top: 40px;
+  }
+  .photoArea {
+    top: auto;
+    height: 370px;
+  }
+  .heroPhoto {
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .women img {
+    width: 100%;
+    left: 0;
+    height: 100%;
+    object-position: center 42%;
+  }
+  .trader img {
+    object-position: center 35%;
+  }
+  .darkFade {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 110px;
+    bottom: auto;
+    background: linear-gradient(#061c22, #061c2200);
+  }
+  .greenOverlay {
+    width: 60%;
+  }
+  .shapeBottom {
+    right: 45%;
+    bottom: -67px;
+  }
+  .shapeTop {
+    top: auto;
+    bottom: 240px;
+  }
+  .savings {
+    grid-template-columns: 1fr;
+  }
+  .savingsCopy {
+    width: 600px;
+    max-width: calc(100% - 64px);
+    margin: auto;
+    padding: 72px 0;
+    gap: 48px;
+  }
+  .savingsPhoto {
+    min-height: 600px;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    width: calc(100% - 32px);
+  }
+  .copy {
+    padding: 40px 24px 340px;
+  }
+  .copy h1 {
+    font-size: 46px;
+  }
+  .description {
+    font-size: 16px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .photoArea {
+    height: 320px;
+  }
+  .shapeTop {
+    bottom: 190px;
+  }
+  .accounts,
+  .capital {
+    width: calc(100% - 48px);
+    margin-inline: auto;
+  }
+  .accounts {
+    padding: 72px 0;
+  }
+  .accounts h2,
+  .savings h2 {
+    font-size: 40px;
+  }
+  .accountCard {
+    grid-template-columns: 1fr;
+  }
+  .accountText {
+    padding: 32px;
+  }
+  .accountArt {
+    width: 100%;
+    min-height: 280px;
+  }
+  .accountArt0 img {
+    width: 385px;
+    left: calc(50% - 192.5px);
+  }
+  .accountArt3 img {
+    width: 319px;
+    left: calc(50% - 159.5px);
+  }
+  .accountArt1 img,
+  .accountArt2 img {
+    object-fit: contain;
+  }
+  .capital {
+    padding: 32px 24px;
+    margin-top: 0;
+    margin-bottom: 72px;
+  }
+  .capital h2 {
+    font-size: 36px;
+  }
+  .capitalGrid {
+    margin-top: 32px;
+  }
+  .capitalGrid article {
+    padding: 28px 24px;
+  }
+  .savingsCopy {
+    max-width: calc(100% - 48px);
+  }
+  .deposit {
+    padding: 32px 24px;
+  }
+  .deposit strong {
+    font-size: 34px;
+    letter-spacing: -2px;
+  }
+  .startSteps {
+    padding: 16px 24px;
+  }
+  .savingsPhoto {
+    min-height: 440px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trader,
+  .darkFade {
+    transition: none;
+  }
+}
