@@ -11,15 +11,12 @@ import {
   BankingLink,
   StoreLinks,
   Carousel,
-  MotionRows,
 } from "./Controls";
 import {
   loans,
   testimonials,
   individualAccounts,
   businessAccounts,
-  team,
-  values,
 } from "@/content/marketing";
 import s from "./Site.module.css";
 import trust from "./Trust.module.css";
@@ -526,143 +523,4 @@ export function Capital() {
     </section>
   );
 }
-export function AboutIntro() {
-  return (
-    <div className={s.aboutIntro}>
-      <Header />
-      <section className={s.container}>
-        <p className={s.eyebrow}>OUR PURPOSE</p>
-        <div className={s.aboutHeroText}>
-          <h1>
-            Empowering your financial <em>dream</em>
-          </h1>
-          <p>
-            Empowering dreams, one step at a time. We make banking simple and
-            useful for everyday people and growing businesses, and we are right
-            here at Itire Road whenever you need us.
-          </p>
-        </div>
-        <div className={s.aboutPhotos}>
-          <div>
-            <Picture
-              file="about-team-group.png"
-              alt="Teerus team together at the bank"
-              priority
-            />
-          </div>
-          <div>
-            <Picture
-              file="about-colleagues.png"
-              alt="Teerus colleagues"
-              priority
-            />
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-export function Story() {
-  const portraits = [
-    "portrait-one.png",
-    "home-market-woman.png",
-    "investment-customer.png",
-    "portrait-four.png",
-    "business-current-customer.png",
-    "portrait-six.png",
-    "portrait-seven.png",
-    "portrait-eight.png",
-    "portrait-nine.png",
-  ];
-  return (
-    <section className={s.story}>
-      <div className={s.storyText}>
-        <p className={s.eyebrow}>OUR STORY, VISION AND MISSION</p>
-        <Heading centered>
-          Banking that feels human <em>again</em>
-        </Heading>
-        <p>
-          We believe banking should feel like peace of mind, not paperwork.
-          Teerus was built to make banking feel human again, for individuals and
-          small businesses who deserve a bank that is easy to reach, reliable to
-          use and honest.
-        </p>
-        <p>
-          Our shield stands for protection, openness and a promise to look after
-          your money and your plans.
-        </p>
-        <p>
-          We are in Surulere, Lagos, at No 53, Itire Road, and we work hard to
-          be the bank you will not need to leave for anything else.
-        </p>
-      </div>
-      <MotionRows label="portraits">
-        <div className={s.portraitWindow}>
-          <div className={s.portraitTrack}>
-            {[0, 1].map((copy) => (
-              <div className={s.portraitGroup} key={copy} aria-hidden="true">
-                {portraits.map((file) => (
-                  <div key={file}>
-                    <Picture file={file} sizes="145px" />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </MotionRows>
-    </section>
-  );
-}
-export function Values() {
-  return (
-    <section className={`${s.values} ${s.container}`}>
-      <Heading centered>
-        What we stand <em>for</em>
-      </Heading>
-      <p className={`${s.description} ${s.centered}`}>
-        Paid monthly or earning daily, there is a Teerus account for you.
-      </p>
-      <div className={s.centered}>
-        <Download label="Download Teerus App" />
-      </div>
-      <div className={s.valueGrid}>
-        {values.map(([name, body, icon]) => (
-          <article key={name}>
-            <Image src={`/assets/${icon}`} alt="" width="40" height="40" />
-            <h3>{name}</h3>
-            <p>{body}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-export function Team() {
-  return (
-    <section className={`${s.team} ${s.container}`}>
-      <Heading centered>
-        The team behind the <em>success</em>
-      </Heading>
-      <p className={`${s.description} ${s.centered}`}>
-        Our experienced management team leads strategy, financial operations,
-        regulatory compliance, client relationships, and workforce development.
-      </p>
-      <div className={s.teamGrid}>
-        {team.map(([name, role, file]) => (
-          <article key={name}>
-            <div className={s.teamPhoto}>
-              <Picture
-                file={file}
-                alt={name}
-                sizes="(max-width:700px) 90vw, 350px"
-              />
-            </div>
-            <h3>{name}</h3>
-            <p>{role}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
+export { AboutIntro, Story, Values, Team } from "./AboutSections";

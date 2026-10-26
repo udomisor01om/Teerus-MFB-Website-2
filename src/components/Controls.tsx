@@ -46,7 +46,7 @@ export function Download({
   className = "",
   variant = "primary",
 }: {
-  variant?: "primary" | "outlined";
+  variant?: "primary" | "outlined" | "dark";
   label?: string;
   className?: string;
 }) {
@@ -107,7 +107,7 @@ export function BankingLink({
   children?: ReactNode;
   className?: string;
   destination?: "login" | "start";
-  variant?: "primary" | "outlined";
+  variant?: "primary" | "outlined" | "dark";
 }) {
   return (
     <a

@@ -4,13 +4,22 @@ import styles from "./HeroDetails.module.css";
 export function BrandPill({
   label,
   tone = "dark",
+  icon = true,
 }: {
+  icon?: boolean;
   label: string;
   tone?: "light" | "dark";
 }) {
   return (
     <p className={`${s.label} ${tone === "light" ? styles.light : ""}`}>
-      <Image src="/assets/images/Bird Icon.svg" width={49} height={28} alt="" />
+      {icon && (
+        <Image
+          src="/assets/images/Bird Icon.svg"
+          width={49}
+          height={28}
+          alt=""
+        />
+      )}
       <span>{label}</span>
     </p>
   );

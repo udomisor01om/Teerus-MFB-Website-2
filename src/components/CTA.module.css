@@ -32,3 +32,9 @@
 .cta:hover {
   filter: brightness(1.08);
 }
+
+.cta.dark {
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+}
