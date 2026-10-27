@@ -255,19 +255,16 @@ export function Header() {
           <Link
             href={item.href}
             key={item.href}
-            aria-current={pathname === item.href ? "page" : undefined}
+            aria-current={
+              pathname === item.href || pathname.startsWith(`${item.href}/`)
+                ? "page"
+                : undefined
+            }
             onClick={() => setOpen(false)}
           >
             {item.label}
           </Link>
         ))}
-        <span
-          className={s.comingSoon}
-          aria-disabled="true"
-          title="Blog coming soon"
-        >
-          Blog<span> Soon</span>
-        </span>
         <div className={s.mobileLogin}>
           <BankingLink />
         </div>

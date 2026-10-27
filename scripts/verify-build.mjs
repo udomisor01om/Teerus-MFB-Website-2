@@ -62,6 +62,8 @@ for (const route of [
   "individuals",
   "business",
   "about",
+  "blog",
+  "blog/small-steps-bigger-dreams",
   "privacy-policy",
   "terms-and-conditions",
   "_not-found",

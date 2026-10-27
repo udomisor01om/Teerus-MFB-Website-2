@@ -8,6 +8,7 @@ export const siteConfig = {
     { label: "For Individuals", href: "/individuals" },
     { label: "For SMEs", href: "/business" },
     { label: "About Us", href: "/about" },
+    { label: "Blog", href: "/blog" },
   ],
   externalLinks: {
     webApp: "https://onlinebanking.teerusbank.com/",
