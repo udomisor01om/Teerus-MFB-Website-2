@@ -201,12 +201,6 @@ export function Products() {
             grow and succeed.
           </p>
         </div>
-        <CarouselNavigation
-          label="products"
-          controls="product-track"
-          moving={moving}
-          onMove={(direction) => void move(direction)}
-        />
       </div>
       <div className={s.clip}>
         <div
@@ -269,6 +263,13 @@ export function Products() {
           )}
         </div>
       </div>
+      <CarouselNavigation
+        className={s.navigation}
+        label="products"
+        controls="product-track"
+        moving={moving}
+        onMove={(direction) => void move(direction)}
+      />
     </section>
   );
 }

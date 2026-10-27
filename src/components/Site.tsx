@@ -19,7 +19,7 @@ import {
   businessAccounts,
 } from "@/content/marketing";
 import s from "./Site.module.css";
-import trust from "./Trust.module.css";
+import { Trust } from "./Trust";
 
 export function Picture({
   file,
@@ -119,57 +119,14 @@ export function Intro({
     </div>
   );
 }
-export function Trust() {
-  return (
-    <section className={trust.section} aria-label="Regulatory information">
-      <p>Built on Trust</p>
-      <div className={trust.cards}>
-        {[
-          [
-            "CBN.png",
-            "Licensed by CBN",
-            "Teerus is fully licensed and regulated by the Central Bank of Nigeria.",
-          ],
-          [
-            "NDIC.png",
-            "NDIC",
-            "Deposits are insured by the Nigeria Deposit Insurance Corporation.",
-          ],
-          [
-            "NDPC.png",
-            "NDPC",
-            "Your personal data is protected in line with NDPC.",
-          ],
-        ].map(([file, label, body]) => (
-          <div key={file}>
-            <div className={trust.logo}>
-              <Image
-                src={`/assets/images/${file}`}
-                alt=""
-                width={
-                  file === "CBN.png" ? 120 : file === "NDIC.png" ? 158 : 191
-                }
-                height={file === "CBN.png" ? 95 : file === "NDIC.png" ? 48 : 57}
-                className={trust[file.split(".")[0].toLowerCase()]}
-                unoptimized
-              />
-            </div>
-            <p>
-              <strong>{label}</strong>
-              <span>{body}</span>
-            </p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+export { Trust } from "./Trust";
 export { Products } from "./Products";
-function LoanCard({ item }: { item: { name: string; description: string } }) {
-  const isBusiness =
-    item.name === "SME financing" ||
-    item.name === "Inventory financing" ||
-    item.description.startsWith("Working capital");
+function LoanCard({
+  item,
+}: {
+  item: { name: string; description: string; category: string };
+}) {
+  const isBusiness = item.category === "business";
   return (
     <article className={s.loanCard}>
       <div className={s.loanIcon}>
@@ -207,6 +164,11 @@ export function Loans() {
       <p className={`${s.description} ${s.centered}`}>
         Fast access to capital for individuals & MSMEs.
       </p>
+      <div className={s.mobileLoans}>
+        {loans.map((item, index) => (
+          <LoanCard key={index} item={item} />
+        ))}
+      </div>
       <div className={s.motionArea}>
         {rows.map((row, r) => (
           <div className={s.loanWindow} key={r}>

@@ -47,31 +47,37 @@ export const products: ProductCard[] = [
 }));
 export const loans = [
   {
+    category: "individual",
     name: "Payday loans",
     description:
       "Cover urgent bills or emergencies before your next salary arrives. Apply in the app and repay when you get paid.",
   },
   {
+    category: "business",
     name: "Micro loans",
     description:
       "Working capital to keep your shop open and cash flowing. Buy stock, pay suppliers and cover daily costs with ease.",
   },
   {
+    category: "individual",
     name: "Retail loans",
     description:
       "Flexible personal loans with repayment options that fit how you earn, so you can spread the cost of what matters.",
   },
   {
+    category: "business",
     name: "SME financing",
     description:
       "Won an order but short on cash to deliver it? We fund the supply and you get paid when your client pays you.",
   },
   {
+    category: "individual",
     name: "Micro loans",
     description:
       "Small loans for school fees, rent or a family need. Borrow what you need and repay in amounts that fit your budget.",
   },
   {
+    category: "business",
     name: "Inventory financing",
     description:
       "Stock up before the busy season and never turn a customer away. We fund the goods and you repay as you sell.",

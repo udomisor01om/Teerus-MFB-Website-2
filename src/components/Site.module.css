@@ -2631,3 +2631,55 @@
     margin-top: 16px;
   }
 }
+
+.mobileLoans {
+  display: none;
+}
+@media (max-width: 700px) {
+  .loans .motionArea {
+    display: none;
+  }
+  .loans .loanTrack {
+    animation: none;
+    transform: none;
+  }
+  .mobileLoans {
+    display: grid;
+    gap: 24px;
+    width: calc(100% - 40px);
+    margin: 32px auto 0;
+    position: relative;
+  }
+  .mobileLoans .loanCard {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    padding: 32px 24px;
+  }
+}
+@media (max-width: 1000px) {
+  .header .menuToggle,
+  .header .menuToggle:hover,
+  .header .menuToggle:active,
+  .header .menuToggle:focus,
+  .header .menuToggle[aria-expanded] {
+    color: #061c22;
+    -webkit-text-fill-color: #061c22;
+    appearance: none;
+    -webkit-appearance: none;
+    min-height: 44px;
+  }
+  .menuToggle span {
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+  }
+  .header .nav > a {
+    width: fit-content;
+  }
+  .header .nav > a[aria-current="page"]::after {
+    left: 16px;
+    right: 16px;
+    bottom: 5px;
+  }
+}

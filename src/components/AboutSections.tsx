@@ -91,7 +91,6 @@ export function Values() {
             Paid monthly or earning daily, there is a Teerus account for you.
           </p>
         </div>
-        <Download label="Download Teerus App" variant="dark" />
       </div>
       <div className={s.valueGrid}>
         {values.map(([name, body, icon]) => (
@@ -110,6 +109,9 @@ export function Values() {
             </div>
           </article>
         ))}
+      </div>
+      <div className={s.valuesCTA}>
+        <Download label="Download Teerus App" variant="dark" />
       </div>
     </section>
   );

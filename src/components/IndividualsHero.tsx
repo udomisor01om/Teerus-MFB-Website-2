@@ -1,3 +1,4 @@
+import heroCTA from "./HeroCTA.module.css";
 import { BrandPill, DiscoverPrompt } from "./HeroDetails";
 import { Download, BankingLink } from "./Controls";
 import { IndividualsArtwork } from "./IndividualsArtwork";
@@ -14,7 +15,7 @@ export function IndividualsHero() {
           savings that grow and quick cash when you need it, with no hidden fees
           and instant transactions.
         </p>
-        <div className={s.actions}>
+        <div className={`${s.actions} ${heroCTA.actions}`}>
           <Download label="Download Teerus App" />
           <BankingLink destination="start" variant="outlined">
             Start without Downloading

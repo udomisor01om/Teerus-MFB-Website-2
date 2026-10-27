@@ -639,3 +639,41 @@
     background: linear-gradient(to right, #061c22 40%, #061c2200 96%);
   }
 }
+
+@media (max-width: 700px) {
+  .copy {
+    width: 100%;
+  }
+  .shapeTop {
+    width: 130px;
+    height: 116px;
+    right: -16px;
+    bottom: 180px;
+    top: auto;
+    overflow: hidden;
+  }
+  .shapeTop img {
+    width: 100%;
+    height: auto;
+    transform: translateY(-15%);
+    clip-path: inset(0 3% 0 0);
+  }
+  .shapeRight,
+  .shapeBottom {
+    width: 110px;
+    height: 100px;
+  }
+  .shapeRight {
+    right: -45px;
+    bottom: -35px;
+  }
+  .shapeBottom {
+    right: 40%;
+    bottom: -40px;
+  }
+  .shapeRight img,
+  .shapeBottom img {
+    width: 100%;
+    height: auto;
+  }
+}

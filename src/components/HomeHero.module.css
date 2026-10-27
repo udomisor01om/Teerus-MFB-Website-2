@@ -327,3 +327,17 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 700px) {
+  .upperShape {
+    overflow: hidden;
+  }
+  .upperShape img {
+    transform: translateY(-15%);
+    clip-path: inset(0 3% 0 0);
+  }
+  .person {
+    scale: 1.04;
+    transform-origin: bottom center;
+  }
+}

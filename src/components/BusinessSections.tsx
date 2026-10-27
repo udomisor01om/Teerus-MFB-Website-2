@@ -1,3 +1,4 @@
+import heroCTA from "./HeroCTA.module.css";
 import Image from "next/image";
 import { Header, Download, BankingLink } from "./Controls";
 import { BrandPill, DiscoverPrompt } from "./HeroDetails";
@@ -20,7 +21,7 @@ export function BusinessIntro() {
             Open a business account, get working capital and grow with banking
             built for small &amp; medium businesses.
           </p>
-          <div className={s.actions}>
+          <div className={`${s.actions} ${heroCTA.actions}`}>
             <Download label="Download Teerus App" />
             <BankingLink destination="start" variant="outlined">
               Start without Downloading

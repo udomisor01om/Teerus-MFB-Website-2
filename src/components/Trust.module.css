@@ -112,3 +112,63 @@
     width: 100%;
   }
 }
+.mobile {
+  display: none;
+}
+@media (max-width: 700px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .viewport {
+    overflow: hidden;
+    touch-action: pan-y pinch-zoom;
+    border-radius: 24px;
+  }
+  .slider {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    align-items: stretch;
+  }
+  .slider > div {
+    flex: 0 0 100%;
+    width: 100%;
+    min-height: 156px;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .pagination button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .pagination span {
+    width: 7px;
+    height: 7px;
+    border-radius: 8px;
+    background: #91aaa7;
+  }
+  .pagination [aria-current="true"] span {
+    width: 20px;
+    background: var(--gradient-action);
+  }
+}
+@media (max-width: 380px) {
+  .slider > div {
+    min-height: 224px;
+  }
+}
