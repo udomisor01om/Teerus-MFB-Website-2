@@ -81,3 +81,7 @@ main {
     scroll-behavior: auto;
   }
 }
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}

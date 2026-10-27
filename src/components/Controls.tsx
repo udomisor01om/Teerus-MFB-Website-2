@@ -17,6 +17,7 @@ import { usePathname } from "next/navigation";
 import { siteConfig } from "@/content/site";
 import s from "./Site.module.css";
 import cta from "./CTA.module.css";
+import download from "./DownloadModal.module.css";
 
 export function StoreLinks() {
   return (
@@ -53,6 +54,8 @@ export function Download({
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const title = useId();
+  const description = useId();
+  const [platform, setPlatform] = useState<"apple" | "google">("apple");
   return (
     <>
       <button
@@ -74,24 +77,115 @@ export function Download({
       </button>
       <dialog
         ref={dialog}
-        className={s.dialog}
+        className={download.dialog}
         aria-labelledby={title}
+        aria-describedby={description}
         onClose={() => trigger.current?.focus()}
         onClick={(e) => {
           if (e.target === e.currentTarget) dialog.current?.close();
         }}
       >
-        <div className={s.dialogInner}>
+        <div className={download.inner}>
           <button
-            className={s.close}
+            type="button"
+            className={download.close}
             aria-label="Close download choices"
             onClick={() => dialog.current?.close()}
           >
-            ×
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="m6 6 12 12M18 6 6 18"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
           </button>
-          <h2 id={title}>Get the Teerus app</h2>
-          <p>Choose the store for your device.</p>
-          <StoreLinks />
+          <div className={download.brand}>
+            <Image src="/icon.png" width={44} height={44} alt="" unoptimized />
+            <span>YOUR BANK, ALWAYS WITH YOU</span>
+          </div>
+          <h2 id={title}>
+            Take Teerus <em>with you.</em>
+          </h2>
+          <p id={description} className={download.description}>
+            Scan with your phone to download the Teerus app, or choose your app
+            store below.
+          </p>
+          <div
+            className={download.platforms}
+            role="group"
+            aria-label="Choose a QR code for your phone"
+          >
+            <button
+              type="button"
+              aria-pressed={platform === "apple"}
+              onClick={() => setPlatform("apple")}
+            >
+              iPhone
+            </button>
+            <button
+              type="button"
+              aria-pressed={platform === "google"}
+              onClick={() => setPlatform("google")}
+            >
+              Android
+            </button>
+          </div>
+          <div className={download.qr}>
+            <Image
+              src={`/assets/teerus-${platform}-qr.svg`}
+              width={208}
+              height={208}
+              alt={`Scan to download Teerus from ${platform === "apple" ? "the App Store" : "Google Play"}`}
+              unoptimized
+            />
+          </div>
+          <p className={download.caption} aria-live="polite">
+            {platform === "apple"
+              ? "App Store · iPhone"
+              : "Google Play · Android"}
+          </p>
+          <div className={download.stores}>
+            <StoreLinks />
+          </div>
+          <p className={download.note}>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
+              <path
+                d="M12 11v6m0-10v1"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+            Download Teerus only from the App Store or Google Play.
+          </p>
+          <button
+            type="button"
+            className={download.back}
+            onClick={() => dialog.current?.close()}
+          >
+            Back to browsing <span aria-hidden="true">↗</span>
+          </button>
         </div>
       </dialog>
     </>
