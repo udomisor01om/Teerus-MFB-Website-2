@@ -30,7 +30,7 @@ export const products: ProductCard[] = [
   {
     name: "Esusu",
     description: "Save with others and take money when your cycle comes up.",
-    image: "esusu-phone.webp",
+    image: "images/Esusu Mobile Screen.png",
     phone: true,
   },
   {
@@ -193,7 +193,7 @@ export const team = [
     "Head, Risk Management & Internal Control",
     "team-esang-ekarika.png",
   ],
-  ["Daniel Adekanye", "Head, I.T Support", "team-daniel-adekanye.png"],
+  ["Daniel Tunji-Adekanye", "IT Lead", "team-daniel-adekanye.png"],
   ["Nwamaka Chukwudebe", "Head of Operations", "team-nwamaka-chukwudebe.png"],
   ["Adebisi Ilo", "Relationship Officer", "team-adebisi-ilo.png"],
   ["Ayeni Felicia", "Relationship Officer", "team-ayeni-felicia.png"],

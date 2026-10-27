@@ -38,3 +38,26 @@
   color: var(--paper);
   border: 0;
 }
+
+.cta.cta.primary:hover:not(:disabled),
+.cta.cta.primary:focus-visible {
+  background: linear-gradient(110deg, #08766a, #06634f);
+  color: #fff;
+  filter: none;
+  box-shadow: 0 5px 16px #06443e26;
+}
+.cta.cta {
+  transition:
+    background 160ms,
+    box-shadow 160ms,
+    transform 160ms;
+}
+.cta.cta:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+.cta.cta.dark:hover {
+  background: #06443e;
+  color: #fff;
+  filter: none;
+}

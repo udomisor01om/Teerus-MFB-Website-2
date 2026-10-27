@@ -2,6 +2,7 @@
 @import "@fontsource-variable/dm-sans/standard-italic.css";
 @import "@fontsource-variable/sansita-swashed";
 :root {
+  --header-top-space: 40px;
   --surface-hero: #f6feff;
   --surface-navigation: #f2feff;
   --gradient-action: linear-gradient(90deg, #0fa294, #06b488);
@@ -18,6 +19,7 @@
   box-sizing: border-box;
 }
 html {
+  scrollbar-gutter: stable;
   scroll-behavior: auto;
   scroll-padding-top: 24px;
 }
@@ -68,6 +70,11 @@ a {
 }
 main {
   min-width: 0;
+}
+@media (max-width: 700px) {
+  :root {
+    --header-top-space: 20px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   html {

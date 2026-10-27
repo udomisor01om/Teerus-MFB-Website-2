@@ -155,7 +155,7 @@ describe("SME photo rotation", () => {
     vi.mocked(HTMLImageElement.prototype.decode).mockImplementation(function (
       this: HTMLImageElement,
     ) {
-      return this.src.includes("shop-owner")
+      return this.src.includes("medium-shot-man-repairing-fashion-goods")
         ? new Promise<void>((resolve) => {
             finish = resolve;
           })

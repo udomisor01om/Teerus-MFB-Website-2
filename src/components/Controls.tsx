@@ -167,6 +167,13 @@ export function Header() {
             {item.label}
           </Link>
         ))}
+        <span
+          className={s.comingSoon}
+          aria-disabled="true"
+          title="Blog coming soon"
+        >
+          Blog<span> Soon</span>
+        </span>
         <div className={s.mobileLogin}>
           <BankingLink />
         </div>

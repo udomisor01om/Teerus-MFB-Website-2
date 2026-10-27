@@ -22,7 +22,6 @@ export function Products() {
   const alive = useRef(true);
   const idleTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const decoded = useRef(new Map<string, Promise<void>>());
-  const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [dragging, setDragging] = useState(false);
@@ -154,7 +153,6 @@ export function Products() {
   }, [active, prepare, visible]);
   useEffect(() => {
     if (
-      paused ||
       hovered ||
       focused ||
       dragging ||
@@ -176,7 +174,6 @@ export function Products() {
     hovered,
     move,
     moving,
-    paused,
     reduced,
     visible,
   ]);
@@ -271,19 +268,6 @@ export function Products() {
             )),
           )}
         </div>
-      </div>
-      <div className={s.playback}>
-        <button
-          onClick={() => setPaused(!paused)}
-          aria-pressed={paused}
-          disabled={reduced}
-        >
-          {reduced
-            ? "Automatic movement off"
-            : paused
-              ? "Resume automatic movement"
-              : "Pause automatic movement"}
-        </button>
       </div>
     </section>
   );

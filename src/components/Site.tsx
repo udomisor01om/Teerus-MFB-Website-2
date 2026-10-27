@@ -378,6 +378,13 @@ export function Footer() {
               <Link href="/individuals">For Individual</Link>
               <Link href="/business">For SMEs</Link>
               <Link href="/about">About Us</Link>
+              <span
+                className={s.comingSoon}
+                aria-disabled="true"
+                title="Blog coming soon"
+              >
+                Blog <span>Soon</span>
+              </span>
               <Link href="/privacy-policy">Privacy Policy</Link>
               <Link href="/terms-and-conditions">Terms and Conditions</Link>
             </nav>

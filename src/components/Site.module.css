@@ -28,7 +28,7 @@
   letter-spacing: -0.02em;
 }
 .intro {
-  padding: 40px 0 64px;
+  padding: var(--header-top-space) 0 64px;
   background:
     radial-gradient(ellipse at 8% 0%, #bdffe9 0, transparent 35%),
     radial-gradient(ellipse at 60% -20%, #ffd4b9 0, transparent 40%), #f6feff;
@@ -1136,7 +1136,7 @@
   color: #066456;
 }
 .simpleHeader {
-  padding-top: 40px;
+  padding-top: var(--header-top-space);
   background: #ebfdff;
   padding-bottom: 1px;
 }
@@ -1280,7 +1280,7 @@
     width: calc(100% - 40px);
   }
   .intro {
-    padding: 20px 0 48px;
+    padding: var(--header-top-space) 0 48px;
   }
   .header {
     width: calc(100% - 32px);
@@ -1750,7 +1750,7 @@
     font-size: 16px;
   }
   .simpleHeader {
-    padding-top: 20px;
+    padding-top: var(--header-top-space);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2536,4 +2536,98 @@
 }
 .stepList li:nth-child(2) > img {
   background: #065349;
+}
+
+/* The accent underline identifies the current page independently of hover. */
+.header .nav {
+  gap: 12px;
+}
+.header .nav > a {
+  position: relative;
+  padding: 12px 16px;
+  border-radius: 14px;
+  transition:
+    background-color 160ms,
+    color 160ms;
+}
+.header .nav > a:hover,
+.header .nav > a:focus-visible {
+  background: #dff5ee;
+  color: #07584f;
+}
+.header .nav > a[aria-current="page"],
+.header .nav > a[aria-current="page"]:hover,
+.header .nav > a[aria-current="page"]:focus-visible {
+  font-weight: 500;
+  background: linear-gradient(to right, #0fa294, #06b488);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.header .nav > a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 35%;
+  right: 35%;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #0fa294, #06b488);
+}
+.comingSoon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #38494e;
+  font-size: 14px;
+  padding: 12px 10px;
+}
+.comingSoon > span {
+  font-size: 10px;
+  border: 1px solid #92bcb4;
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+.footerColumns .comingSoon {
+  padding: 0;
+}
+.testimonials .carouselTrack {
+  scrollbar-width: none;
+}
+.testimonials .carouselTrack::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .menuToggle {
+    display: block;
+    border: 0;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .desktopLogin {
+    display: none;
+  }
+  .header .nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 84px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 15px 30px #061c2226;
+  }
+  .header .navOpen {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .mobileLogin {
+    display: block;
+    margin-top: 16px;
+  }
 }

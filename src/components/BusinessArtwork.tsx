@@ -12,25 +12,22 @@ export function BusinessArtwork() {
             key={name}
             className={`${s.heroPhoto} ${index === 0 ? s.women : s.trader} ${index === 1 && active === 1 ? s.visible : ""}`}
           >
-            <picture>
-              <source
-                media="(max-width: 600px)"
-                srcSet={`/assets/sme-hero-${name}-640.webp 640w, /assets/sme-hero-${name}.webp 1024w`}
-                sizes="100vw"
-              />
-              <Image
-                ref={(el) => {
-                  images.current[index] = el;
-                }}
-                src={`/assets/sme-hero-${name}.webp`}
-                alt=""
-                width={1024}
-                height={index === 0 ? 574 : 683}
-                unoptimized
-                loading="eager"
-                fetchPriority={index === 0 ? "high" : "auto"}
-              />
-            </picture>
+            <Image
+              ref={(el) => {
+                images.current[index] = el;
+              }}
+              src={
+                index === 0
+                  ? "/assets/images/two-women-are-looking-phone-while-one-them-is-holding-box 1.png"
+                  : "/assets/images/medium-shot-man-repairing-fashion-goods 1.png"
+              }
+              alt=""
+              width={1724}
+              height={1372}
+              unoptimized
+              loading="eager"
+              fetchPriority={index === 0 ? "high" : "auto"}
+            />
           </div>
         ))}
         <div className={`${s.darkFade} ${active === 1 ? s.traderFade : ""}`} />

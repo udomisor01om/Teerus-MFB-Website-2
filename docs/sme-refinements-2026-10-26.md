@@ -42,9 +42,12 @@ The source photos are only 1024 px wide. No upscaled export was generated or cla
 - Typecheck and ESLint passed.
 - 14 unit tests passed, including 3 new SME tests for exact hold timing, waiting for photo decode, and static reduced-motion state.
 - Production build and static/CSP verifier passed.
-- Responsive CSS covers narrower desktop, tablet and mobile layouts with content-driven heights; this has **not** been visually verified in the live browser.
-- Browser preview access was rejected by the browser URL security gate. No alternate browser surface or workaround was attempted.
-- Consequently both live hero states, transition midpoint, mobile crops, text wrapping/overflow, CTA interactive states and full-page pixel comparison remain unverified. No live-preview screenshots or visual-pass claim are included.
+- Browser access restored: the preview server was stopped. Starting it required local listening permission; after restarting on 127.0.0.1:3000 the real HTTP page was accessible.
+- Inspected live desktop hero variants, accounts, loans and savings. Both photos rotate in the browser; exact 3-second hold and 200ms transition are covered by unit tests. A precise transition-midpoint capture was not obtained.
+- Checked widths 1512, 1200, 768, 390 and 320 px. Fixed mobile decoration overlap with the Discover prompt and savings grid minimum sizing that clipped copy. At 320 and 390 px, rendered headings and paragraphs stay inside the viewport; no horizontal document overflow.
+- Download dialog opens, Escape dismisses it and focus returns to its trigger. Verified Apply for loan href is the approved online-banking homepage. Clicking the footer For SMEs link returns to scroll position zero.
+- No failed loaded images or browser runtime errors observed. Decorative SVG proportional sizing was made explicit after development warnings.
+- Browser proof images are in docs/screenshots/sme-desktop-browser.jpg and sme-mobile-savings-browser.jpg. These checks are visual/layout checks, not an automated pixel-diff against Figma.
 - Existing shared footer links/contact/legal copy and verified store destinations are preserved in code. No social destinations were invented.
 
 ## Pending editorial review

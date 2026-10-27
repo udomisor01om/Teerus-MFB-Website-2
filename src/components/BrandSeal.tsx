@@ -23,7 +23,7 @@ export function BrandSeal() {
             Bank the way you like
           </textPath>
         </text>
-        <circle cx="60" cy="60" r="35.5" fill="#f9feff" stroke="#ff9b29" />
+        <circle cx="60" cy="60" r="35.5" fill="#f9feff" stroke="#03e8ad" />
       </svg>
       <Image
         src="/assets/seal-symbol.svg"

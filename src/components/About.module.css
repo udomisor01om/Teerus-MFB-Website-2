@@ -11,7 +11,7 @@
   overflow: hidden;
   background: var(--ink);
   color: #e7f6f4;
-  padding: 40px 0 134px;
+  padding: var(--header-top-space) 0 120px;
 }
 .pattern,
 .glow,
@@ -45,7 +45,7 @@
 .heroContent {
   width: min(1211px, calc(100% - 64px));
   margin-left: max(32px, calc((100% - 1208px) / 2));
-  padding-top: 82px;
+  padding-top: 32px;
 }
 .heroText {
   display: grid;
@@ -79,7 +79,7 @@
   display: grid;
   grid-template-columns: 748fr 440fr;
   gap: 22px;
-  margin-top: 80px;
+  margin-top: 32px;
   width: calc(100% - 1px);
 }
 .photos > div {
@@ -95,7 +95,7 @@
   object-fit: cover;
 }
 .photos > div:first-child img {
-  object-position: left bottom;
+  object-position: center 45%;
 }
 .photos > div:last-child img {
   object-position: center;
@@ -430,9 +430,6 @@
   .photos {
     margin-top: 48px;
   }
-  .intro {
-    padding-bottom: 72px;
-  }
   .values,
   .team {
     padding-block: 72px;
@@ -519,5 +516,16 @@
   }
   .portraitPause {
     display: none;
+  }
+}
+
+@media (min-width: 901px) {
+  .heroText h1 {
+    font-size: clamp(48px, 4.25vw, 64px);
+  }
+  .photos > div,
+  .photos > div:last-child {
+    aspect-ratio: auto;
+    height: clamp(250px, 36vh, 360px);
   }
 }
