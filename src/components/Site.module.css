@@ -592,6 +592,9 @@
 .testimonials {
   padding: 120px 0;
 }
+.testimonials .heading {
+  letter-spacing: -0.0628em;
+}
 .testimonials .carousel {
   margin-top: 48px;
   max-width: 1150px;
@@ -2342,6 +2345,12 @@
 .footerCta .heading > span,
 .footerCta .heading > em {
   display: block;
+}
+.footerCtaFirstLine {
+  letter-spacing: -0.0378em;
+}
+.footerCtaSecondLine {
+  letter-spacing: -0.0519em;
 }
 .footerCta .heading > em {
   font-weight: 300;

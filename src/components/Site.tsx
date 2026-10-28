@@ -310,8 +310,10 @@ export function Footer() {
       <footer className={s.footer}>
         <div className={s.footerCta}>
           <Heading centered>
-            <span>Take control of your</span>
-            <span>finance. Bank smarter with</span>
+            <span className={s.footerCtaFirstLine}>Take control of your</span>
+            <span className={s.footerCtaSecondLine}>
+              finance. Bank smarter with
+            </span>
             <em>Teerus.</em>
           </Heading>
           <div className={s.footerButton}>
