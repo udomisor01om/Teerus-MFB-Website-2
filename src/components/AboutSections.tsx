@@ -125,10 +125,18 @@ const teamSizes = [
   [748, 1024],
   [800, 1071],
   [800, 800],
-  [800, 800],
+  [544, 430],
   [642, 430],
 ];
 export function Team() {
+  // Keep each portrait tied to its original crop when changing the display order.
+  const displayTeam = team
+    .map((member, index) => ({ member, index }))
+    .sort(
+      (a, b) =>
+        Number(b.member[2] === "team-jelil-ajagbe.png") -
+        Number(a.member[2] === "team-jelil-ajagbe.png"),
+    );
   return (
     <section className={s.team} aria-labelledby="team-title">
       <h2 id="team-title">
@@ -139,8 +147,13 @@ export function Team() {
         regulatory compliance, client relationships, and workforce development.
       </p>
       <div className={s.teamGrid}>
-        {team.map(([name, role, file], index) => (
-          <article key={name}>
+        {displayTeam.map(({ member: [name, role, file], index }) => (
+          <article
+            key={name}
+            className={
+              file === "team-jelil-ajagbe.png" ? s.chairmanCard : undefined
+            }
+          >
             <div className={s.teamPhoto}>
               {file ? (
                 <Image

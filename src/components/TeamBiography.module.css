@@ -253,3 +253,15 @@
     position: static;
   }
 }
+
+.chairmanVisual {
+  background:
+    radial-gradient(ellipse at top right, #0fa29455, transparent 65%), #063d37;
+}
+.chairmanVisual .eyebrow,
+.chairmanVisual .signature {
+  color: #a3eed5;
+}
+.chairmanVisual .photo {
+  background: linear-gradient(145deg, #12594e, #0a443d);
+}

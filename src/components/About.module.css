@@ -574,3 +574,33 @@
   bottom: 0;
   object-fit: contain;
 }
+
+.teamPhoto .member8 {
+  width: auto;
+  height: 100%;
+  bottom: 0;
+  object-fit: contain;
+}
+.teamGrid .chairmanCard {
+  background:
+    radial-gradient(ellipse at top right, #0fa29440, transparent 65%), #063d37;
+  border-color: #2f8f78;
+  box-shadow: 0 8px 28px #063d3714;
+}
+.chairmanCard .teamPhoto {
+  background: linear-gradient(145deg, #12594e, #0a443d);
+  border-radius: 12px;
+}
+.chairmanCard > .identity > div > h3 {
+  color: #f2feff;
+}
+.chairmanCard > .identity > div > p {
+  color: #9be8cf;
+}
+.chairmanCard .identityIcon {
+  background: #e7fff3;
+  border-color: #8cdfc4;
+}
+.chairmanCard .identityIcon:hover {
+  background: #b9f3de;
+}

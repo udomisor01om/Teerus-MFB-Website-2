@@ -204,6 +204,6 @@ export const team = [
   ["Adebisi Ilo", "Relationship Officer", "team-adebisi-ilo.png"],
   ["Ayeni Felicia", "Relationship Officer", "team-ayeni-felicia.png"],
   ["Okereafor Amarachi", "Teller", "team-okereafor-amarachi.png"],
-  ["Jelil (Tope) Ajagbe", "Chairman", ""],
+  ["Jelil (Tope) Ajagbe", "Chairman of the Board", "team-jelil-ajagbe.png"],
   ["Faturoti Olayiwola", "", "team-faturoti-olayiwola.png"],
 ];

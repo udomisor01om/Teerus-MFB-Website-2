@@ -66,7 +66,9 @@ export function TeamBiography({
             aria-label={`Biography of ${name}`}
           >
             <div className={b.layout}>
-              <div className={b.visual}>
+              <div
+                className={`${b.visual} ${file === "team-jelil-ajagbe.png" ? b.chairmanVisual : ""}`}
+              >
                 <span className={b.eyebrow}>THE PEOPLE BEHIND TEERUS</span>
                 <div className={`${s.teamPhoto} ${b.photo}`}>
                   {file ? (
