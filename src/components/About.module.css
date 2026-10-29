@@ -570,7 +570,7 @@
 
 .teamPhoto .member9 {
   width: auto;
-  height: 100%;
+  height: calc(100% - 24px);
   bottom: 0;
   object-fit: contain;
 }
