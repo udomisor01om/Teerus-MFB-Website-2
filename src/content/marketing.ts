@@ -190,13 +190,13 @@ export const values = [
 ];
 export const team = [
   [
-    "Chukwuemeka o. Osondu",
+    "Chukwuemeka Onwuedo Osondu",
     "Managing Director/CEO",
     "team-chukwuemeka-osondu.png",
   ],
   [
     "Esang U. Ekarika",
-    "Head, Risk Management & Internal Control",
+    "Head of Risk Management, Compliance and Internal Control",
     "team-esang-ekarika.png",
   ],
   ["Daniel Tunji-Adekanye", "IT Lead", "team-daniel-adekanye.png"],
@@ -204,4 +204,6 @@ export const team = [
   ["Adebisi Ilo", "Relationship Officer", "team-adebisi-ilo.png"],
   ["Ayeni Felicia", "Relationship Officer", "team-ayeni-felicia.png"],
   ["Okereafor Amarachi", "Teller", "team-okereafor-amarachi.png"],
+  ["Jelil (Tope) Ajagbe", "Chairman", ""],
+  ["Faturoti Olayiwola", "", "team-faturoti-olayiwola.png"],
 ];

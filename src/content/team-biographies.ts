@@ -1,0 +1,38 @@
+// Biographies supplied by Teerus. Paragraphs preserved; document headings and form artifacts omitted.
+export const teamBiographies: Record<string, string[]> = {
+  "Faturoti Olayiwola": [
+    "Faturoti Olayiwola is a seasoned finance and accounting professional with over nine years of experience in financial management within the microfinance banking sector. He possesses strong expertise in core accounting operations, financial reporting, general ledger management, treasury operations, reconciliations, and internal control systems.",
+    "He holds a degree in Accounting from Ekiti State University and is certified under the Microfinance Certification Programme (MCP) of the Chartered Institute of Bankers of Nigeria, further demonstrating his competence in regulated financial operations and banking practices.",
+    "Faturoti is recognized for his diligence, attention to detail, integrity, and commitment to accuracy in financial processes. He continues to advance steadily in his professional career, building strong capacity in accounting, financial reporting, treasury management, and overall financial administration within the banking industry.",
+  ],
+  "Jelil (Tope) Ajagbe": [
+    "Jelil Ajagbe is a seasoned banking, governance and strategy professional with over 20 years experience.",
+    "He began his professional career in the Information and Technology sector before transitioning into banking, he commenced his banking career at Access Bank Plc as a Management Trainee, following his graduation from the Access Bank School of Excellence. He then went on to build a strong and diverse banking career across Access Bank Plc, Guaranty Trust Bank Plc (GTBank) and Heritage Bank Plc with experience covering Banking Operations, Risk Management, Debt Recovery, Credit Management , SME, Retail, Institutional, Corporate and Commercial Banking coupled with  branch and experience centre management.",
+    "Alongside his board role at Teerus Microfinance Bank,  Mr. Ajagbe provides strategic leadership across other business interests, with extensive executive experience in growth strategy, commercial execution and global market expansion.",
+    "He holds a Bachelor’s degree in Computer Science & Information Technology and a Master of Business Administration (MBA) from the University of Lagos. He has also completed executive education programmes at Harvard Business School (Strategic Marketing Management) and The Wharton  School (Global Strategic Leadership).",
+    "He brings to Teerus Microfinance Bank board a wealth of expertise in financial services and corporate governance , supporting the Bank’s commitment to innovation, resilience and long term value creation.",
+  ],
+  "Chukwuemeka Onwuedo Osondu": [
+    "Chukwuemeka Onwuedo Osondu is a seasoned banking and financial services professional with over 16 years of progressive experience spanning product management, credit risk management, business intelligence, and strategic leadership within Nigeria’s banking and fintech sectors. He currently serves as the Managing Director of Teerus Microfinance Bank Limited, where he provides strategic leadership focused on profitability, digital transformation, regulatory compliance, and sustainable growth.",
+    "Prior to his current role, he held key roles at Heritage Bank Plc, Enterprise Bank Ltd, and Spring Bank Plc, gaining extensive expertise in product development, credit underwriting, business intelligence, financial analysis, and relationship management. He also serves as a Business/Commercial Partner at Finceptive Limited, where he oversees strategic supply chain financing partnerships and business growth initiatives.",
+    "He holds a Bachelor of Science degree in Economics from Abia State University, Nigeria and has attended several professional development courses in product development, credit analysis, leadership, business intelligence, cybersecurity, and AML/CFT compliance.",
+    "Chukwuemeka is recognized for his strong leadership capabilities, analytical mindset, customer-centric approach, and commitment to driving institutional growth and operational excellence.",
+  ],
+  "Daniel Tunji-Adekanye": [
+    "Daniel Tunji-Adekanye is an information technology professional with experience in banking technology, IT operations and information security within Nigeria’s microfinance banking sector. He currently serves as the IT Lead at Teerus Microfinance Bank, where he is responsible for maintaining the bank’s IT infrastructure and core banking application, ensuring system availability, providing end-user support, managing vendors, and implementing IT controls in line with CBN cybersecurity guidelines.",
+    "Prior to joining Teerus, he served as Head of Information Technology at a CBN-licensed microfinance bank, where he managed the core banking system, digital banking channels, disaster recovery, IT strategy and vendor relationships, and led staff training on the bank’s systems and IT best practices.",
+    "He holds a Bachelor of Science degree in Computer Science from Koladaisi University and has attended professional development training, including Central Bank of Nigeria sessions on regulatory reporting and cybersecurity.",
+    "Daniel is recognised for his hands-on approach, attention to detail and commitment to making technology simple and dependable for colleagues and customers.",
+  ],
+  "Nwamaka Chukwudebe": [
+    "Nwamaka Chukwudebe is the Head of Operations at Teerus Microfinance Bank Limited, where she oversees the Bank’s operational infrastructure, including settlement and reconciliation, regulatory compliance, and operational risk management.",
+    "With eight years of experience in Nigeria’s financial services sector, she brings extensive expertise in digital banking operations across mobile and card channels, transaction processing, settlements, and dispute resolution. She has worked closely with Compliance and Risk teams to strengthen operational controls and ensure adherence to Central Bank of Nigeria (CBN) and Nigeria Inter-Bank Settlement System (NIBSS) regulatory standards.",
+    "At Teerus MFB, Nwamaka is committed to building robust, efficient, and responsive operational systems that support service excellence, regulatory integrity, and sustainable business growth as the Bank expands its reach and deepens customer engagement.",
+  ],
+  "Esang U. Ekarika": [
+    "Esang Ekarika is a seasoned banker with extensive experience in the Microfinance banking industry. He possesses over 15 years of progressive career experience spanning risk management, regulatory compliance, internal control, internal audit and investigations, as well as microfinance banking operations.",
+    "He commenced his banking career with First Bank of Nigeria Group subsidiary, FBN Microfinance Bank Limited, where he built a solid foundation in banking operations, risk governance, and compliance management.",
+    "Currently, Esang Ekarika serves as the Head of Risk Management, Compliance and Internal Control at Teerus Microfinance Bank Limited, where he is responsible for overseeing the Bank’s enterprise risk management framework, regulatory compliance functions, internal control processes, and institutional risk mitigation strategies. In this role, he plays a critical part in safeguarding the Bank’s operational integrity, ensuring compliance with regulatory standards, and supporting sustainable business growth.",
+    "He holds a Bachelor of Science (B.Sc.) degree in Accounting from the University of Benin, Nigeria, and continues to contribute significantly to the advancement of sound corporate governance and risk management practices within the microfinance banking sector.",
+  ],
+};

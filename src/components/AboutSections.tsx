@@ -1,3 +1,4 @@
+import { teamBiographies } from "@/content/team-biographies";
 import Image from "next/image";
 import { Header, Download } from "./Controls";
 import { BrandPill } from "./HeroDetails";
@@ -124,6 +125,8 @@ const teamSizes = [
   [748, 1024],
   [800, 1071],
   [800, 800],
+  [800, 800],
+  [642, 430],
 ];
 export function Team() {
   return (
@@ -139,27 +142,37 @@ export function Team() {
         {team.map(([name, role, file], index) => (
           <article key={name}>
             <div className={s.teamPhoto}>
-              <Image
-                src={`/assets/${file.replace(".png", "-about.webp")}`}
-                alt={name}
-                width={teamSizes[index][0]}
-                height={teamSizes[index][1]}
-                unoptimized
-                className={s[`member${index + 1}`]}
-              />
+              {file ? (
+                <Image
+                  src={`/assets/${file.replace(".png", "-about.webp")}`}
+                  alt={name}
+                  width={teamSizes[index]?.[0] ?? 800}
+                  height={teamSizes[index]?.[1] ?? 800}
+                  unoptimized
+                  className={s[`member${index + 1}`]}
+                />
+              ) : (
+                <span
+                  className={s.initialsPortrait}
+                  aria-label={`Portrait of ${name} coming soon`}
+                >
+                  {name === "Jelil (Tope) Ajagbe" ? "JA" : "FO"}
+                </span>
+              )}
             </div>
             <div className={s.identity}>
               <div>
                 <h3>{name}</h3>
-                <p>{role}</p>
+                {role && <p>{role}</p>}
               </div>
               <TeamBiography
+                biography={teamBiographies[name]}
                 name={name}
                 role={role}
                 file={file}
                 index={index}
-                width={teamSizes[index][0]}
-                height={teamSizes[index][1]}
+                width={teamSizes[index]?.[0] ?? 800}
+                height={teamSizes[index]?.[1] ?? 800}
               />
             </div>
           </article>
