@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { blogCategories, filterBlogPosts, type BlogPost } from "@/content/blog";
+import { filterBlogPosts, type BlogPost } from "@/content/blog";
 import { PostCard } from "./Blog";
 import s from "./Blog.module.css";
 export function BlogListing({ posts }: { posts: BlogPost[] }) {
@@ -47,19 +47,21 @@ export function BlogListing({ posts }: { posts: BlogPost[] }) {
         </label>
       </div>
       <div className={s.filters} role="group" aria-label="Filter by topic">
-        {blogCategories.map((item) => (
-          <button
-            key={item}
-            type="button"
-            aria-pressed={category === item}
-            onClick={() => {
-              setCategory(item);
-              setLimit(6);
-            }}
-          >
-            {item}
-          </button>
-        ))}
+        {["All stories", ...new Set(posts.map((post) => post.category))].map(
+          (item) => (
+            <button
+              key={item}
+              type="button"
+              aria-pressed={category === item}
+              onClick={() => {
+                setCategory(item);
+                setLimit(6);
+              }}
+            >
+              {item}
+            </button>
+          ),
+        )}
       </div>
       <p className={s.results} role="status">
         {filtered.length} {filtered.length === 1 ? "story" : "stories"}

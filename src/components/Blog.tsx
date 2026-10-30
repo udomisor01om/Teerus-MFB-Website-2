@@ -21,33 +21,42 @@ export function BlogImage({
     <div
       className={`${s.image} ${post.category === "Product stories" ? s.productImage : ""}`}
     >
-      <Image
-        src={post.image}
-        alt={post.imageAlt}
-        fill
-        sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 640px"
-        unoptimized
-        priority={priority}
-      />
+      {post.image ? (
+        <Image
+          src={post.image}
+          alt={post.imageAlt}
+          fill
+          sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 640px"
+          unoptimized
+          priority={priority}
+        />
+      ) : (
+        <span className={s.imagePlaceholder} aria-hidden="true">
+          Teerus<em>Journal</em>
+        </span>
+      )}
     </div>
   );
 }
 export function PostCard({ post }: { post: BlogPost }) {
   return (
     <article className={s.card}>
-      <PageLink href={`/blog/${post.slug}`} className={s.cardLink}>
+      <PageLink
+        href={`/blog/${encodeURIComponent(post.slug)}`}
+        className={s.cardLink}
+      >
         <BlogImage post={post} />
         <div className={s.cardBody}>
           <div className={s.meta}>
             <span>{post.category}</span>
-            <span>{post.readMinutes} min read</span>
+            {post.readMinutes && <span>{post.readMinutes} min read</span>}
           </div>
           <h3>{post.title}</h3>
           <p>{post.excerpt}</p>
           <div className={s.cardFoot}>
             <span>
               {post.author}
-              <small>{formatBlogDate(post.date)} · Sample story</small>
+              <small>{formatBlogDate(post.date)}</small>
             </span>
             <span className={s.arrow} aria-hidden="true">
               ↗

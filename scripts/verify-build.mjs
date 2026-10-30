@@ -62,8 +62,6 @@ for (const route of [
   "individuals",
   "business",
   "about",
-  "blog",
-  "blog/small-steps-bigger-dreams",
   "privacy-policy",
   "terms-and-conditions",
   "_not-found",
@@ -72,3 +70,10 @@ for (const route of [
 console.log(
   `Verified ${files.length} prerendered HTML files, ${assets.size} local assets, all required routes and CSP hydration hashes.`,
 );
+
+const appPaths = JSON.parse(
+  await readFile(".next/server/app-paths-manifest.json", "utf8"),
+);
+for (const route of ["/blog/page", "/blog/[slug]/page", "/sitemap.xml/route"]) {
+  if (!appPaths[route]) throw new Error(`Missing dynamic CMS route ${route}`);
+}

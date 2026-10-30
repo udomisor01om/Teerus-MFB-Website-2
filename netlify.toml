@@ -12,4 +12,5 @@
     unsafeInline = false
     https = false
     http = false
-    excludedPath = ["/assets/*", "/_next/*", "/api/*"]
+    # CMS pages receive their nonce directly from src/proxy.ts.
+    excludedPath = ["/assets/*", "/_next/*", "/api/*", "/blog", "/blog/*"]

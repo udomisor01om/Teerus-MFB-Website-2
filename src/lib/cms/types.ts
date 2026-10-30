@@ -1,0 +1,70 @@
+import type { ContentBlock, Media, Relationship } from "./blocks";
+export type { ContentBlock, Media, Relationship } from "./blocks";
+export type Brand = {
+  id: number;
+  name: string;
+  key: string;
+  frontendUrl: string;
+  timezone: string;
+  domains?: Array<{ domain: string; id?: string | null }> | null;
+  updatedAt: string;
+  createdAt: string;
+};
+export type AuthorProfile = {
+  id: number;
+  brand: Relationship<Brand>;
+  name: string;
+  slug: string;
+  bio?: string | null;
+  avatar?: Relationship<Media> | null;
+  updatedAt: string;
+  createdAt: string;
+};
+export type Category = {
+  id: number;
+  brand: Relationship<Brand>;
+  name: string;
+  slug: string;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+};
+export type Tag = Omit<Category, "description">;
+export type PostSEO = {
+  title?: string | null;
+  description?: string | null;
+  canonicalUrl?: string | null;
+  socialImage?: Relationship<Media> | null;
+  noIndex?: boolean | null;
+};
+export type Post = {
+  id: number;
+  brand: Relationship<Brand>;
+  title: string;
+  slug: string;
+  excerpt: string;
+  featuredImage?: Relationship<Media> | null;
+  authors: Array<Relationship<AuthorProfile>>;
+  categories?: Array<Relationship<Category>> | null;
+  tags?: Array<Relationship<Tag>> | null;
+  content: ContentBlock[];
+  workflowStatus: "draft" | "in-review" | "changes-requested" | "approved";
+  publishedAt?: string | null;
+  relatedPosts?: Array<Relationship<Post>> | null;
+  seo?: PostSEO;
+  updatedAt: string;
+  createdAt: string;
+  _status?: "draft" | "published" | null;
+};
+export type PostsResponse = {
+  docs: Post[];
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+  limit: number;
+  nextPage: number | null;
+  page: number;
+  pagingCounter: number;
+  prevPage: number | null;
+  totalDocs: number;
+  totalPages: number;
+};
