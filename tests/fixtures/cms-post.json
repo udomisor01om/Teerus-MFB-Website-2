@@ -1,0 +1,243 @@
+{
+  "id": 1,
+  "brand": {
+    "id": 1,
+    "name": "Teerus",
+    "key": "teerus",
+    "frontendUrl": "https://teerusmfb.netlify.app",
+    "timezone": "Africa/Lagos",
+    "updatedAt": "2026-10-30T00:00:00Z",
+    "createdAt": "2026-10-30T00:00:00Z"
+  },
+  "title": "Welcome to Teerus insights",
+  "slug": "welcome-to-teerus-insights",
+  "excerpt": "TEST FIXTURE \u2014 Exploring the people and ideas behind everyday banking.",
+  "authors": [
+    {
+      "id": 1,
+      "brand": 1,
+      "name": "Teerus Editorial",
+      "slug": "teerus-editorial",
+      "createdAt": "2026-10-30T00:00:00Z",
+      "updatedAt": "2026-10-30T00:00:00Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "brand": 1,
+      "name": "Inside Teerus",
+      "slug": "inside-teerus",
+      "createdAt": "2026-10-30T00:00:00Z",
+      "updatedAt": "2026-10-30T00:00:00Z"
+    }
+  ],
+  "content": [
+    {
+      "blockType": "heading",
+      "text": "Banking with a human touch",
+      "level": "h2"
+    },
+    {
+      "blockType": "richText",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "paragraph",
+              "version": 1,
+              "children": [
+                {
+                  "type": "text",
+                  "version": 1,
+                  "text": "A clearer path for your everyday banking.",
+                  "format": 1
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "version": 1,
+              "listType": "bullet",
+              "children": [
+                {
+                  "type": "listitem",
+                  "version": 1,
+                  "children": [
+                    {
+                      "type": "text",
+                      "version": 1,
+                      "text": "Save with purpose."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "version": 1
+        }
+      }
+    },
+    {
+      "blockType": "image",
+      "image": {
+        "id": 1,
+        "brand": 1,
+        "alt": "Teerus team together",
+        "url": "/media/team.webp",
+        "width": 1200,
+        "height": 800,
+        "caption": "Our people, our purpose.",
+        "credit": "Teerus",
+        "createdAt": "2026-10-30T00:00:00Z",
+        "updatedAt": "2026-10-30T00:00:00Z"
+      }
+    },
+    {
+      "blockType": "gallery",
+      "images": [
+        {
+          "image": {
+            "id": 1,
+            "brand": 1,
+            "alt": "Teerus team together",
+            "url": "/media/team.webp",
+            "width": 1200,
+            "height": 800,
+            "caption": "Our people, our purpose.",
+            "credit": "Teerus",
+            "createdAt": "2026-10-30T00:00:00Z",
+            "updatedAt": "2026-10-30T00:00:00Z"
+          }
+        },
+        {
+          "image": 44
+        }
+      ]
+    },
+    {
+      "blockType": "quote",
+      "quote": "Small steps can lead to extraordinary possibilities.",
+      "attribution": "Teerus"
+    },
+    {
+      "blockType": "callout",
+      "title": "Make it a habit",
+      "body": "Set aside time to check your progress.",
+      "tone": "info"
+    },
+    {
+      "blockType": "button",
+      "label": "Explore Teerus",
+      "url": "/individuals"
+    },
+    {
+      "blockType": "embed",
+      "title": "An external resource",
+      "url": "https://example.com/resource"
+    },
+    {
+      "blockType": "code",
+      "language": "text",
+      "code": "Savings = income - spending\n<script>unsafe()</script>"
+    },
+    {
+      "blockType": "table",
+      "rows": [
+        {
+          "cells": [
+            {
+              "value": "Habit"
+            },
+            {
+              "value": "Frequency"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "value": "Check spending"
+            },
+            {
+              "value": "Weekly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockType": "divider"
+    },
+    {
+      "blockType": "relatedContent",
+      "posts": [
+        {
+          "id": 2,
+          "brand": {
+            "id": 1,
+            "name": "Teerus",
+            "key": "teerus",
+            "frontendUrl": "https://teerusmfb.netlify.app",
+            "timezone": "Africa/Lagos",
+            "updatedAt": "2026-10-30T00:00:00Z",
+            "createdAt": "2026-10-30T00:00:00Z"
+          },
+          "title": "Another Teerus story",
+          "slug": "another-teerus-story",
+          "excerpt": "TEST FIXTURE \u2014 Exploring the people and ideas behind everyday banking.",
+          "authors": [
+            {
+              "id": 1,
+              "brand": 1,
+              "name": "Teerus Editorial",
+              "slug": "teerus-editorial",
+              "createdAt": "2026-10-30T00:00:00Z",
+              "updatedAt": "2026-10-30T00:00:00Z"
+            }
+          ],
+          "categories": [
+            {
+              "id": 1,
+              "brand": 1,
+              "name": "Inside Teerus",
+              "slug": "inside-teerus",
+              "createdAt": "2026-10-30T00:00:00Z",
+              "updatedAt": "2026-10-30T00:00:00Z"
+            }
+          ],
+          "content": [],
+          "workflowStatus": "approved",
+          "_status": "published",
+          "publishedAt": "2026-10-30T00:00:00Z",
+          "updatedAt": "2026-10-30T00:00:00Z",
+          "createdAt": "2026-10-30T00:00:00Z",
+          "seo": {
+            "title": "Welcome to Teerus insights",
+            "description": "Ideas for everyday banking.",
+            "noIndex": false
+          }
+        },
+        99
+      ]
+    },
+    {
+      "blockType": "futureBlock",
+      "custom": "Ignore gracefully"
+    }
+  ],
+  "workflowStatus": "approved",
+  "_status": "published",
+  "publishedAt": "2026-10-30T00:00:00Z",
+  "updatedAt": "2026-10-30T00:00:00Z",
+  "createdAt": "2026-10-30T00:00:00Z",
+  "seo": {
+    "title": "Welcome to Teerus insights",
+    "description": "Ideas for everyday banking.",
+    "noIndex": false
+  }
+}

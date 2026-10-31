@@ -21,9 +21,9 @@ export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
-  category: BlogCategory;
+  category: string;
   date: string;
-  readMinutes: number;
+  readMinutes?: number;
   author: string;
   image: string;
   imageAlt: string;
@@ -177,6 +177,7 @@ export function getBlogPost(slug: string) {
   return posts.find((post) => post.slug === slug);
 }
 export function formatBlogDate(date: string) {
+  if (!date || Number.isNaN(Date.parse(date))) return "";
   return new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
     month: "short",

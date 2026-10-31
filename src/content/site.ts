@@ -2,7 +2,9 @@ import type { SiteConfig } from "./types";
 
 export const siteConfig = {
   name: "Teerus Microfinance Bank",
-  canonicalOrigin: "https://www.teerusbank.com",
+  canonicalOrigin: (
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.teerusbank.com"
+  ).replace(/\/$/, ""),
   locale: "en-NG",
   navigation: [
     { label: "For Individuals", href: "/individuals" },

@@ -1,3 +1,4 @@
+import { bankStructuredData } from "@/content/structured-data";
 import { DevAudit } from "@/components/DevAudit";
 import type { Metadata } from "next";
 import "@/styles/globals.css";
@@ -32,20 +33,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BankOrCreditUnion",
-              name: siteConfig.name,
-              url: siteConfig.canonicalOrigin,
-              telephone: "+2349012411411",
-              email: "info@teerusbank.com",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "No 53, Itire Road",
-                addressLocality: "Surulere, Lagos",
-                addressCountry: "NG",
-              },
-            }).replace(/</g, "\\u003c"),
+            __html: bankStructuredData,
           }}
         />
         {children}
