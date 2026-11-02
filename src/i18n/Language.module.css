@@ -1,0 +1,95 @@
+.selector {
+  position: relative;
+  flex-shrink: 0;
+}
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid #d8ebe6;
+  border-radius: 999px;
+  background: #fff;
+  color: #123e38;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  min-height: 44px;
+  transition:
+    background 0.18s,
+    border-color 0.18s;
+}
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  background: #effaf5;
+  border-color: #a5d6ce;
+}
+.trigger:focus-visible,
+.option:focus-visible {
+  outline: 2px solid #0fa294;
+  outline-offset: 3px;
+}
+.chevron {
+  transition: transform 0.18s;
+}
+.trigger[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 100;
+  width: 184px;
+  padding: 8px;
+  border: 1px solid #e0eee9;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 36px #062b241a;
+}
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: 11px;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  background: #fff;
+  color: #123e38;
+  cursor: pointer;
+}
+.option:hover,
+.option:focus-visible {
+  background: #effaf5;
+}
+.option[aria-pressed="true"] {
+  color: #08766a;
+  font-weight: 600;
+}
+@media (prefers-reduced-motion: reduce) {
+  .trigger,
+  .chevron {
+    transition: none;
+  }
+}
+.notice {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-left: 3px solid #0fa294;
+  background: #effaf7;
+  color: #234d47;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+  .dropdown {
+    left: 0;
+    right: auto;
+  }
+}

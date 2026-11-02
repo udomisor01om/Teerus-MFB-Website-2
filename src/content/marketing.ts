@@ -85,29 +85,23 @@ export const loans = [
 ];
 export const testimonials: (Testimonial & { image: string })[] = [
   {
-    name: "Femi Oluwatosin",
-    image: "customer-femi.png",
+    name: "Morayo",
+    image: "customer-morayo-illustration.webp",
     quote:
-      "With Teerus MFB, I can pay bills from my phone. It saves me time and fits right into my busy day.",
+      "The app is clean and easy to use. I set up a standing instruction in under a minute and it’s run smoothly ever since.",
   },
   {
-    name: "Tolu Adewale",
-    image: "customer-tolu.png",
+    name: "Rasheed Tijani",
+    image: "customer-rasheed-illustration.webp",
     quote:
-      "I use Teerus MFB to keep track of my spending. Having everything in one app makes managing my money easier.",
-  },
-  {
-    name: "Yemi Tominsin",
-    image: "customer-yemi.png",
-    quote:
-      "Teerus MFB makes everyday banking simple. I can send money and check my balance without visiting a branch.",
+      "The Teerus app is so seamless. Moving from point A to B is easy, and within seconds I am done with my transfer.",
   },
 ].map((testimonial, index) => ({
   ...testimonial,
   id: `testimonial-${index + 1}`,
   attribution: "",
-  source: `${figmaSource}?node-id=5263-46069`,
-  approved: false,
+  source: "Customer testimonial supplied by Teerus",
+  approved: true,
 }));
 export const individualAccounts = [
   {
@@ -205,5 +199,12 @@ export const team = [
   ["Ayeni Felicia", "Relationship Officer", "team-ayeni-felicia.png"],
   ["Okereafor Amarachi", "Teller", "team-okereafor-amarachi.png"],
   ["Jelil (Tope) Ajagbe", "Chairman of the Board", "team-jelil-ajagbe.png"],
-  ["Faturoti Olayiwola", "", "team-faturoti-olayiwola.png"],
+  ["Faturoti Olayiwola", "Head of Finance", "team-faturoti-olayiwola.png"],
 ];
+
+// Retain profiles and portraits so these cards can be restored by removing a name.
+export const hiddenTeamMembers = new Set([
+  "Adebisi Ilo",
+  "Ayeni Felicia",
+  "Okereafor Amarachi",
+]);

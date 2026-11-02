@@ -1,3 +1,4 @@
+import { T } from "@/i18n/Language";
 import heroCTA from "./HeroCTA.module.css";
 import { BrandPill, DiscoverPrompt } from "./HeroDetails";
 import { Download, BankingLink } from "./Controls";
@@ -9,16 +10,20 @@ export function IndividualsHero() {
       <IndividualsArtwork />
       <div className={s.copy}>
         <BrandPill label="TEERUS FOR INDIVIDUALS" tone="light" />
-        <h1 id="hero-title">Save smart. Borrow fast. Spend easy.</h1>
+        <h1 id="hero-title">
+          <T>{"Save smart. Borrow fast. Spend easy."}</T>
+        </h1>
         <p className={s.description}>
-          Secure, smart and simple banking for everyday life. Everyday accounts,
-          savings that grow and quick cash when you need it, with no hidden fees
-          and instant transactions.
+          <T>
+            {
+              "Secure, smart and simple banking for everyday life. Everyday accounts, savings that grow and quick cash when you need it, with no hidden fees and instant transactions. "
+            }
+          </T>
         </p>
         <div className={`${s.actions} ${heroCTA.actions}`}>
           <Download label="Download Teerus App" />
           <BankingLink destination="start" variant="outlined">
-            Start without Downloading
+            <T>{"Start without Downloading "}</T>
           </BankingLink>
         </div>
         <DiscoverPrompt tone="light" className={s.discover} />

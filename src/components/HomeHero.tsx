@@ -1,3 +1,4 @@
+import { T } from "@/i18n/Language";
 import heroCTA from "./HeroCTA.module.css";
 import Image from "next/image";
 import { Download, BankingLink } from "./Controls";
@@ -5,7 +6,15 @@ import { HeroPeople } from "./HeroPeople";
 import { BrandPill, DiscoverPrompt } from "./HeroDetails";
 import s from "./HomeHero.module.css";
 
-export function HomeHero() {
+export type HeroCopy = {
+  badge: string;
+  title: string;
+  description: string;
+  download: string;
+  start: string;
+  discover: string;
+};
+export function HomeHero({ copy }: { copy?: HeroCopy } = {}) {
   return (
     <section className={s.hero} aria-labelledby="hero-title">
       <div className={s.art} aria-hidden="true">
@@ -37,22 +46,33 @@ export function HomeHero() {
         <HeroPeople />
       </div>
       <div className={s.copy}>
-        <BrandPill label="Local bank with wings" />
+        <BrandPill label={copy?.badge ?? "Local bank with wings"} />
         <h1 id="hero-title">
-          Banking that gives
-          <br className={s.desktopBreak} /> your dreams wings.
+          {copy ? (
+            copy.title
+          ) : (
+            <>
+              <T>{"Banking that gives "}</T>
+              <br className={s.desktopBreak} />
+              <T>{" your dreams wings. "}</T>
+            </>
+          )}
         </h1>
         <p className={s.description}>
-          Save, borrow and manage everyday transactions with a bank that knows
-          your market.
+          <T>
+            {copy?.description ??
+              "Save, borrow and manage everyday transactions with a bank that knows your market."}
+          </T>
         </p>
         <div className={`${s.actions} ${heroCTA.actions}`}>
-          <Download label="Download Teerus App" />
+          <Download label={copy?.download ?? "Download Teerus App"} />
           <BankingLink variant="outlined" destination="start">
-            <span>Start without Downloading</span>
+            <span>
+              <T>{copy?.start ?? "Start without Downloading"}</T>
+            </span>
           </BankingLink>
         </div>
-        <DiscoverPrompt />
+        <DiscoverPrompt label={copy?.discover} />
       </div>
     </section>
   );

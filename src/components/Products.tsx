@@ -1,4 +1,5 @@
 "use client";
+import { T } from "@/i18n/Language";
 
 import {
   useCallback,
@@ -194,11 +195,17 @@ export function Products() {
       <div className={s.header}>
         <div>
           <h2 id="products-title">
-            Manage, save &amp; borrow with <em>ease.</em>
+            <T>{"Manage, save & borrow with "}</T>
+            <em>
+              <T>{"ease."}</T>
+            </em>
           </h2>
           <p>
-            Helping individuals and SMEs with top banking solutions to save,
-            grow and succeed.
+            <T>
+              {
+                "Helping individuals and SMEs with top banking solutions to save, grow and succeed. "
+              }
+            </T>
           </p>
         </div>
       </div>
@@ -245,16 +252,18 @@ export function Products() {
                 </div>
                 <div className={s.overlay} />
                 <div className={s.copy}>
-                  <h3>{product.name}</h3>
+                  <h3>
+                    <T>{product.name}</T>
+                  </h3>
                   <p>
                     {index === 1 ? (
                       <>
-                        Lock it away and earn
+                        <T>{"Lock it away and earn "}</T>
                         <br />
-                        more.
+                        <T>{"more. "}</T>
                       </>
                     ) : (
-                      product.description
+                      <T>{product.description}</T>
                     )}
                   </p>
                 </div>

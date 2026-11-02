@@ -1,4 +1,5 @@
 "use client";
+import { T, OriginalLanguageNotice, useText } from "@/i18n/Language";
 
 import Image from "next/image";
 import { useId, useRef } from "react";
@@ -22,6 +23,7 @@ export function TeamBiography({
   height: number;
   biography?: string[];
 }) {
+  const text = useText();
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const title = useId();
@@ -31,7 +33,7 @@ export function TeamBiography({
         ref={trigger}
         type="button"
         className={`${s.identityIcon} ${b.trigger}`}
-        aria-label={`Read biography of ${name}`}
+        aria-label={`${text("Read biography of")} ${name}`}
         aria-haspopup="dialog"
         onClick={() => {
           dialog.current?.showModal();
@@ -54,7 +56,7 @@ export function TeamBiography({
           <button
             type="button"
             className={b.close}
-            aria-label="Close biography"
+            aria-label={text("Close biography")}
             onClick={() => dialog.current?.close()}
             autoFocus
           >
@@ -63,13 +65,15 @@ export function TeamBiography({
           <div
             className={b.reader}
             tabIndex={0}
-            aria-label={`Biography of ${name}`}
+            aria-label={`${text("Biography of")} ${name}`}
           >
             <div className={b.layout}>
               <div
                 className={`${b.visual} ${file === "team-jelil-ajagbe.png" ? b.chairmanVisual : ""}`}
               >
-                <span className={b.eyebrow}>THE PEOPLE BEHIND TEERUS</span>
+                <span className={b.eyebrow}>
+                  <T>{"THE PEOPLE BEHIND TEERUS"}</T>
+                </span>
                 <div className={`${s.teamPhoto} ${b.photo}`}>
                   {file ? (
                     <Image
@@ -86,23 +90,42 @@ export function TeamBiography({
                     </span>
                   )}
                 </div>
-                <span className={b.signature}>Banking with a human touch.</span>
+                <span className={b.signature}>
+                  <T>{"Banking with a human touch."}</T>
+                </span>
               </div>
               <div className={b.content}>
-                <span className={b.eyebrow}>MEET OUR TEAM</span>
+                <span className={b.eyebrow}>
+                  <T>{"MEET OUR TEAM"}</T>
+                </span>
                 <h2 id={title}>{name}</h2>
-                {role && <p className={b.role}>{role}</p>}
-                <div className={b.biography}>
-                  <h3>Biography</h3>
+                {role && (
+                  <p className={b.role}>
+                    <T>{role}</T>
+                  </p>
+                )}
+                <OriginalLanguageNotice kind="biography" />
+                <div className={b.biography} lang="en">
+                  <h3>
+                    <T>{"Biography"}</T>
+                  </h3>
                   {biography?.length ? (
                     biography.map((paragraph, i) => <p key={i}>{paragraph}</p>)
                   ) : (
                     <>
-                      <span className={b.placeholder}>PROFILE COMING SOON</span>
+                      <span className={b.placeholder}>
+                        <T>{"PROFILE COMING SOON"}</T>
+                      </span>
                       <p>
-                        This profile is being prepared. An introduction to{" "}
-                        {name}, their professional background and experience
-                        will appear here.
+                        <T>
+                          {"This profile is being prepared. An introduction to"}
+                        </T>{" "}
+                        {name}
+                        <T>
+                          {
+                            ", their professional background and experience will appear here. "
+                          }
+                        </T>
                       </p>
                     </>
                   )}
