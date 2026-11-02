@@ -1,3 +1,4 @@
+import { T } from "@/i18n/Language";
 import Image from "next/image";
 import { BrandSeal } from "./BrandSeal";
 import { IndividualsHero } from "./IndividualsHero";
@@ -96,22 +97,28 @@ export function Intro({
         <div className={s.heroCopy}>
           <p className={s.eyebrow}>
             <Image src="/assets/wing-left.svg" alt="" width="28" height="20" />
-            TEERUS FOR BUSINESS
+            <T>{"TEERUS FOR BUSINESS "}</T>
             <Image src="/assets/wing-right.svg" alt="" width="28" height="20" />
           </p>
-          <h1 id="hero-title">Banking that works for your business.</h1>
+          <h1 id="hero-title">
+            <T>{"Banking that works for your business."}</T>
+          </h1>
           <p className={s.heroDescription}>
-            Open a business account, get working capital and grow with banking
-            built for small &amp; medium businesses. Ẹ káàbọ̀.
+            <T>
+              {
+                "Open a business account, get working capital and grow with banking built for small & medium businesses. Ẹ káàbọ̀. "
+              }
+            </T>
           </p>
           <div className={s.actions}>
             <Download label="Download Teerus App" />
             <BankingLink destination="start" variant="outlined">
-              Start without downloading
+              <T>{"Start without downloading "}</T>
             </BankingLink>
           </div>
           <a className={s.discover} href="#discover">
-            Discover How We Can Help You! <span aria-hidden="true">↓</span>
+            <T>{"Discover How We Can Help You! "}</T>
+            <span aria-hidden="true">↓</span>
           </a>
         </div>
       </section>
@@ -138,8 +145,12 @@ function LoanCard({
           unoptimized
         />
       </div>
-      <h3>{item.name}</h3>
-      <p>{item.description}</p>
+      <h3>
+        <T>{item.name}</T>
+      </h3>
+      <p>
+        <T>{item.description}</T>
+      </p>
     </article>
   );
 }
@@ -159,10 +170,13 @@ export function Loans() {
       />
       <div className={s.loanFade} aria-hidden="true" />
       <Heading centered>
-        Discover our top loan <em>services.</em>
+        <T>{"Discover our top loan "}</T>
+        <em>
+          <T>{"services."}</T>
+        </em>
       </Heading>
       <p className={`${s.description} ${s.centered}`}>
-        Fast access to capital for individuals & MSMEs.
+        <T>{"Fast access to capital for individuals & MSMEs. "}</T>
       </p>
       <div className={s.mobileLoans}>
         {loans.map((item, index) => (
@@ -198,31 +212,45 @@ export function Steps({ business = false }: { business?: boolean }) {
         <Heading>
           {business ? (
             <>
-              Save for growth.
+              <T>{"Save for growth. "}</T>
               <br />
-              Bank your <em>way.</em>
+              <T>{"Bank your "}</T>
+              <em>
+                <T>{"way."}</T>
+              </em>
             </>
           ) : (
             <>
-              Bank the way
+              <T>{"Bank the way "}</T>
               <br />
-              you <em>like.</em>
+              <T>{"you "}</T>
+              <em>
+                <T>{"like."}</T>
+              </em>
             </>
           )}
         </Heading>
         {business ? (
           <>
             <div className={s.deposit}>
-              <strong>9% to 18% a year</strong>
-              <h3>Fixed deposits:</h3>
+              <strong>
+                <T>{"9% to 18% a year"}</T>
+              </strong>
+              <h3>
+                <T>{"Fixed deposits:"}</T>
+              </h3>
               <p>
-                Earn competitive returns on NDIC insured savings. Choose short
-                or long tenures to fit your plans.
+                <T>
+                  {
+                    "Earn competitive returns on NDIC insured savings. Choose short or long tenures to fit your plans. "
+                  }
+                </T>
               </p>
             </div>
             <p className={s.startSteps}>
-              Start in 3 steps:
-              <br />1 Get the app. &nbsp; 2 Sign up. &nbsp; 3 Start banking.
+              <T>{"Start in 3 steps: "}</T>
+              <br />
+              <T>{"1 Get the app.   2 Sign up.   3 Start banking. "}</T>
             </p>
           </>
         ) : (
@@ -243,9 +271,16 @@ export function Steps({ business = false }: { business?: boolean }) {
               <li key={title}>
                 <Image src={`/assets/${icon}`} alt="" width="48" height="48" />
                 <div>
-                  <span>STEP {i + 1}</span>
-                  <h3>{title}</h3>
-                  <p>{body}</p>
+                  <span>
+                    <T>{"STEP "}</T>
+                    {i + 1}
+                  </span>
+                  <h3>
+                    <T>{title}</T>
+                  </h3>
+                  <p>
+                    <T>{body}</T>
+                  </p>
                 </div>
               </li>
             ))}
@@ -267,9 +302,14 @@ export function Testimonials() {
   return (
     <section className={s.testimonials}>
       <Heading centered>
-        Our happy <em>customers.</em>
+        <T>{"Our happy "}</T>
+        <em>
+          <T>{"customers."}</T>
+        </em>
       </Heading>
-      <p className={`${s.description} ${s.centered}`}>What they say about us</p>
+      <p className={`${s.description} ${s.centered}`}>
+        <T>{"What they say about us"}</T>
+      </p>
       <Carousel label="testimonials">
         {testimonials.map((t) => (
           <figure key={t.name} className={s.testimonial}>
@@ -277,10 +317,15 @@ export function Testimonials() {
               <Image src={`/assets/${t.image}`} alt="" width="56" height="56" />
               <strong>{t.name}</strong>
             </figcaption>
-            <blockquote>“{t.quote}”</blockquote>
+            <blockquote>
+              “<T>{t.quote}</T>”
+            </blockquote>
           </figure>
         ))}
       </Carousel>
+      <p className={s.portraitNote}>
+        <T>{"Portraits are illustrative."}</T>
+      </p>
     </section>
   );
 }
@@ -290,12 +335,19 @@ export function Footer() {
       <aside className={s.fraud}>
         <div>
           <p>
-            <strong>FRAUD WARNING</strong> <span>STAY SAFE!</span>
+            <strong>
+              <T>{"FRAUD WARNING"}</T>
+            </strong>{" "}
+            <span>
+              <T>{"STAY SAFE!"}</T>
+            </span>
           </p>
           <p>
-            Teerus will never ask for your PIN, password or verification code.
-            Pay money only into your own Teerus account, never a staff
-            member&apos;s personal account.
+            <T>
+              {
+                "Teerus will never ask for your PIN, password or verification code. Pay money only into your own Teerus account, never a staff member's personal account. "
+              }
+            </T>
           </p>
         </div>
         <span className={s.warningIcon} aria-hidden="true">
@@ -310,11 +362,15 @@ export function Footer() {
       <footer className={s.footer}>
         <div className={s.footerCta}>
           <Heading centered>
-            <span className={s.footerCtaFirstLine}>Take control of your</span>
-            <span className={s.footerCtaSecondLine}>
-              finance. Bank smarter with
+            <span className={s.footerCtaFirstLine}>
+              <T>{"Take control of your"}</T>
             </span>
-            <em>Teerus.</em>
+            <span className={s.footerCtaSecondLine}>
+              <T>{"finance. Bank smarter with "}</T>
+            </span>
+            <em>
+              <T>{"Teerus."}</T>
+            </em>
           </Heading>
           <div className={s.footerButton}>
             <Download label="Download Teerus App" />
@@ -332,44 +388,69 @@ export function Footer() {
                 />
               </Link>
               <p>
-                Licensed by CBN
+                <T>{"Licensed by CBN "}</T>
                 <br />
-                Insured by NDIC
+                <T>{"Insured by NDIC "}</T>
               </p>
             </div>
             <nav aria-label="Footer navigation">
-              <h3>Explore Teerus</h3>
-              <Link href="/individuals">For Individual</Link>
-              <Link href="/business">For SMEs</Link>
-              <Link href="/about">About Us</Link>
-              <Link href="/blog">Blog</Link>
-              <Link href="/privacy-policy">Privacy Policy</Link>
-              <Link href="/terms-and-conditions">Terms and Conditions</Link>
+              <h3>
+                <T>{"Explore Teerus"}</T>
+              </h3>
+              <Link href="/individuals">
+                <T>{"For Individual"}</T>
+              </Link>
+              <Link href="/business">
+                <T>{"For SMEs"}</T>
+              </Link>
+              <Link href="/about">
+                <T>{"About Us"}</T>
+              </Link>
+              <Link href="/blog">
+                <T>{"Blog"}</T>
+              </Link>
+              <Link href="/privacy-policy">
+                <T>{"Privacy Policy"}</T>
+              </Link>
+              <Link href="/terms-and-conditions">
+                <T>{"Terms and Conditions"}</T>
+              </Link>
             </nav>
             <address>
-              <h3>Get in touch</h3>
-              <a href="mailto:info@teerusbank.com">info@teerusbank.com</a>
-              <a href="mailto:support@teerusbank.com">support@teerusbank.com</a>
+              <h3>
+                <T>{"Get in touch"}</T>
+              </h3>
+              <a href="mailto:info@teerusbank.com">
+                <T>{"info@teerusbank.com"}</T>
+              </a>
+              <a href="mailto:support@teerusbank.com">
+                <T>{"support@teerusbank.com"}</T>
+              </a>
               <p>
-                No 53, Itire Road.
+                <T>{"No 53, Itire Road. "}</T>
                 <br />
-                Surulere, Lagos.
+                <T>{"Surulere, Lagos. "}</T>
               </p>
               <a href="tel:+2349012411411">09012411411</a>
             </address>
             <div>
-              <h3>Bank wherever you are</h3>
-              <p>Download our app</p>
+              <h3>
+                <T>{"Bank wherever you are"}</T>
+              </h3>
+              <p>
+                <T>{"Download our app"}</T>
+              </p>
               <StoreLinks />
             </div>
           </div>
           <p className={s.disclaimer}>
-            Insured by Nigeria Deposit Insurance Corporation (NDIC) &amp;
-            licensed by Central Bank of Nigeria (CBN). All loans are subject to
-            credit approval. Stay vigilant against fraud. Teerus will never ask
-            for your PIN or verification code. Interest rates may vary based on
-            market conditions. © {new Date().getFullYear()} Teerus Microfinance
-            Bank.
+            <T>
+              {
+                "Insured by Nigeria Deposit Insurance Corporation (NDIC) & licensed by Central Bank of Nigeria (CBN). All loans are subject to credit approval. Stay vigilant against fraud. Teerus will never ask for your PIN or verification code. Interest rates may vary based on market conditions. © "
+              }
+            </T>
+            {new Date().getFullYear()}
+            <T>{" Teerus Microfinance Bank. "}</T>
           </p>
         </div>
       </footer>
@@ -385,16 +466,24 @@ export function Accounts({ business = false }: { business?: boolean }) {
       <Heading>
         {business ? (
           <>
-            Business accounts that keep up with <em>you.</em>
+            <T>{"Business accounts that keep up with "}</T>
+            <em>
+              <T>{"you."}</T>
+            </em>
           </>
         ) : (
           <>
-            Accounts that fit how you <em>earn.</em>
+            <T>{"Accounts that fit how you "}</T>
+            <em>
+              <T>{"earn."}</T>
+            </em>
           </>
         )}
       </Heading>
       <p className={s.description}>
-        Paid monthly or earning daily, there is a Teerus account for you.
+        <T>
+          {"Paid monthly or earning daily, there is a Teerus account for you. "}
+        </T>
       </p>
       {business && (
         <div className={s.accountsDownload}>
@@ -406,8 +495,12 @@ export function Accounts({ business = false }: { business?: boolean }) {
           <article className={s.accountCard} key={a.name}>
             <div className={s.accountText}>
               <span className={s.number}>0{i + 1}</span>
-              <h3>{a.name}</h3>
-              <p>{a.description}</p>
+              <h3>
+                <T>{a.name}</T>
+              </h3>
+              <p>
+                <T>{a.description}</T>
+              </p>
             </div>
             <div className={s.accountArt}>
               <Picture file={a.image} sizes="(max-width:700px) 90vw, 301px" />
@@ -426,13 +519,19 @@ export function CardFeature() {
       </div>
       <div>
         <Heading>
-          Here’s your card.
+          <T>{"Here’s your card. "}</T>
           <br />
-          It’s <em>verified.</em>
+          <T>{"It’s "}</T>
+          <em>
+            <T>{"verified."}</T>
+          </em>
         </Heading>
         <p className={s.description}>
-          Whether you’re shopping online or you’re outside, your Verified card
-          is your best bet for easy payments and a great first impression.
+          <T>
+            {
+              "Whether you’re shopping online or you’re outside, your Verified card is your best bet for easy payments and a great first impression. "
+            }
+          </T>
         </p>
         <Download label="Download Teerus App" />
       </div>
@@ -446,11 +545,16 @@ export function PersonalLoans() {
     >
       <div>
         <Heading>
-          Need cash?
+          <T>{"Need cash? "}</T>
           <br />
-          Get it <em>fast.</em>
+          <T>{"Get it "}</T>
+          <em>
+            <T>{"fast."}</T>
+          </em>
         </Heading>
-        <p>From ₦20,000 up to ₦5 million, when you need it.</p>
+        <p>
+          <T>{"From ₦20,000 up to ₦5 million, when you need it."}</T>
+        </p>
       </div>
       <div className={s.smallLoans}>
         {[loans[0], loans[4], loans[2]].map((l, i) => (
@@ -464,8 +568,16 @@ export function Capital() {
   return (
     <section className={`${s.capital} ${s.container}`}>
       <div>
-        <Heading>Capital for the day you need it.</Heading>
-        <p>Paid monthly or earning daily, there is a Teerus account for you.</p>
+        <Heading>
+          <T>{"Capital for the day you need it."}</T>
+        </Heading>
+        <p>
+          <T>
+            {
+              "Paid monthly or earning daily, there is a Teerus account for you."
+            }
+          </T>
+        </p>
         <Download label="Apply for loan" />
       </div>
       <div className={s.capitalCards}>

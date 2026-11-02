@@ -1,4 +1,5 @@
 "use client";
+import { T, LanguageSelector, useText } from "@/i18n/Language";
 
 import {
   Children,
@@ -51,6 +52,7 @@ export function Download({
   label?: string;
   className?: string;
 }) {
+  const text = useText();
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const title = useId();
@@ -63,7 +65,9 @@ export function Download({
         className={`${s.button} ${cta.cta} ${cta[variant]} ${cta.download} ${className}`}
         onClick={() => dialog.current?.showModal()}
       >
-        <span>{label}</span>
+        <span>
+          <T>{label}</T>
+        </span>
         <span className={s.storeIcons} aria-hidden="true">
           <Image src="/assets/apple-icon.svg" width="18" height="18" alt="" />
           <span className={s.storeDivider} />
@@ -89,7 +93,7 @@ export function Download({
           <button
             type="button"
             className={download.close}
-            aria-label="Close download choices"
+            aria-label={text("Close download choices")}
             onClick={() => dialog.current?.close()}
           >
             <svg
@@ -109,14 +113,22 @@ export function Download({
           </button>
           <div className={download.brand}>
             <Image src="/icon.png" width={44} height={44} alt="" unoptimized />
-            <span>YOUR BANK, ALWAYS WITH YOU</span>
+            <span>
+              <T>{"YOUR BANK, ALWAYS WITH YOU"}</T>
+            </span>
           </div>
           <h2 id={title}>
-            Take Teerus <em>with you.</em>
+            <T>{"Take Teerus "}</T>
+            <em>
+              <T>{"with you."}</T>
+            </em>
           </h2>
           <p id={description} className={download.description}>
-            Scan with your phone to download the Teerus app, or choose your app
-            store below.
+            <T>
+              {
+                "Scan with your phone to download the Teerus app, or choose your app store below. "
+              }
+            </T>
           </p>
           <div
             className={download.platforms}
@@ -128,14 +140,14 @@ export function Download({
               aria-pressed={platform === "apple"}
               onClick={() => setPlatform("apple")}
             >
-              iPhone
+              <T>{"iPhone "}</T>
             </button>
             <button
               type="button"
               aria-pressed={platform === "google"}
               onClick={() => setPlatform("google")}
             >
-              Android
+              <T>{"Android "}</T>
             </button>
           </div>
           <div className={download.qr}>
@@ -177,14 +189,15 @@ export function Download({
                 strokeLinecap="round"
               />
             </svg>
-            Download Teerus only from the App Store or Google Play.
+            <T>{"Download Teerus only from the App Store or Google Play. "}</T>
           </p>
           <button
             type="button"
             className={download.back}
             onClick={() => dialog.current?.close()}
           >
-            Back to browsing <span aria-hidden="true">↗</span>
+            <T>{"Back to browsing "}</T>
+            <span aria-hidden="true">↗</span>
           </button>
         </div>
       </dialog>
@@ -213,7 +226,11 @@ export function BankingLink({
   );
 }
 
-export function Header() {
+export function Header({
+  labels,
+}: {
+  labels?: { navigation: string[]; login: string; menu: string; close: string };
+} = {}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -243,7 +260,7 @@ export function Header() {
         aria-controls="main-navigation"
         onClick={() => setOpen(!open)}
       >
-        {open ? "Close" : "Menu"}
+        <T>{open ? (labels?.close ?? "Close") : (labels?.menu ?? "Menu")}</T>
         <span aria-hidden="true">{open ? " ×" : " ☰"}</span>
       </button>
       <nav
@@ -251,7 +268,7 @@ export function Header() {
         aria-label="Main navigation"
         className={`${s.nav} ${open ? s.navOpen : ""}`}
       >
-        {siteConfig.navigation.map((item) => (
+        {siteConfig.navigation.map((item, index) => (
           <Link
             href={item.href}
             key={item.href}
@@ -262,15 +279,21 @@ export function Header() {
             }
             onClick={() => setOpen(false)}
           >
-            {item.label}
+            <T>{labels?.navigation[index] ?? item.label}</T>
           </Link>
         ))}
         <div className={s.mobileLogin}>
-          <BankingLink />
+          <LanguageSelector />
+          <BankingLink>
+            <T>{labels?.login ?? "Login"}</T>
+          </BankingLink>
         </div>
       </nav>
       <div className={s.desktopLogin}>
-        <BankingLink />
+        <LanguageSelector />
+        <BankingLink>
+          <T>{labels?.login ?? "Login"}</T>
+        </BankingLink>
       </div>
     </header>
   );

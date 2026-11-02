@@ -1,3 +1,4 @@
+import { T } from "@/i18n/Language";
 import { PageLink } from "./PageLink";
 import { BlogHeader } from "./Blog";
 import { Footer } from "./Site";
@@ -9,16 +10,23 @@ export function BlogUnavailable({ href = "/blog" }: { href?: string }) {
         <BlogHeader />
         <section className={s.library}>
           <div className={s.empty} role="status">
-            <h1>Our journal is taking a moment.</h1>
+            <h1>
+              <T>{"Our journal is taking a moment."}</T>
+            </h1>
             <p>
-              The stories service may be waking up. Please try again in about a
-              minute.
+              <T>
+                {
+                  "The stories service may be waking up. Please try again in about a minute. "
+                }
+              </T>
             </p>
             <a className={s.retry} href={href}>
-              Try again
+              <T>{"Try again "}</T>
             </a>
             <p>
-              <PageLink href="/">Back to Teerus</PageLink>
+              <PageLink href="/">
+                <T>{"Back to Teerus"}</T>
+              </PageLink>
             </p>
           </div>
         </section>

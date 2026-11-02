@@ -1,3 +1,4 @@
+import { T } from "@/i18n/Language";
 import heroCTA from "./HeroCTA.module.css";
 import Image from "next/image";
 import { Header, Download, BankingLink } from "./Controls";
@@ -16,15 +17,20 @@ export function BusinessIntro() {
         <BusinessArtwork />
         <div className={s.copy}>
           <BrandPill label="TEERUS FOR MSMES" tone="light" />
-          <h1 id="business-title">Banking that works for your business.</h1>
+          <h1 id="business-title">
+            <T>{"Banking that works for your business."}</T>
+          </h1>
           <p className={s.description}>
-            Open a business account, get working capital and grow with banking
-            built for small &amp; medium businesses.
+            <T>
+              {
+                "Open a business account, get working capital and grow with banking built for small & medium businesses. "
+              }
+            </T>
           </p>
           <div className={`${s.actions} ${heroCTA.actions}`}>
             <Download label="Download Teerus App" />
             <BankingLink destination="start" variant="outlined">
-              Start without Downloading
+              <T>{"Start without Downloading "}</T>
             </BankingLink>
           </div>
           <DiscoverPrompt tone="light" className={s.discover} />
@@ -40,10 +46,17 @@ export function BusinessAccounts() {
       <div className={s.sectionHeader}>
         <div>
           <h2 id="business-accounts-title">
-            Business accounts that keep up with <em>you.</em>
+            <T>{"Business accounts that keep up with "}</T>
+            <em>
+              <T>{"you."}</T>
+            </em>
           </h2>
           <p className={s.supporting}>
-            Paid monthly or earning daily, there is a Teerus account for you.
+            <T>
+              {
+                "Paid monthly or earning daily, there is a Teerus account for you. "
+              }
+            </T>
           </p>
         </div>
         <Download label="Download Teerus App" />
@@ -56,8 +69,12 @@ export function BusinessAccounts() {
                 <span>0{index + 1}</span>
               </span>
               <div>
-                <h3>{account.name}</h3>
-                <p>{account.description}</p>
+                <h3>
+                  <T>{account.name}</T>
+                </h3>
+                <p>
+                  <T>{account.description}</T>
+                </p>
               </div>
             </div>
             <div className={`${s.accountArt} ${s[`accountArt${index}`]}`}>
@@ -82,13 +99,19 @@ export function BusinessCapital() {
     <section className={s.capital} aria-labelledby="capital-title">
       <div className={s.sectionHeader}>
         <div>
-          <h2 id="capital-title">Capital for the day you need it.</h2>
+          <h2 id="capital-title">
+            <T>{"Capital for the day you need it."}</T>
+          </h2>
           <p className={s.supporting}>
-            Paid monthly or earning daily, there is a Teerus account for you.
+            <T>
+              {
+                "Paid monthly or earning daily, there is a Teerus account for you. "
+              }
+            </T>
           </p>
         </div>
         <BankingLink destination="start" variant="dark" className={s.apply}>
-          Apply for loan
+          <T>{"Apply for loan "}</T>
         </BankingLink>
       </div>
       <div className={s.capitalGrid}>
@@ -103,11 +126,15 @@ export function BusinessCapital() {
               />
             </span>
             <div>
-              <h3>{loan.name}</h3>
+              <h3>
+                <T>{loan.name}</T>
+              </h3>
               <p>
-                {index < 2
-                  ? "Working capital to keep your business running. Buy stock, pay suppliers and cover daily costs with ease."
-                  : loan.description}
+                <T>
+                  {index < 2
+                    ? "Working capital to keep your business running. Buy stock, pay suppliers and cover daily costs with ease."
+                    : loan.description}
+                </T>
               </p>
             </div>
           </article>
@@ -121,22 +148,34 @@ export function BusinessSavings() {
     <section className={s.savings} aria-labelledby="savings-title">
       <div className={s.savingsCopy}>
         <h2 id="savings-title">
-          Save for growth.
+          <T>{"Save for growth. "}</T>
           <br />
-          Bank your <em>way.</em>
+          <T>{"Bank your "}</T>
+          <em>
+            <T>{"way."}</T>
+          </em>
         </h2>
         <div className={s.deposit}>
-          <strong>9% to 18% a year.</strong>
+          <strong>
+            <T>{"9% to 18% a year."}</T>
+          </strong>
           <div>
-            <h3>Fixed deposits:</h3>
+            <h3>
+              <T>{"Fixed deposits:"}</T>
+            </h3>
             <p>
-              Earn competitive returns on NDIC insured savings. Choose short or
-              long tenures to fit your plans.
+              <T>
+                {
+                  "Earn competitive returns on NDIC insured savings. Choose short or long tenures to fit your plans. "
+                }
+              </T>
             </p>
           </div>
         </div>
         <p className={s.startSteps}>
-          Start in 3 steps: 1 Get the app. 2 Sign up. 3 Start banking.
+          <T>
+            {"Start in 3 steps: 1 Get the app. 2 Sign up. 3 Start banking. "}
+          </T>
         </p>
       </div>
       <div className={s.savingsPhoto}>

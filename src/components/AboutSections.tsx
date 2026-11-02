@@ -1,10 +1,11 @@
+import { T } from "@/i18n/Language";
 import { teamBiographies } from "@/content/team-biographies";
 import Image from "next/image";
 import { Header, Download } from "./Controls";
 import { BrandPill } from "./HeroDetails";
 import { TeamBiography } from "./TeamBiography";
 import { PortraitStrip } from "./PortraitStrip";
-import { team, values } from "@/content/marketing";
+import { hiddenTeamMembers, team, values } from "@/content/marketing";
 import s from "./About.module.css";
 
 export function AboutIntro() {
@@ -18,12 +19,17 @@ export function AboutIntro() {
         <BrandPill label="OUR PURPOSE" tone="light" />
         <div className={s.heroText}>
           <h1>
-            Empowering your financial <em>dream</em>
+            <T>{"Empowering your financial "}</T>
+            <em>
+              <T>{"dream"}</T>
+            </em>
           </h1>
           <p>
-            Empowering dreams, one step at a time. We make banking simple and
-            useful for everyday people and growing businesses, and we are right
-            here at Itire Road whenever you need us.
+            <T>
+              {
+                "Empowering dreams, one step at a time. We make banking simple and useful for everyday people and growing businesses, and we are right here at Itire Road whenever you need us. "
+              }
+            </T>
           </p>
         </div>
         <div className={s.photos}>
@@ -60,21 +66,30 @@ export function Story() {
           tone="light"
           icon={false}
         />
-        <h2 id="story-title">Banking that feels human again</h2>
+        <h2 id="story-title">
+          <T>{"Banking that feels human again"}</T>
+        </h2>
         <div className={s.storyCopy}>
           <p>
-            We believe banking should feel like peace of mind, not paperwork.
-            Teerus was built to make banking feel human again, for individuals
-            and small businesses who deserve a bank that is easy to reach,
-            reliable to use and honest.
+            <T>
+              {
+                "We believe banking should feel like peace of mind, not paperwork. Teerus was built to make banking feel human again, for individuals and small businesses who deserve a bank that is easy to reach, reliable to use and honest. "
+              }
+            </T>
           </p>
           <p>
-            Our shield stands for protection, openness and a promise to look
-            after your money and your plans.
+            <T>
+              {
+                "Our shield stands for protection, openness and a promise to look after your money and your plans. "
+              }
+            </T>
           </p>
           <p>
-            We are in Surulere, Lagos, at No 53, Itire Road, and we work hard to
-            be the bank you will not need to leave for anything else.
+            <T>
+              {
+                "We are in Surulere, Lagos, at No 53, Itire Road, and we work hard to be the bank you will not need to leave for anything else. "
+              }
+            </T>
           </p>
         </div>
       </div>
@@ -87,9 +102,15 @@ export function Values() {
     <section className={s.values} aria-labelledby="values-title">
       <div className={s.sectionHeader}>
         <div>
-          <h2 id="values-title">What we stand for</h2>
+          <h2 id="values-title">
+            <T>{"What we stand for"}</T>
+          </h2>
           <p className={s.supporting}>
-            Paid monthly or earning daily, there is a Teerus account for you.
+            <T>
+              {
+                "Paid monthly or earning daily, there is a Teerus account for you. "
+              }
+            </T>
           </p>
         </div>
       </div>
@@ -105,8 +126,12 @@ export function Values() {
               />
             </span>
             <div>
-              <h3>{name}</h3>
-              <p>{body}</p>
+              <h3>
+                <T>{name}</T>
+              </h3>
+              <p>
+                <T>{body}</T>
+              </p>
             </div>
           </article>
         ))}
@@ -132,6 +157,7 @@ export function Team() {
   // Keep each portrait tied to its original crop when changing the display order.
   const displayTeam = team
     .map((member, index) => ({ member, index }))
+    .filter(({ member }) => !hiddenTeamMembers.has(member[0]))
     .sort(
       (a, b) =>
         Number(b.member[2] === "team-jelil-ajagbe.png") -
@@ -140,11 +166,17 @@ export function Team() {
   return (
     <section className={s.team} aria-labelledby="team-title">
       <h2 id="team-title">
-        The team behind the <em>success</em>
+        <T>{"The team behind the "}</T>
+        <em>
+          <T>{"success"}</T>
+        </em>
       </h2>
       <p className={s.supporting}>
-        Our experienced management team leads strategy, financial operations,
-        regulatory compliance, client relationships, and workforce development.
+        <T>
+          {
+            "Our experienced management team leads strategy, financial operations, regulatory compliance, client relationships, and workforce development. "
+          }
+        </T>
       </p>
       <div className={s.teamGrid}>
         {displayTeam.map(({ member: [name, role, file], index }) => (
@@ -175,8 +207,14 @@ export function Team() {
             </div>
             <div className={s.identity}>
               <div>
-                <h3>{name}</h3>
-                {role && <p>{role}</p>}
+                <h3>
+                  <T>{name}</T>
+                </h3>
+                {role && (
+                  <p>
+                    <T>{role}</T>
+                  </p>
+                )}
               </div>
               <TeamBiography
                 biography={teamBiographies[name]}

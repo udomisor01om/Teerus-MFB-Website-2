@@ -1,0 +1,98 @@
+// Local draft copy only. Native-speaker review is required before publication.
+export const languages = {
+  en: {
+    name: "English",
+    navigation: ["For Individuals", "For SMEs", "About Us", "Blog"],
+    login: "Login",
+    menu: "Menu",
+    close: "Close",
+    badge: "Local bank with wings",
+    title: "Banking that gives your dreams wings.",
+    description:
+      "Save, borrow and manage everyday transactions with a bank that knows your market.",
+    download: "Download Teerus App",
+    start: "Start without Downloading",
+    discover: "Discover How We Can Help You!",
+    heading: "Built on Trust",
+    titles: ["Licensed by CBN", "NDIC", "NDPC"],
+    bodies: [
+      "Teerus is fully licensed and regulated by the Central Bank of Nigeria.",
+      "Deposits are insured by the Nigeria Deposit Insurance Corporation.",
+      "Your personal data is protected in line with NDPC.",
+    ],
+  },
+  yo: {
+    name: "Yorùbá",
+    navigation: [
+      "Fún Ẹnìkọ̀ọ̀kan",
+      "Fún Àwọn Ilé Iṣẹ́ Kékeré",
+      "Nípa Wa",
+      "Àwọn Àpilẹ̀kọ",
+    ],
+    login: "Wọlé",
+    menu: "Àkójọ",
+    close: "Pa á",
+    badge: "Báǹkì agbègbè tó ní ìyẹ́",
+    title: "Iṣẹ́ báǹkì tó ń fún àlá rẹ ní ìyẹ́.",
+    description:
+      "Fi owó pamọ́, yá owó, kí o sì ṣàkóso àwọn ìṣòwò ojoojúmọ́ pẹ̀lú báǹkì tó mọ ọjà rẹ.",
+    download: "Ṣe ìgbàsílẹ̀ Ápù Teerus",
+    start: "Bẹ̀rẹ̀ láì ṣe ìgbàsílẹ̀",
+    discover: "Wo bí a ṣe lè ràn ọ́ lọ́wọ́!",
+    heading: "A gbé e lé ìgbẹ́kẹ̀lé",
+    titles: ["CBN fún wa ní ìwé àṣẹ", "NDIC", "NDPC"],
+    bodies: [
+      "Teerus ní ìwé àṣẹ kíkún, Báǹkì Àpapọ̀ Nàìjíríà sì ń ṣe àbójútó rẹ̀.",
+      "Ilé Iṣẹ́ Ìṣedúró Owó Ìfipamọ́ Nàìjíríà ń dáàbò bo owó ìfipamọ́.",
+      "A ń dáàbò bo dátà ara ẹni rẹ ní ìbámu pẹ̀lú NDPC.",
+    ],
+  },
+  ha: {
+    name: "Hausa",
+    navigation: ["Ga Mutane", "Ga Ƙananan Kasuwanci", "Game da Mu", "Labarai"],
+    login: "Shiga",
+    menu: "Jerin zaɓi",
+    close: "Rufe",
+    badge: "Bankin al’umma mai fuka-fuki",
+    title: "Aikin banki da ke ba mafarkinka fuka-fuki.",
+    description:
+      "Ajiye kuɗi, karɓi rance kuma gudanar da harkokin kuɗinka na yau da kullum tare da bankin da ya san kasuwarka.",
+    download: "Sauke Manhajar Teerus",
+    start: "Fara ba tare da saukewa ba",
+    discover: "Duba yadda za mu taimake ka!",
+    heading: "An gina bisa amana",
+    titles: ["Mai lasisin CBN", "NDIC", "NDPC"],
+    bodies: [
+      "Teerus yana da cikakken lasisi kuma Babban Bankin Najeriya ne ke kula da shi.",
+      "Hukumar Inshorar Kuɗaɗen Ajiya ta Najeriya tana inshorar kuɗaɗen ajiya.",
+      "Ana kare bayananka na sirri bisa ƙa’idojin NDPC.",
+    ],
+  },
+  ig: {
+    name: "Igbo",
+    navigation: [
+      "Maka Ndị Mmadụ",
+      "Maka Obere Azụmahịa",
+      "Banyere Anyị",
+      "Edemede",
+    ],
+    login: "Banye",
+    menu: "Ndepụta",
+    close: "Mechie",
+    badge: "Ụlọ akụ obodo nwere nku",
+    title: "Ọrụ ụlọ akụ na-enye nrọ gị nku.",
+    description:
+      "Chekwaa ego, gbazite ego ma jikwaa azụmahịa ego gị kwa ụbọchị n’ụlọ akụ maara ahịa gị.",
+    download: "Budata Ngwa Teerus",
+    start: "Malite na-enweghị nbudata",
+    discover: "Hụ otú anyị nwere ike isi nyere gị aka!",
+    heading: "E wuru na ntụkwasị obi",
+    titles: ["CBN nyere anyị ikike", "NDIC", "NDPC"],
+    bodies: [
+      "Teerus nwere ikike zuru ezu, Ụlọ Akụ Etiti Naịjirịa na-ahụkwa maka ya.",
+      "Ụlọ Ọrụ Inshọransị Ego Nkwụnye Naịjirịa na-echekwa ego nkwụnye site na inshọransị.",
+      "A na-echebe ozi gbasara gị dịka ụkpụrụ NDPC si dị.",
+    ],
+  },
+};
+export type Language = keyof typeof languages;

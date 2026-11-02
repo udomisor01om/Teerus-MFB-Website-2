@@ -1,4 +1,5 @@
 "use client";
+import { useText } from "@/i18n/Language";
 import Image from "next/image";
 import s from "./Products.module.css";
 export function CarouselNavigation({
@@ -14,12 +15,13 @@ export function CarouselNavigation({
   onMove: (direction: number) => void;
   className?: string;
 }) {
+  const text = useText();
   return (
     <div className={`${s.controls} ${className}`}>
       {[-1, 1].map((direction) => (
         <button
           key={direction}
-          aria-label={`${direction < 0 ? "Previous" : "Next"} ${label}`}
+          aria-label={`${text(direction < 0 ? "Previous" : "Next")} ${text(label)}`}
           aria-controls={controls}
           aria-disabled={moving}
           onClick={() => {

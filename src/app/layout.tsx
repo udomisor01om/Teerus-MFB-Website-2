@@ -1,3 +1,4 @@
+import { LanguageProvider, T } from "@/i18n/Language";
 import { bankStructuredData } from "@/content/structured-data";
 import { DevAudit } from "@/components/DevAudit";
 import type { Metadata } from "next";
@@ -27,18 +28,20 @@ export default function RootLayout({
   return (
     <html lang="en-NG">
       <body>
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: bankStructuredData,
-          }}
-        />
-        {children}
-        {process.env.NODE_ENV === "development" &&
-          process.env.ENABLE_ACCESSIBILITY_AUDIT === "true" && <DevAudit />}
+        <LanguageProvider>
+          <a href="#main-content" className="skip-link">
+            <T>{"Skip to main content"}</T>
+          </a>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: bankStructuredData,
+            }}
+          />
+          {children}
+          {process.env.NODE_ENV === "development" &&
+            process.env.ENABLE_ACCESSIBILITY_AUDIT === "true" && <DevAudit />}
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+import { T } from "@/i18n/Language";
 import type { Metadata } from "next";
 import { BlogHeader, BlogImage, BlogBanner } from "@/components/Blog";
 import { BlogListing } from "@/components/BlogListing";
@@ -64,14 +65,22 @@ export default async function BlogPage({
         <div className={s.intro}>
           <BlogHeader />
           <div className={s.hero}>
-            <span className={s.eyebrow}>THE TEERUS JOURNAL</span>
+            <span className={s.eyebrow}>
+              <T>{"THE TEERUS JOURNAL"}</T>
+            </span>
             <h1>
-              Everyday stories.
+              <T>{"Everyday stories. "}</T>
               <br />
-              <em>Extraordinary possibilities.</em>
+              <em>
+                <T>{"Extraordinary possibilities."}</T>
+              </em>
             </h1>
             <p>
-              For your money, your business, and everything you’re building.
+              <T>
+                {
+                  "For your money, your business, and everything you’re building. "
+                }
+              </T>
             </p>
           </div>
           {featured && (
@@ -83,19 +92,22 @@ export default async function BlogPage({
                 <BlogImage post={featured} priority />
                 <div className={s.featureCopy}>
                   <span className={s.featureLabel}>
-                    IN THE SPOTLIGHT <span aria-hidden="true">↗</span>
+                    <T>{"IN THE SPOTLIGHT "}</T>
+                    <span aria-hidden="true">↗</span>
                   </span>
                   <div className={s.meta}>
                     <span>{featured.category}</span>
                   </div>
-                  <h2>{featured.title}</h2>
-                  <p>{featured.excerpt}</p>
+                  <h2 lang="en">{featured.title}</h2>
+                  <p lang="en">{featured.excerpt}</p>
                   <div className={s.featureBottom}>
                     <span>
                       {featured.author}
                       <small>{formatBlogDate(featured.date)}</small>
                     </span>
-                    <span className={s.read}>Read story ↗</span>
+                    <span className={s.read}>
+                      <T>{"Read story ↗"}</T>
+                    </span>
                   </div>
                 </div>
               </PageLink>
@@ -106,23 +118,33 @@ export default async function BlogPage({
           <>
             <BlogListing key={page} posts={posts} />
             <p className={s.pageNote}>
-              Search and topic filters apply to stories on this page.
+              <T>
+                {"Search and topic filters apply to stories on this page. "}
+              </T>
             </p>
           </>
         ) : (
           <section className={s.library}>
             <div className={s.empty}>
               <h2>
-                {page > 1
-                  ? "No stories on this page."
-                  : "New stories are on their way."}
+                <T>
+                  {page > 1
+                    ? "No stories on this page."
+                    : "New stories are on their way."}
+                </T>
               </h2>
               <p>
-                {page > 1
-                  ? "Return to the latest stories."
-                  : "Check back soon for the latest from Teerus."}
+                <T>
+                  {page > 1
+                    ? "Return to the latest stories."
+                    : "Check back soon for the latest from Teerus."}
+                </T>
               </p>
-              {page > 1 && <PageLink href="/blog">Latest stories</PageLink>}
+              {page > 1 && (
+                <PageLink href="/blog">
+                  <T>{"Latest stories"}</T>
+                </PageLink>
+              )}
             </div>
           </section>
         )}
@@ -130,15 +152,18 @@ export default async function BlogPage({
           <nav className={s.pagination} aria-label="Journal pages">
             {result.hasPrevPage && (
               <PageLink href={`/blog?page=${Math.max(1, page - 1)}`}>
-                ← Previous page
+                <T>{"← Previous page "}</T>
               </PageLink>
             )}
             <span>
-              Page {page} of {result.totalPages}
+              <T>{"Page "}</T>
+              {page}
+              <T>{" of "}</T>
+              {result.totalPages}
             </span>
             {result.hasNextPage && (
               <PageLink href={`/blog?page=${result.nextPage}`}>
-                Next page →
+                <T>{"Next page → "}</T>
               </PageLink>
             )}
           </nav>

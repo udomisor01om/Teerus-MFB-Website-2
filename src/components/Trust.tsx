@@ -1,4 +1,6 @@
 "use client";
+import { T, useText } from "@/i18n/Language";
+
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import s from "./Trust.module.css";
@@ -19,10 +21,16 @@ const mod = (n: number) => (n + 3) % 3;
 export function Trust({
   interval = 4000,
   duration = 300,
+  copy,
 }: {
   interval?: number;
   duration?: number;
+  copy?: { heading: string; titles: string[]; bodies: string[] };
 }) {
+  const text = useText();
+  const displayCards = copy
+    ? cards.map((card, i) => [card[0], copy.titles[i], copy.bodies[i]])
+    : cards;
   const root = useRef<HTMLElement>(null);
   const touch = useRef<{ x: number; y: number } | null>(null);
   const [index, setIndex] = useState(1);
@@ -118,8 +126,12 @@ export function Trust({
           />
         </div>
         <p>
-          <strong>{label}</strong>
-          <span>{body}</span>
+          <strong>
+            <T>{label}</T>
+          </strong>
+          <span>
+            <T>{body}</T>
+          </span>
         </p>
       </div>
     );
@@ -130,15 +142,17 @@ export function Trust({
       className={s.section}
       aria-label="Regulatory information"
     >
-      <p>Built on Trust</p>
+      <p>
+        <T>{copy?.heading ?? "Built on Trust"}</T>
+      </p>
       <div className={`${s.cards} ${s.desktop}`}>
-        {cards.map((card, i) => renderCard(card, i))}
+        {displayCards.map((card, i) => renderCard(card, i))}
       </div>
       <div
         className={s.mobile}
         role="region"
         aria-roledescription="carousel"
-        aria-label="Built on Trust"
+        aria-label={text("Built on Trust")}
         onFocusCapture={() => setFocused(true)}
         onBlurCapture={(event) => {
           if (!event.currentTarget.contains(event.relatedTarget))
@@ -183,17 +197,17 @@ export function Trust({
               } as CSSProperties
             }
           >
-            {[cards[2], ...cards, cards[0]].map((card, i) =>
-              renderCard(card, i, i !== index),
+            {[displayCards[2], ...displayCards, displayCards[0]].map(
+              (card, i) => renderCard(card, i, i !== index),
             )}
           </div>
         </div>
         <div className={s.pagination}>
-          {cards.map((card, i) => (
+          {displayCards.map((card, i) => (
             <button
               key={card[0]}
               type="button"
-              aria-label={`Show ${card[1]}`}
+              aria-label={`${text("Show")} ${text(card[1])}`}
               aria-current={mod(index - 1) === i ? "true" : undefined}
               onClick={() => move(i + 1)}
             >

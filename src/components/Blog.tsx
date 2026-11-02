@@ -1,3 +1,4 @@
+import { T, OriginalLanguageNotice } from "@/i18n/Language";
 import Image from "next/image";
 import { PageLink } from "./PageLink";
 import { Download, Header } from "./Controls";
@@ -7,6 +8,7 @@ export function BlogHeader() {
   return (
     <div className={s.header}>
       <Header />
+      <OriginalLanguageNotice kind="article" />
     </div>
   );
 }
@@ -32,7 +34,10 @@ export function BlogImage({
         />
       ) : (
         <span className={s.imagePlaceholder} aria-hidden="true">
-          Teerus<em>Journal</em>
+          <T>{"Teerus"}</T>
+          <em>
+            <T>{"Journal"}</T>
+          </em>
         </span>
       )}
     </div>
@@ -49,10 +54,15 @@ export function PostCard({ post }: { post: BlogPost }) {
         <div className={s.cardBody}>
           <div className={s.meta}>
             <span>{post.category}</span>
-            {post.readMinutes && <span>{post.readMinutes} min read</span>}
+            {post.readMinutes && (
+              <span>
+                {post.readMinutes}
+                <T>{" min read"}</T>
+              </span>
+            )}
           </div>
-          <h3>{post.title}</h3>
-          <p>{post.excerpt}</p>
+          <h3 lang="en">{post.title}</h3>
+          <p lang="en">{post.excerpt}</p>
           <div className={s.cardFoot}>
             <span>
               {post.author}
@@ -71,13 +81,22 @@ export function BlogBanner() {
   return (
     <aside className={s.banner}>
       <div>
-        <span className={s.eyebrow}>A LITTLE CLOSER TO YOUR DREAMS</span>
+        <span className={s.eyebrow}>
+          <T>{"A LITTLE CLOSER TO YOUR DREAMS"}</T>
+        </span>
         <h2>
-          Good stories.
+          <T>{"Good stories. "}</T>
           <br />
-          Even better <em>possibilities.</em>
+          <T>{"Even better "}</T>
+          <em>
+            <T>{"possibilities."}</T>
+          </em>
         </h2>
-        <p>Take the next step with Teerus, wherever your day takes you.</p>
+        <p>
+          <T>
+            {"Take the next step with Teerus, wherever your day takes you."}
+          </T>
+        </p>
       </div>
       <Download label="Download Teerus App" />
     </aside>

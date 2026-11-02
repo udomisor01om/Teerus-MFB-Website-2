@@ -1,9 +1,13 @@
 "use client";
+import { T, useLanguage } from "@/i18n/Language";
+
+import { translate } from "@/i18n/translate";
 import { useState } from "react";
 import { filterBlogPosts, type BlogPost } from "@/content/blog";
 import { PostCard } from "./Blog";
 import s from "./Blog.module.css";
 export function BlogListing({ posts }: { posts: BlogPost[] }) {
+  const { language } = useLanguage();
   const [category, setCategory] = useState<string>("All stories");
   const [query, setQuery] = useState("");
   const [limit, setLimit] = useState(6);
@@ -12,13 +16,20 @@ export function BlogListing({ posts }: { posts: BlogPost[] }) {
     <section className={s.library} aria-labelledby="latest-stories">
       <div className={s.libraryHeading}>
         <div>
-          <span className={s.eyebrow}>THE LATEST FROM TEERUS</span>
+          <span className={s.eyebrow}>
+            <T>{"THE LATEST FROM TEERUS"}</T>
+          </span>
           <h2 id="latest-stories">
-            Something for <em>your next step.</em>
+            <T>{"Something for "}</T>
+            <em>
+              <T>{"your next step."}</T>
+            </em>
           </h2>
         </div>
         <label className={s.search}>
-          <span className={s.srOnly}>Search stories</span>
+          <span className={s.srOnly}>
+            <T>{"Search stories"}</T>
+          </span>
           <svg
             width="20"
             height="20"
@@ -37,7 +48,7 @@ export function BlogListing({ posts }: { posts: BlogPost[] }) {
           </svg>
           <input
             type="search"
-            placeholder="Search stories"
+            placeholder={translate("Search stories", language)}
             value={query}
             onChange={(event) => {
               setQuery(event.target.value);
@@ -58,14 +69,21 @@ export function BlogListing({ posts }: { posts: BlogPost[] }) {
                 setLimit(6);
               }}
             >
-              {item}
+              <T>{item}</T>
             </button>
           ),
         )}
       </div>
       <p className={s.results} role="status">
-        {filtered.length} {filtered.length === 1 ? "story" : "stories"}
-        {category !== "All stories" ? ` in ${category}` : " to explore"}
+        {filtered.length} <T>{filtered.length === 1 ? "story" : "stories"}</T>
+        {category !== "All stories" ? (
+          <>
+            {" "}
+            <T>{"in"}</T> {category}
+          </>
+        ) : (
+          <T>{" to explore"}</T>
+        )}
       </p>
       <div className={s.grid}>
         {filtered.slice(0, limit).map((post) => (
@@ -74,8 +92,12 @@ export function BlogListing({ posts }: { posts: BlogPost[] }) {
       </div>
       {!filtered.length && (
         <div className={s.empty}>
-          <h3>No stories found just yet.</h3>
-          <p>Try another topic or a different search.</p>
+          <h3>
+            <T>{"No stories found just yet."}</T>
+          </h3>
+          <p>
+            <T>{"Try another topic or a different search."}</T>
+          </p>
           <button
             type="button"
             onClick={() => {
@@ -84,7 +106,7 @@ export function BlogListing({ posts }: { posts: BlogPost[] }) {
               setLimit(6);
             }}
           >
-            Show all stories
+            <T>{"Show all stories "}</T>
           </button>
         </div>
       )}
@@ -94,7 +116,8 @@ export function BlogListing({ posts }: { posts: BlogPost[] }) {
           className={s.loadMore}
           onClick={() => setLimit((n) => n + 6)}
         >
-          More stories <span aria-hidden="true">↓</span>
+          <T>{"More stories "}</T>
+          <span aria-hidden="true">↓</span>
         </button>
       )}
     </section>

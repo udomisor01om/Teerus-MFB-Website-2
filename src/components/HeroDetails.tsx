@@ -1,3 +1,4 @@
+import { T } from "@/i18n/Language";
 import Image from "next/image";
 import s from "./HomeHero.module.css";
 import styles from "./HeroDetails.module.css";
@@ -20,16 +21,20 @@ export function BrandPill({
           alt=""
         />
       )}
-      <span>{label}</span>
+      <span>
+        <T>{label}</T>
+      </span>
     </p>
   );
 }
 export function DiscoverPrompt({
   tone = "dark",
   className = "",
+  label = "Discover How We Can Help You!",
 }: {
   tone?: "light" | "dark";
   className?: string;
+  label?: string;
 }) {
   return (
     <div
@@ -44,7 +49,9 @@ export function DiscoverPrompt({
           unoptimized
         />
       </span>
-      <span className={s.discoverText}>Discover How We Can Help You!</span>
+      <span className={s.discoverText}>
+        <T>{label}</T>
+      </span>
     </div>
   );
 }

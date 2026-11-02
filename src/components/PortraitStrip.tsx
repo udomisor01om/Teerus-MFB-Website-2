@@ -1,4 +1,5 @@
 "use client";
+import { useText } from "@/i18n/Language";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import s from "./About.module.css";
@@ -14,6 +15,7 @@ const portraits = [
   ["portrait-nine", 352, 405, -107, 0],
 ] as const;
 export function PortraitStrip() {
+  const text = useText();
   const root = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
   const [paused, setPaused] = useState(false);
@@ -63,13 +65,13 @@ export function PortraitStrip() {
       <button
         className={s.portraitPause}
         type="button"
-        aria-label={
-          paused ? "Resume portrait animation" : "Pause portrait animation"
-        }
+        aria-label={text(
+          paused ? "Resume portrait animation" : "Pause portrait animation",
+        )}
         aria-pressed={paused}
         onClick={() => setPaused((value) => !value)}
       >
-        {paused ? "Resume portraits" : "Pause portraits"}
+        {text(paused ? "Resume portraits" : "Pause portraits")}
       </button>
     </div>
   );

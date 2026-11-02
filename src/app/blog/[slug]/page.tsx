@@ -1,3 +1,4 @@
+import { T } from "@/i18n/Language";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogHeader, BlogImage, BlogBanner, PostCard } from "@/components/Blog";
@@ -62,16 +63,18 @@ export default async function ArticlePage({ params }: Props) {
         <article>
           <header className={s.articleHeader}>
             <PageLink href="/blog" className={s.back}>
-              ← All stories
+              <T>{"← All stories "}</T>
             </PageLink>
             <div className={s.meta}>
               <span>{card.category}</span>
             </div>
-            <h1>{post.title}</h1>
-            <p className={s.lead}>{post.excerpt}</p>
+            <h1 lang="en">{post.title}</h1>
+            <p lang="en" className={s.lead}>
+              {post.excerpt}
+            </p>
             <div className={s.byline}>
               <span className={s.authorMark} aria-hidden="true">
-                t.
+                <T>{"t. "}</T>
               </span>
               <span>
                 {card.author}
@@ -88,7 +91,9 @@ export default async function ArticlePage({ params }: Props) {
             <aside className={s.contents}>
               {headings.length > 0 && (
                 <>
-                  <span className={s.eyebrow}>IN THIS STORY</span>
+                  <span className={s.eyebrow}>
+                    <T>{"IN THIS STORY"}</T>
+                  </span>
                   <nav aria-label="Article contents">
                     {headings.map((heading) => (
                       <a href={`#${heading.id}`} key={heading.id}>
@@ -98,22 +103,35 @@ export default async function ArticlePage({ params }: Props) {
                   </nav>
                 </>
               )}
-              <PageLink href="/blog">← Explore the journal</PageLink>
+              <PageLink href="/blog">
+                <T>{"← Explore the journal"}</T>
+              </PageLink>
             </aside>
             <div className={s.prose}>
-              <CMSBlocks blocks={post.content} cmsURL={base} />
+              <div lang="en">
+                <CMSBlocks blocks={post.content} cmsURL={base} />
+              </div>
               <div className={s.articleEnd}>
-                <span>Thanks for reading.</span>
-                <PageLink href="/blog">Find your next story ↗</PageLink>
+                <span>
+                  <T>{"Thanks for reading."}</T>
+                </span>
+                <PageLink href="/blog">
+                  <T>{"Find your next story ↗"}</T>
+                </PageLink>
               </div>
             </div>
           </div>
         </article>
         {related.length > 0 && (
           <section className={s.related}>
-            <span className={s.eyebrow}>KEEP EXPLORING</span>
+            <span className={s.eyebrow}>
+              <T>{"KEEP EXPLORING"}</T>
+            </span>
             <h2>
-              A little more <em>inspiration.</em>
+              <T>{"A little more "}</T>
+              <em>
+                <T>{"inspiration."}</T>
+              </em>
             </h2>
             <div className={s.grid}>
               {related.map((item) => (

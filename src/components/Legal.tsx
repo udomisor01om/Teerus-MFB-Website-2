@@ -1,3 +1,4 @@
+import { T, OriginalLanguageNotice } from "@/i18n/Language";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { Header } from "./Controls";
@@ -23,29 +24,39 @@ export async function Legal({ title, file }: { title: string; file: string }) {
       <div className={s.intro}>
         <Header />
         <div className={s.hero}>
-          <span className={s.eyebrow}>TEERUS · LEGAL</span>
-          <h1>{title}</h1>
-          <p>Last updated: {document.updated}</p>
+          <span className={s.eyebrow}>
+            <T>{"TEERUS · LEGAL"}</T>
+          </span>
+          <h1>
+            <T>{title}</T>
+          </h1>
+          <p>
+            <T>{"Last updated: "}</T>
+            {document.updated}
+          </p>
           <nav aria-label="Legal documents" className={s.tabs}>
             <PageLink
               href="/privacy-policy"
               aria-current={privacy ? "page" : undefined}
             >
-              Privacy policy
+              <T>{"Privacy policy "}</T>
             </PageLink>
             <PageLink
               href="/terms-and-conditions"
               aria-current={!privacy ? "page" : undefined}
             >
-              Terms & conditions
+              <T>{"Terms & conditions "}</T>
             </PageLink>
           </nav>
         </div>
       </div>
-      <main id="main-content" className={s.layout}>
+      <OriginalLanguageNotice kind="legal" />
+      <main lang="en" id="main-content" className={s.layout}>
         <aside>
           <details open>
-            <summary>On this page</summary>
+            <summary>
+              <T>{"On this page"}</T>
+            </summary>
             <nav aria-label="Document sections">
               <ol>
                 {document.sections.map((section, i) => (
@@ -76,7 +87,7 @@ export async function Legal({ title, file }: { title: string; file: string }) {
             </section>
           ))}
           <a className={s.back} href="#">
-            Back to top ↑
+            <T>{"Back to top ↑ "}</T>
           </a>
         </article>
       </main>
