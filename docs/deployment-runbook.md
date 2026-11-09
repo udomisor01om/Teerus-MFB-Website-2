@@ -39,3 +39,14 @@ Keep `SITE_ENV=preview` or unset on previews: HTML metadata, robots.txt and X-Ro
 For initial DNS migration failure, restore the recorded website DNS values and verify the old host. DNS caching means recovery is not instantaneous; retain the old service throughout the rollback window.
 
 For later application regressions, promote the previously verified Vercel release, then verify key routes and CTAs. Application rollback does not restore DNS records. Record incident, release IDs, timestamps, and verification results.
+
+## Direct Netlify branch preview fallback (2026-11-09)
+
+PR #4 previews failed before compilation because Netlify could not fetch
+`pull/4/head`. Relinking the same repository allowed the existing `main` commit
+`2a053b4` to rebuild successfully, but did not resolve that PR-specific reference.
+
+Netlify branch deployments are enabled specifically for
+`codex/local-language-trial`. A new push to that branch should build directly from
+its branch reference, avoiding the pull-request reference. Check the branch deploy
+result before merging PR #4. Production remains on `main`.

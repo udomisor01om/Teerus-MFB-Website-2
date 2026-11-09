@@ -48,7 +48,7 @@ describe("hero person dissolve", () => {
     });
     expect(active(container)).toBe(2);
     await act(async () => {
-      await vi.advanceTimersByTimeAsync(6400);
+      await vi.advanceTimersByTimeAsync(9600);
     });
     expect(active(container)).toBe(0);
   });
@@ -57,7 +57,7 @@ describe("hero person dissolve", () => {
     vi.mocked(HTMLImageElement.prototype.decode).mockImplementation(function (
       this: HTMLImageElement,
     ) {
-      return this.src.includes("mechanic")
+      return this.src.includes("hero-tailor-guy")
         ? new Promise<void>((resolve) => {
             finish = resolve;
           })

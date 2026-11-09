@@ -128,14 +128,19 @@ export function Intro({
 }
 export { Trust } from "./Trust";
 export { Products } from "./Products";
+import { AccountCards } from "./AccountCards";
 function LoanCard({
   item,
+  showAudience = false,
 }: {
   item: { name: string; description: string; category: string };
+  showAudience?: boolean;
 }) {
   const isBusiness = item.category === "business";
   return (
-    <article className={s.loanCard}>
+    <article
+      className={`${s.loanCard} ${showAudience ? s.loanWithAudience : ""}`}
+    >
       <div className={s.loanIcon}>
         <Image
           src={`/assets/images/${isBusiness ? "Business.png" : "Individual Illustration.png"}`}
@@ -151,6 +156,13 @@ function LoanCard({
       <p>
         <T>{item.description}</T>
       </p>
+      {showAudience && (
+        <span
+          className={`${s.loanAudience} ${isBusiness ? s.businessAudience : ""}`}
+        >
+          <T>{isBusiness ? "Business" : "Individual"}</T>
+        </span>
+      )}
     </article>
   );
 }
@@ -180,7 +192,7 @@ export function Loans() {
       </p>
       <div className={s.mobileLoans}>
         {loans.map((item, index) => (
-          <LoanCard key={index} item={item} />
+          <LoanCard key={index} item={item} showAudience />
         ))}
       </div>
       <div className={s.motionArea}>
@@ -194,7 +206,7 @@ export function Loans() {
                   aria-hidden={copy !== 0 ? true : undefined}
                 >
                   {row.map((item, i) => (
-                    <LoanCard key={i} item={item} />
+                    <LoanCard key={i} item={item} showAudience />
                   ))}
                 </div>
               ))}
@@ -323,9 +335,6 @@ export function Testimonials() {
           </figure>
         ))}
       </Carousel>
-      <p className={s.portraitNote}>
-        <T>{"Portraits are illustrative."}</T>
-      </p>
     </section>
   );
 }
@@ -490,7 +499,7 @@ export function Accounts({ business = false }: { business?: boolean }) {
           <Download label="Download app" />
         </div>
       )}
-      <div className={business ? s.businessGrid : s.accountGrid}>
+      <AccountCards business={business}>
         {(business ? businessAccounts : individualAccounts).map((a, i) => (
           <article className={s.accountCard} key={a.name}>
             <div className={s.accountText}>
@@ -502,12 +511,14 @@ export function Accounts({ business = false }: { business?: boolean }) {
                 <T>{a.description}</T>
               </p>
             </div>
-            <div className={s.accountArt}>
+            <div
+              className={`${s.accountArt} ${!business && i === 4 ? personalStyles.sideHustleArt : ""}`}
+            >
               <Picture file={a.image} sizes="(max-width:700px) 90vw, 301px" />
             </div>
           </article>
         ))}
-      </div>
+      </AccountCards>
     </section>
   );
 }

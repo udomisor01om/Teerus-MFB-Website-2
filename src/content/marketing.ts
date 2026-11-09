@@ -91,6 +91,18 @@ export const testimonials: (Testimonial & { image: string })[] = [
       "The app is clean and easy to use. I set up a standing instruction in under a minute and it’s run smoothly ever since.",
   },
   {
+    name: "Ukachukwu Ifenyinwa",
+    image: "customer-ukachukwu.png",
+    quote:
+      "I downloaded the app and the whole process was seamless. The only glitch was after transferring into my Teerus account, it wasn’t reflecting on my balance on the app. I reached out to the branch and they got it resolved in a few minutes.",
+  },
+  {
+    name: "Daniel Okafor",
+    image: "customer-daniel.png",
+    quote:
+      "Opening my account was easy. I funded it and moved money out without any hassle, and every transaction went through almost instantly. I really appreciate that kind of speed and reliability.",
+  },
+  {
     name: "Rasheed Tijani",
     image: "customer-rasheed-illustration.webp",
     quote:
@@ -127,6 +139,12 @@ export const individualAccounts = [
     description:
       "Lock your money away for a set time and earn more. The longer and bigger, the better.",
     image: "images/earn-confidence.webp",
+  },
+  {
+    name: "Side-hustle banking",
+    description:
+      "Building something alongside work or study? Receive payments, manage everyday spending and save towards your next business goal.",
+    image: "images/Side Hustle Banking.png",
   },
 ];
 export const businessAccounts = [

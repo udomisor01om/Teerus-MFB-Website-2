@@ -27,9 +27,9 @@ export function IndividualsArtwork() {
           style: s.hand,
         },
         {
-          src: "/assets/images/Green woman with Teerus card.webp",
-          width: 2064,
-          height: 2007,
+          src: "/assets/images/lady-with-teerus-card.webp",
+          width: 1378,
+          height: 1296,
           style: s.woman,
         },
       ].map((asset, index) => (

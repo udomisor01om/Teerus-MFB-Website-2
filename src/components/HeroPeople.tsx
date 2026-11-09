@@ -6,9 +6,10 @@ import s from "./HomeHero.module.css";
 
 const people = [
   { name: "girl", width: 1006, height: 1246 },
-  { name: "mechanic", width: 852, height: 1262 },
-  { name: "tailor", width: 1096, height: 1224 },
+  { name: "mechanic", file: "hero-tailor-guy.webp", width: 991, height: 1536 },
+  { name: "tailor", file: "Fat lady.webp", width: 1105, height: 1520 },
   { name: "farmer", width: 1316, height: 1276 },
+  { name: "student", file: "Nigerian student.webp", width: 1175, height: 1503 },
 ];
 
 export function HeroPeople() {
@@ -21,7 +22,7 @@ export function HeroPeople() {
           ref={(el) => {
             images.current[index] = el;
           }}
-          src={`/assets/images/hero-${person.name}.webp`}
+          src={`/assets/images/${person.file ?? `hero-${person.name}.webp`}`}
           alt=""
           width={person.width}
           height={person.height}
