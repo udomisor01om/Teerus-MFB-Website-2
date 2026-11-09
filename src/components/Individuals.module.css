@@ -48,6 +48,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  overflow: hidden;
   isolation: isolate;
 }
 .gradient {
@@ -383,4 +384,12 @@
     transform: translateY(-15%);
     clip-path: inset(0 3% 0 0);
   }
+}
+
+.accounts.accounts.accounts article > div.sideHustleArt {
+  background: linear-gradient(90deg, #0fa294, #06b488);
+}
+
+.accounts.accounts.accounts article > div:first-child {
+  min-height: 280px;
 }

@@ -341,3 +341,33 @@
     transform-origin: bottom center;
   }
 }
+
+/* Updated portrait slots from the 1384px Figma hero; natural proportions preserved. */
+.mechanic {
+  width: 28.4682%;
+  right: 10.4769%;
+}
+.tailor {
+  width: 31.9364%;
+  right: 8.237%;
+  bottom: 1px;
+}
+.student {
+  width: 33.9595%;
+  right: 8.4538%;
+  bottom: 1px;
+}
+@media (max-width: 1000px) {
+  .mechanic {
+    width: 58%;
+    right: 21.4%;
+  }
+  .tailor {
+    width: 65.1%;
+    right: 16.8%;
+  }
+  .student {
+    width: 69.2%;
+    right: 17.2%;
+  }
+}

@@ -2728,3 +2728,86 @@ html:not([lang="en-NG"]) .header .nav {
 html:not([lang="en-NG"]) .header .nav > a {
   white-space: normal;
 }
+
+.loanAudience {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #eaf8f2;
+  color: #17634e;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 12px 0 14px;
+}
+.businessAudience {
+  background: #fff5de;
+  color: #805719;
+}
+.accountCarousel {
+  position: relative;
+}
+.accountCarousel .carouselControls {
+  position: static;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+.accountCarousel .carouselTrack {
+  gap: 12px;
+  scrollbar-width: none;
+  padding: 4px 0 20px;
+}
+.accountCarousel .accountCard {
+  flex: 0 0 calc((100% - 36px) / 4);
+  scroll-snap-align: start;
+}
+@media (max-width: 1000px) {
+  .accountCarousel .accountCard {
+    flex-basis: calc((100% - 12px) / 2);
+  }
+}
+@media (max-width: 700px) {
+  .accountCarousel .accountCard {
+    flex-basis: 88%;
+  }
+}
+
+/* Quiet audience footer, separated from loan copy as in the supplied reference. */
+.loanWithAudience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loanCard .loanAudience {
+  align-self: stretch;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px -32px -32px;
+  padding: 16px 24px;
+  border-top: 1px solid #edf4f3;
+  border-radius: 0;
+  background: transparent;
+  color: #455960;
+  font-size: 14px;
+  font-weight: 400;
+}
+.loanAudience::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #90dcca;
+}
+.businessAudience::before {
+  background: #ffd4b5;
+}
+.loanWithAudience p {
+  flex: 1;
+}
+@media (max-width: 700px) {
+  .loanCard .loanAudience {
+    margin-inline: -24px;
+    margin-bottom: -24px;
+  }
+}

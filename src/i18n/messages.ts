@@ -1,5 +1,46 @@
 // Draft translations: fluent-speaker review is needed before publication.
 export const messages: Record<string, Record<"yo" | "ha" | "ig", string>> = {
+  Business: { yo: "Ilé iṣẹ́", ha: "Kasuwanci", ig: "Azụmahịa" },
+  Individual: { yo: "Ẹnìkọ̀ọ̀kan", ha: "Mutum", ig: "Onye ọ bụla" },
+  "Morayo and Rasheed’s portraits are illustrative.": {
+    yo: "Àwòrán Morayo àti Rasheed jẹ́ àpẹẹrẹ.",
+    ha: "Hotunan Morayo da Rasheed na misali ne.",
+    ig: "Foto Morayo na Rasheed bụ ihe atụ.",
+  },
+  "Building something alongside work or study? Receive payments, manage everyday spending and save towards your next business goal.":
+    {
+      yo: "Ṣé o ń kọ́ ilé iṣẹ́ pẹ̀lú iṣẹ́ tàbí ẹ̀kọ́? Gba owó, ṣàkóso ìnáwó ojoojúmọ́, kí o sì fi owó pamọ́ fún ète ilé iṣẹ́ rẹ tó kàn.",
+      ha: "Kana gina sana’a tare da aiki ko karatu? Karɓi kuɗi, sarrafa kashe kuɗin yau da kullum kuma ajiye don burin kasuwancinka na gaba.",
+      ig: "Ị na-arụ azụmahịa n’akụkụ ọrụ ma ọ bụ ọmụmụ? Nara ego, hazie mmefu kwa ụbọchị ma chekwaa maka ebumnuche azụmahịa gị na-esote.",
+    },
+  "Side-hustle banking": {
+    yo: "Báǹkì fún iṣẹ́ àfikún",
+    ha: "Banki don sana’ar gefe",
+    ig: "Ụlọ akụ maka ọrụ mgbakwunye",
+  },
+  accounts: { yo: "àkọọ́lẹ̀", ha: "asusun", ig: "akaụntụ" },
+  "For business": {
+    yo: "Fún ilé iṣẹ́",
+    ha: "Ga kasuwanci",
+    ig: "Maka azụmahịa",
+  },
+  "For individuals": {
+    yo: "Fún ẹnìkọ̀ọ̀kan",
+    ha: "Ga mutane",
+    ig: "Maka ndị mmadụ",
+  },
+  "Opening my account was easy. I funded it and moved money out without any hassle, and every transaction went through almost instantly. I really appreciate that kind of speed and reliability.":
+    {
+      yo: "Ṣíṣí àkọọ́lẹ̀ mi rọrùn. Mo fi owó sínú rẹ̀, mo sì fi owó ránṣẹ́ láìsí ìṣòro, gbogbo ìṣòwò sì parí kíákíá. Mo mọyì irú ìyára àti ìgbẹ́kẹ̀lé bẹ́ẹ̀ gan-an.",
+      ha: "Buɗe asusuna ya kasance da sauƙi. Na saka kuɗi kuma na tura kuɗi ba tare da matsala ba, kuma kowace mu’amala ta kammala kusan nan take. Ina matuƙar jin daɗin irin wannan sauri da aminci.",
+      ig: "Imepe akaụntụ m dị mfe. Etinyere m ego ma zipụ ego n’enweghị nsogbu, azụmahịa niile wee gafee ihe fọrọ nke nta ka ọ bụrụ ozugbo. Enwere m ekele maka ụdị ọsọ na ntụkwasị obi ahụ.",
+    },
+  "I downloaded the app and the whole process was seamless. The only glitch was after transferring into my Teerus account, it wasn’t reflecting on my balance on the app. I reached out to the branch and they got it resolved in a few minutes.":
+    {
+      yo: "Mo gba ápù náà, gbogbo ìlànà náà sì rọrùn. Ìṣòro kan ṣoṣo ni pé owó tí mo fi sínú àkọọ́lẹ̀ Teerus mi kò hàn nínú iye owó lórí ápù. Mo kàn sí ẹ̀ka báǹkì, wọ́n sì yanjú rẹ̀ láàárín ìṣẹ́jú díẹ̀.",
+      ha: "Na sauke manhajar kuma duk tsarin ya tafi cikin sauƙi. Matsalar kawai ita ce bayan na tura kuɗi zuwa asusun Teerus dina, bai bayyana a ma’aunin kuɗi a manhajar ba. Na tuntubi reshen bankin kuma suka warware shi cikin mintuna kaɗan.",
+      ig: "M budatara ngwa ahụ, usoro niile dịkwa mfe. Naanị nsogbu bụ na mgbe m zigara ego n’akaụntụ Teerus m, ọ pụtaghị na ngụkọta ego m n’ime ngwa. Akpọtụrụ m alaka ụlọ akụ, ha dozie ya n’ime nkeji ole na ole.",
+    },
   "Banking that gives": {
     yo: "Iṣẹ́ báǹkì tó ń fún",
     ha: "Aikin banki da ke ba",
